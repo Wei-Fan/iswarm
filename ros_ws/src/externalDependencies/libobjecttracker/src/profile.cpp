@@ -110,9 +110,10 @@ public:
   {
     ICP icp;
 
-    icp.setMaximumIterations(5);
+    icp.setMaximumIterations(20); //hongzhe
     icp.setInputTarget(markers);
-    icp.setMaxCorrespondenceDistance(0.015);
+    // icp.setMaxCorrespondenceDistance(0.015);
+    icp.setMaxCorrespondenceDistance(0.03); //hongzhe
 
     for (size_t i = 0; i < m_objects.size(); ++i) {
       Object& object = m_objects[i];

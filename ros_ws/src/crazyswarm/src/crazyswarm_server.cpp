@@ -759,7 +759,7 @@ public:
   {
     //added by yhz
     char str_csv[50] ;
-    sprintf(str_csv,"/home/sanmu/ros_ws/src/crazyswarm/Cfs%d.csv",channel);
+    sprintf(str_csv,"/home/wade/ros_ws/src/crazyswarm/Cfs%d.csv",channel);
     Cf_csv.open(str_csv);printf("opened csv\n");
     std::vector<libobjecttracker::Object> objects;
     readObjects(objects, channel, logBlocks);

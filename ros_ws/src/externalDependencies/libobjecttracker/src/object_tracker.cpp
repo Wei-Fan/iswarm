@@ -80,6 +80,7 @@ ObjectTracker::ObjectTracker(
 
 void ObjectTracker::update(Cloud::Ptr pointCloud)
 {
+  // printf("%d\n",pointCloud->width);
   update(std::chrono::high_resolution_clock::now(), pointCloud);
 }
 
@@ -113,7 +114,7 @@ bool ObjectTracker::initialize(Cloud::ConstPtr markersConst)
   size_t const nObjs = m_objects.size();
 
   ICP icp;
-  icp.setMaximumIterations(5);
+  icp.setMaximumIterations(20);
   icp.setInputTarget(markers);
 
   // prepare for knn query
@@ -254,7 +255,7 @@ void ObjectTracker::runICP(std::chrono::high_resolution_clock::time_point stamp,
 
 
   // // Set the maximum number of iterations (criterion 1)
-  icp.setMaximumIterations(10);
+  icp.setMaximumIterations(20);
   // // Set the transformation epsilon (criterion 2)
   // icp.setTransformationEpsilon(1e-8);
   // // Set the euclidean distance difference epsilon (criterion 3)
