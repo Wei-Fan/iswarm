@@ -421,52 +421,52 @@ public:
   bool setTrajectoryRef(
             crazyflie_driver::TrajectoryRef::Request& req,
             crazyflie_driver::TrajectoryRef::Response& res)
-    {
-      //ROS_INFO("[%s] Set Group Mask", m_frame.c_str());
+  {
+    //ROS_INFO("[%s] Set Group Mask", m_frame.c_str());
 
-      m_positionRef(0)=req.x;
-      m_positionRef(1)=req.y;
-      m_positionRef(2)=req.z;
-      m_velocityRef(0)=req.vx;
-      m_velocityRef(1)=req.vy;
-      m_velocityRef(2)=req.vz;
-      m_accelerationRef(0)=req.ax;
-      m_accelerationRef(1)=req.ay;
-      m_accelerationRef(2)=req.az;
+    m_positionRef(0)=req.x;
+    m_positionRef(1)=req.y;
+    m_positionRef(2)=req.z;
+    m_velocityRef(0)=req.vx;
+    m_velocityRef(1)=req.vy;
+    m_velocityRef(2)=req.vz;
+    m_accelerationRef(0)=req.ax;
+    m_accelerationRef(1)=req.ay;
+    m_accelerationRef(2)=req.az;
 
-      return true;
-    }
-
-
-    void setTakeOffPos(const float& x,const float& y,const float& z){
-      m_commander.setTakeOffPos(x, y, z);
-      m_initialPosition(0)=x;
-      m_initialPosition(1)=y;
-      m_initialPosition(2)=z;
-      m_lastPosition(0)=x;
-      m_lastPosition(1)=y;
-      m_lastPosition(2)=z;
-      m_controller.l_posVicon(0)=x;
-      m_controller.l_posVicon(1)=y;
-      m_controller.l_posVicon(2)=z;
-
-      std::cout<<"Initial position:"<<x<<y<<z<<std::endl;
+    return true;
   }
 
-    void aflie_state_traj_cb(const crazyflie_driver::state_tg::ConstPtr& s_tg){
-      s_tg_tmp = *s_tg;
-      m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
-      m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
-      m_PosSetPoint(2) = s_tg_tmp.p_z;
-      //m_PosSetPoint(3) = 0;
-      m_VelSetPoint(0) = s_tg_tmp.v_x;
-      m_VelSetPoint(1) = s_tg_tmp.v_y;
-      m_VelSetPoint(2) = s_tg_tmp.v_z;
-      m_AccSetPoint(0) = s_tg_tmp.a_x;
-      m_AccSetPoint(1) = s_tg_tmp.a_y;
-      m_AccSetPoint(2) = s_tg_tmp.a_z;
-      //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
-    };
+
+  void setTakeOffPos(const float& x,const float& y,const float& z){
+    m_commander.setTakeOffPos(x, y, z);
+    m_initialPosition(0)=x;
+    m_initialPosition(1)=y;
+    m_initialPosition(2)=z;
+    m_lastPosition(0)=x;
+    m_lastPosition(1)=y;
+    m_lastPosition(2)=z;
+    m_controller.l_posVicon(0)=x;
+    m_controller.l_posVicon(1)=y;
+    m_controller.l_posVicon(2)=z;
+
+    std::cout<<"Initial position:"<<x<<y<<z<<std::endl;
+  }
+
+  void aflie_state_traj_cb(const crazyflie_driver::state_tg::ConstPtr& s_tg){
+    s_tg_tmp = *s_tg;
+    m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
+    m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
+    m_PosSetPoint(2) = s_tg_tmp.p_z;
+    //m_PosSetPoint(3) = 0;
+    m_VelSetPoint(0) = s_tg_tmp.v_x;
+    m_VelSetPoint(1) = s_tg_tmp.v_y;
+    m_VelSetPoint(2) = s_tg_tmp.v_z;
+    m_AccSetPoint(0) = s_tg_tmp.a_x;
+    m_AccSetPoint(1) = s_tg_tmp.a_y;
+    m_AccSetPoint(2) = s_tg_tmp.a_z;
+    //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
+  };
 
 
   void run(
@@ -657,15 +657,15 @@ public:
       m_currentPosition(2) = z;
   }
 
-    void giveCurrentPos(pcl::PointCloud<pcl::PointXYZ>::Ptr pmarkers)
-    {
-      Eigen::Vector3f temp;
-      temp=m_lastPosition;
-      for(int i=0;i<pmarkers->size();i++)
-       {
+  void giveCurrentPos(pcl::PointCloud<pcl::PointXYZ>::Ptr pmarkers)
+  {
+    Eigen::Vector3f temp;
+    temp=m_lastPosition;
+    for(int i=0;i<pmarkers->size();i++)
+     {
 
-       }
-    }
+     }
+  }
 
 
 private:
@@ -1040,57 +1040,57 @@ public:
     // }
   }
   /**
-   * hongzhe
-   */
-    void getPositionSetPoint()
+  * hongzhe
+  */
+  void getPositionSetPoint()
+  {
+    ros::spinOnce();/*
+    for(auto& cf : m_cfs)
     {
-      ros::spinOnce();/*
-      for(auto& cf : m_cfs)
-      {
-        cf->getSetpoint();
-      }*/
-    }
+      cf->getSetpoint();
+    }*/
+  }
 
-    void Groupcontrol(int id,CrazyflieBroadcaster::AttSetPts& sp_state) {
-      Eigen::Vector3f Euler;
-      Eigen::Vector4f vec4ftmp;
+  void Groupcontrol(int id,CrazyflieBroadcaster::AttSetPts& sp_state) {
+    Eigen::Vector3f Euler;
+    Eigen::Vector4f vec4ftmp;
+    CrazyflieROS *cf = m_CrazyflieIdMap[id];
+    //std::cout<<"ID:"<<id<<std::endl;
+    cf->m_controller.control_nonLineaire(cf->m_currentPosition,
+                                                    cf->m_PosSetPoint, cf->m_VelSetPoint, cf->m_AccSetPoint, cf->Euler,
+                                                    g_dt, &vec4ftmp);
+    sp_state.roll = vec4ftmp(0);
+    sp_state.pitch = vec4ftmp(1);
+    sp_state.yaw = vec4ftmp(2);
+    sp_state.thrust = vec4ftmp(3);
+  }
+
+  void getGroupCurPos(uint8_t id, float x, float y, float z)
+  {
       CrazyflieROS *cf = m_CrazyflieIdMap[id];
-      //std::cout<<"ID:"<<id<<std::endl;
-      cf->m_controller.control_nonLineaire(cf->m_currentPosition,
-                                                      cf->m_PosSetPoint, cf->m_VelSetPoint, cf->m_AccSetPoint, cf->Euler,
-                                                      g_dt, &vec4ftmp);
-      sp_state.roll = vec4ftmp(0);
-      sp_state.pitch = vec4ftmp(1);
-      sp_state.yaw = vec4ftmp(2);
-      sp_state.thrust = vec4ftmp(3);
-    }
-
-    void getGroupCurPos(uint8_t id, float x, float y, float z)
-    {
-        CrazyflieROS *cf = m_CrazyflieIdMap[id];
-        cf->giveCurrentPos(x,y,z);
-    }
+      cf->giveCurrentPos(x,y,z);
+  }
 
 
-    void getGroupCurPos(CrazyflieBroadcaster::externalPose state)
-    {
-        CrazyflieROS *cf = m_CrazyflieIdMap[state.id];
-        cf->giveCurrentPos(state.x,state.y,state.z);
-        Eigen::Quaternionf q(state.qw,state.qx,state.qy,state.qz);
-        auto rpy = q.toRotationMatrix().eulerAngles(0, 1, 2);
-        cf->Euler(0)=rpy(0);
-        cf->Euler(1)=rpy(1);
-        cf->Euler(2)=rpy(2);
-    }
+  void getGroupCurPos(CrazyflieBroadcaster::externalPose state)
+  {
+      CrazyflieROS *cf = m_CrazyflieIdMap[state.id];
+      cf->giveCurrentPos(state.x,state.y,state.z);
+      Eigen::Quaternionf q(state.qw,state.qx,state.qy,state.qz);
+      auto rpy = q.toRotationMatrix().eulerAngles(0, 1, 2);
+      cf->Euler(0)=rpy(0);
+      cf->Euler(1)=rpy(1);
+      cf->Euler(2)=rpy(2);
+  }
 
-    void getGroupCurPos(uint8_t id, pcl::PointCloud<pcl::PointXYZ>::Ptr pmarkers)
-    {
-        CrazyflieROS *cf = m_CrazyflieIdMap[id];
-        cf->giveCurrentPos(pmarkers);
-    }
-    /**
-     * end
-     */
+  void getGroupCurPos(uint8_t id, pcl::PointCloud<pcl::PointXYZ>::Ptr pmarkers)
+  {
+      CrazyflieROS *cf = m_CrazyflieIdMap[id];
+      cf->giveCurrentPos(pmarkers);
+  }
+  /**
+   * end
+   */
 
   void nextPhase()
   {
@@ -1632,36 +1632,36 @@ public:
     std::vector<libmotioncapture::Object> mocapObjects;
 
   // Create all groups in parallel and launch threads
-  {
+    {
       std::vector<std::future<CrazyflieGroup*> > handles;
       int r = 0;
       std::cout << "ch: " << channels.size() << std::endl;
       for (int channel : channels) {
-          auto handle = std::async(std::launch::async,
-                                   [&](int channel, int radio)
-                                   {
-                                       // std::cout << "radio: " << radio << std::endl;
-                                       return new CrazyflieGroup(
-                                               dynamicsConfigurations,
-                                               markerConfigurations,
-                                               // &client,
-                                               markers,
-                                               &mocapObjects,
-                                               radio,
-                                               channel,
-                                               broadcastAddress,
-                                               useMotionCaptureObjectTracking,
-                                               logBlocks,
-                                               interactiveObject,
-                                               writeCSVs);
-                                   },
-                                   channel,
-                                   r
-          );
-          handles.push_back(std::move(handle));
-          ++r;
-          printf("-------------run fast here ------------------\n");
-          std::cout<<"handles: "<<handles.size()<<std::endl;
+        auto handle = std::async(std::launch::async,
+                                 [&](int channel, int radio)
+                                 {
+                                     // std::cout << "radio: " << radio << std::endl;
+                                     return new CrazyflieGroup(
+                                             dynamicsConfigurations,
+                                             markerConfigurations,
+                                             // &client,
+                                             markers,
+                                             &mocapObjects,
+                                             radio,
+                                             channel,
+                                             broadcastAddress,
+                                             useMotionCaptureObjectTracking,
+                                             logBlocks,
+                                             interactiveObject,
+                                             writeCSVs);
+                                 },
+                                 channel,
+                                 r
+        );
+        handles.push_back(std::move(handle));
+        ++r;
+        printf("-------------run fast here ------------------\n");
+        std::cout<<"handles: "<<handles.size()<<std::endl;
       }
 
       for (auto& handle : handles) {
@@ -1669,7 +1669,7 @@ public:
           m_groups.push_back(handle.get());
       }
     }
-    
+  
     // start the groups threads
     std::vector<std::thread> threads;
     for (auto& group : m_groups) {
@@ -1757,9 +1757,9 @@ public:
 
       // Get the unlabeled markers and create point cloud
       if (!useMotionCaptureObjectTracking) {
-//          std::cout<<"---------- de ------------"<<std::endl;
+  //          std::cout<<"---------- de ------------"<<std::endl;
           mocap->getPointCloud(markers);
-//        std::cout<<"----- size: --------"<<markers->size()<<std::endl;
+  //        std::cout<<"----- size: --------"<<markers->size()<<std::endl;
         msgPointCloud.header.seq += 1;
         msgPointCloud.header.stamp = ros::Time::now();
         msgPointCloud.points.resize(markers->size());
@@ -1842,9 +1842,9 @@ public:
         // // }
       }
 
-      // ROS_INFO("Latency: %f s", elapsedSeconds.count());
+        // ROS_INFO("Latency: %f s", elapsedSeconds.count());
 
-      // m_fastQueue.callAvailable(ros::WallDuration(0));
+        // m_fastQueue.callAvailable(ros::WallDuration(0));
     }
 
     if (logClouds) {
