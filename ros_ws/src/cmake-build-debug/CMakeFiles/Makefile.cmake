@@ -566,6 +566,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "crazyswarm/CMakeFiles/controller.dir/DependInfo.cmake"
   "crazyswarm/CMakeFiles/mocap_helper.dir/DependInfo.cmake"
   "crazyswarm/CMakeFiles/type_methode.dir/DependInfo.cmake"
+  "crazyswarm/CMakeFiles/role_commander.dir/DependInfo.cmake"
   "crazyswarm/CMakeFiles/crazyswarm_server.dir/DependInfo.cmake"
   "crazyswarm/CMakeFiles/crazyswarm_teleop.dir/DependInfo.cmake"
   "crazyswarm/CMakeFiles/assignment_commander.dir/DependInfo.cmake"

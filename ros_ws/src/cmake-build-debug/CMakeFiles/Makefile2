@@ -251,12 +251,12 @@ gtest/preinstall: gtest/gtest/preinstall
 gtest/CMakeFiles/gmock_main.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gmock_main.dir/build.make gtest/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gmock_main.dir/build.make gtest/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=85,86 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=83,84,85 "Built target gmock_main"
 .PHONY : gtest/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/gmock_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gtest/CMakeFiles/gmock_main.dir/rule
@@ -283,12 +283,12 @@ clean: gtest/CMakeFiles/gmock_main.dir/clean
 gtest/CMakeFiles/gmock.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gmock.dir/build.make gtest/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gmock.dir/build.make gtest/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=83,84 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=82 "Built target gmock"
 .PHONY : gtest/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/gmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gtest/CMakeFiles/gmock.dir/rule
@@ -334,12 +334,12 @@ gtest/gtest/preinstall:
 gtest/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest.dir/build.make gtest/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest.dir/build.make gtest/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=87,88 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=86 "Built target gtest"
 .PHONY : gtest/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/gtest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/gtest/CMakeFiles/gtest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gtest/gtest/CMakeFiles/gtest.dir/rule
@@ -366,12 +366,12 @@ clean: gtest/gtest/CMakeFiles/gtest.dir/clean
 gtest/gtest/CMakeFiles/gtest_main.dir/all: gtest/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest_main.dir/build.make gtest/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest_main.dir/build.make gtest/gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=89 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=87 "Built target gtest_main"
 .PHONY : gtest/gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/gtest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/gtest/CMakeFiles/gtest_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gtest/gtest/CMakeFiles/gtest_main.dir/rule
@@ -735,7 +735,7 @@ clean: crazyflie_ros/crazyflie_controller/CMakeFiles/tf_generate_messages_eus.di
 crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/all:
 	$(MAKE) -f crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/build.make crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/depend
 	$(MAKE) -f crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/build.make crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target crazyflie_controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=7 "Built target crazyflie_controller"
 .PHONY : crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/all
 
 # Include target in all.
@@ -745,7 +745,7 @@ all: crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/all
 
 # Build rule for subdir invocation for target.
 crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyflie_ros/crazyflie_controller/CMakeFiles/crazyflie_controller.dir/rule
@@ -2006,7 +2006,7 @@ crazyflie_ros/crazyflie_cpp/preinstall:
 crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/all:
 	$(MAKE) -f crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/build.make crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/depend
 	$(MAKE) -f crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/build.make crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=9,10,11 "Built target crazyflie_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=8,9,10,11 "Built target crazyflie_cpp"
 .PHONY : crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/all
 
 # Include target in all.
@@ -2016,7 +2016,7 @@ all: crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/rule
@@ -2079,7 +2079,7 @@ externalDependencies/libmotioncapture/preinstall:
 externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/all:
 	$(MAKE) -f externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/build.make externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/depend
 	$(MAKE) -f externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/build.make externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=90,91,92,93,94,95 "Built target libmotioncapture"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=88,89,90,91,92,93 "Built target libmotioncapture"
 .PHONY : externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/all
 
 # Include target in all.
@@ -2134,7 +2134,7 @@ externalDependencies/libobjecttracker/preinstall:
 externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/all:
 	$(MAKE) -f externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/build.make externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/depend
 	$(MAKE) -f externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/build.make externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=96 "Built target libobjecttracker"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=94 "Built target libobjecttracker"
 .PHONY : externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/all
 
 # Include target in all.
@@ -2189,7 +2189,7 @@ crazyflie_ros/crazyflie_demo/preinstall:
 crazyflie_ros/crazyflie_demo/CMakeFiles/quadrotor_teleop.dir/all:
 	$(MAKE) -f crazyflie_ros/crazyflie_demo/CMakeFiles/quadrotor_teleop.dir/build.make crazyflie_ros/crazyflie_demo/CMakeFiles/quadrotor_teleop.dir/depend
 	$(MAKE) -f crazyflie_ros/crazyflie_demo/CMakeFiles/quadrotor_teleop.dir/build.make crazyflie_ros/crazyflie_demo/CMakeFiles/quadrotor_teleop.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=98 "Built target quadrotor_teleop"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=96 "Built target quadrotor_teleop"
 .PHONY : crazyflie_ros/crazyflie_demo/CMakeFiles/quadrotor_teleop.dir/all
 
 # Include target in all.
@@ -2290,7 +2290,7 @@ all: crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_add.dir/all
 
 # Build rule for subdir invocation for target.
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_add.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 18
 	$(MAKE) -f CMakeFiles/Makefile2 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_add.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_add.dir/rule
@@ -2339,7 +2339,7 @@ crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_py.
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_py.dir/all: crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir/all
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_py.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_py.dir/depend
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_py.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=65,66,67,68,69,70,71,72,73,74,75,76,77,78 "Built target crazyflie_driver_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=64,65,66,67,68,69,70,71,72,73,74,75,76,77 "Built target crazyflie_driver_generate_messages_py"
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2404,7 +2404,7 @@ crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_server.dir/all: crazyflie_ro
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_server.dir/all: crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp.dir/all
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_server.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_server.dir/depend
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_server.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=79,80 "Built target crazyflie_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=78 "Built target crazyflie_server"
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_server.dir/all
 
 # Include target in all.
@@ -2463,7 +2463,7 @@ crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_nod
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_nodejs.dir/all: crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir/all
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_nodejs.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_nodejs.dir/depend
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_nodejs.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=52,53,54,55,56,57,58,59,60,61,62,63,64 "Built target crazyflie_driver_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=51,52,53,54,55,56,57,58,59,60,61,62,63 "Built target crazyflie_driver_generate_messages_nodejs"
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2549,7 +2549,7 @@ crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_lis
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_lisp.dir/all: crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir/all
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_lisp.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_lisp.dir/depend
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_lisp.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=39,40,41,42,43,44,45,46,47,48,49,50,51 "Built target crazyflie_driver_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=38,39,40,41,42,43,44,45,46,47,48,49,50 "Built target crazyflie_driver_generate_messages_lisp"
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2586,7 +2586,7 @@ crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_geneus.dir/all: crazy
 
 # Build rule for subdir invocation for target.
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_geneus.dir/rule
@@ -2753,12 +2753,12 @@ crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/all: crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir/all
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/depend
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34,35,36,37,38 "Built target crazyflie_driver_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34,35,36,37 "Built target crazyflie_driver_generate_messages_eus"
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_eus.dir/rule
@@ -3087,7 +3087,7 @@ all: crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_message
 
 # Build rule for subdir invocation for target.
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 67
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 66
 	$(MAKE) -f CMakeFiles/Makefile2 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages.dir/rule
@@ -3499,6 +3499,7 @@ crazyswarm/all: crazyswarm/CMakeFiles/commander.dir/all
 crazyswarm/all: crazyswarm/CMakeFiles/controller.dir/all
 crazyswarm/all: crazyswarm/CMakeFiles/mocap_helper.dir/all
 crazyswarm/all: crazyswarm/CMakeFiles/type_methode.dir/all
+crazyswarm/all: crazyswarm/CMakeFiles/role_commander.dir/all
 crazyswarm/all: crazyswarm/CMakeFiles/crazyswarm_server.dir/all
 crazyswarm/all: crazyswarm/CMakeFiles/crazyswarm_teleop.dir/all
 crazyswarm/all: crazyswarm/CMakeFiles/assignment_commander.dir/all
@@ -3510,6 +3511,7 @@ crazyswarm/clean: crazyswarm/CMakeFiles/commander.dir/clean
 crazyswarm/clean: crazyswarm/CMakeFiles/controller.dir/clean
 crazyswarm/clean: crazyswarm/CMakeFiles/mocap_helper.dir/clean
 crazyswarm/clean: crazyswarm/CMakeFiles/type_methode.dir/clean
+crazyswarm/clean: crazyswarm/CMakeFiles/role_commander.dir/clean
 crazyswarm/clean: crazyswarm/CMakeFiles/crazyswarm_server.dir/clean
 crazyswarm/clean: crazyswarm/CMakeFiles/crazyswarm_teleop.dir/clean
 crazyswarm/clean: crazyswarm/CMakeFiles/assignment_commander.dir/clean
@@ -3604,7 +3606,7 @@ crazyswarm/CMakeFiles/mocap_helper.dir/all: externalDependencies/libmotioncaptur
 crazyswarm/CMakeFiles/mocap_helper.dir/all: externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/all
 	$(MAKE) -f crazyswarm/CMakeFiles/mocap_helper.dir/build.make crazyswarm/CMakeFiles/mocap_helper.dir/depend
 	$(MAKE) -f crazyswarm/CMakeFiles/mocap_helper.dir/build.make crazyswarm/CMakeFiles/mocap_helper.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=97 "Built target mocap_helper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=95 "Built target mocap_helper"
 .PHONY : crazyswarm/CMakeFiles/mocap_helper.dir/all
 
 # Include target in all.
@@ -3614,7 +3616,7 @@ all: crazyswarm/CMakeFiles/mocap_helper.dir/all
 
 # Build rule for subdir invocation for target.
 crazyswarm/CMakeFiles/mocap_helper.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/mocap_helper.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyswarm/CMakeFiles/mocap_helper.dir/rule
@@ -3672,6 +3674,46 @@ clean: crazyswarm/CMakeFiles/type_methode.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target crazyswarm/CMakeFiles/role_commander.dir
+
+# All Build rule for target.
+crazyswarm/CMakeFiles/role_commander.dir/all: crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/all
+crazyswarm/CMakeFiles/role_commander.dir/all: externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/all
+crazyswarm/CMakeFiles/role_commander.dir/all: externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/all
+crazyswarm/CMakeFiles/role_commander.dir/all: crazyswarm/CMakeFiles/assignment_commander.dir/all
+	$(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/depend
+	$(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=97,98 "Built target role_commander"
+.PHONY : crazyswarm/CMakeFiles/role_commander.dir/all
+
+# Include target in all.
+all: crazyswarm/CMakeFiles/role_commander.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+crazyswarm/CMakeFiles/role_commander.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 16
+	$(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/role_commander.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
+.PHONY : crazyswarm/CMakeFiles/role_commander.dir/rule
+
+# Convenience name for target.
+role_commander: crazyswarm/CMakeFiles/role_commander.dir/rule
+
+.PHONY : role_commander
+
+# clean rule for target.
+crazyswarm/CMakeFiles/role_commander.dir/clean:
+	$(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/clean
+.PHONY : crazyswarm/CMakeFiles/role_commander.dir/clean
+
+# clean rule for target.
+clean: crazyswarm/CMakeFiles/role_commander.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target crazyswarm/CMakeFiles/crazyswarm_server.dir
 
 # All Build rule for target.
@@ -3683,7 +3725,7 @@ crazyswarm/CMakeFiles/crazyswarm_server.dir/all: crazyswarm/CMakeFiles/controlle
 crazyswarm/CMakeFiles/crazyswarm_server.dir/all: crazyswarm/CMakeFiles/type_methode.dir/all
 	$(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_server.dir/build.make crazyswarm/CMakeFiles/crazyswarm_server.dir/depend
 	$(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_server.dir/build.make crazyswarm/CMakeFiles/crazyswarm_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=81 "Built target crazyswarm_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=79 "Built target crazyswarm_server"
 .PHONY : crazyswarm/CMakeFiles/crazyswarm_server.dir/all
 
 # Include target in all.
@@ -3693,7 +3735,7 @@ all: crazyswarm/CMakeFiles/crazyswarm_server.dir/all
 
 # Build rule for subdir invocation for target.
 crazyswarm/CMakeFiles/crazyswarm_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 16
 	$(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/crazyswarm_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyswarm/CMakeFiles/crazyswarm_server.dir/rule
@@ -3722,7 +3764,7 @@ crazyswarm/CMakeFiles/crazyswarm_teleop.dir/all: externalDependencies/libmotionc
 crazyswarm/CMakeFiles/crazyswarm_teleop.dir/all: externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/all
 	$(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_teleop.dir/build.make crazyswarm/CMakeFiles/crazyswarm_teleop.dir/depend
 	$(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_teleop.dir/build.make crazyswarm/CMakeFiles/crazyswarm_teleop.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=82 "Built target crazyswarm_teleop"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=80,81 "Built target crazyswarm_teleop"
 .PHONY : crazyswarm/CMakeFiles/crazyswarm_teleop.dir/all
 
 # Include target in all.
@@ -3732,7 +3774,7 @@ all: crazyswarm/CMakeFiles/crazyswarm_teleop.dir/all
 
 # Build rule for subdir invocation for target.
 crazyswarm/CMakeFiles/crazyswarm_teleop.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/crazyswarm_teleop.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : crazyswarm/CMakeFiles/crazyswarm_teleop.dir/rule

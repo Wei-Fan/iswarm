@@ -169,6 +169,13 @@ target_link_libraries(crazyswarm_server
   commander
 )
 
+## Declare a cpp executable
+add_executable(role_commander
+        src/role_commander.cpp src/RoleCommander.cpp include/RoleCommander.h)
+target_link_libraries(role_commander
+  ${catkin_LIBRARIES}
+  assignment_commander
+)
 
 #add_executable(communication_test
 #  src/communicationTest.cpp

@@ -80,6 +80,17 @@ install/fast: preinstall/fast
 	/home/wade/clion-2018.2.5/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/wade/clion-2018.2.5/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -123,17 +134,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/wade/clion-2018.2.5/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -226,6 +226,21 @@ type_methode: crazyswarm/CMakeFiles/type_methode.dir/rule
 type_methode/fast:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/type_methode.dir/build.make crazyswarm/CMakeFiles/type_methode.dir/build
 .PHONY : type_methode/fast
+
+# Convenience name for target.
+crazyswarm/CMakeFiles/role_commander.dir/rule:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/role_commander.dir/rule
+.PHONY : crazyswarm/CMakeFiles/role_commander.dir/rule
+
+# Convenience name for target.
+role_commander: crazyswarm/CMakeFiles/role_commander.dir/rule
+
+.PHONY : role_commander
+
+# fast build rule for target.
+role_commander/fast:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/build
+.PHONY : role_commander/fast
 
 # Convenience name for target.
 crazyswarm/CMakeFiles/crazyswarm_server.dir/rule:
@@ -389,6 +404,33 @@ include/type_methode.cpp.s:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/type_methode.cpp.s
 .PHONY : include/type_methode.cpp.s
 
+src/RoleCommander.o: src/RoleCommander.cpp.o
+
+.PHONY : src/RoleCommander.o
+
+# target to build an object file
+src/RoleCommander.cpp.o:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/src/RoleCommander.cpp.o
+.PHONY : src/RoleCommander.cpp.o
+
+src/RoleCommander.i: src/RoleCommander.cpp.i
+
+.PHONY : src/RoleCommander.i
+
+# target to preprocess a source file
+src/RoleCommander.cpp.i:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/src/RoleCommander.cpp.i
+.PHONY : src/RoleCommander.cpp.i
+
+src/RoleCommander.s: src/RoleCommander.cpp.s
+
+.PHONY : src/RoleCommander.s
+
+# target to generate assembly for a file
+src/RoleCommander.cpp.s:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/src/RoleCommander.cpp.s
+.PHONY : src/RoleCommander.cpp.s
+
 src/crazyswarm_server.o: src/crazyswarm_server.cpp.o
 
 .PHONY : src/crazyswarm_server.o
@@ -470,6 +512,33 @@ src/mocap_helper.cpp.s:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/mocap_helper.dir/build.make crazyswarm/CMakeFiles/mocap_helper.dir/src/mocap_helper.cpp.s
 .PHONY : src/mocap_helper.cpp.s
 
+src/role_commander.o: src/role_commander.cpp.o
+
+.PHONY : src/role_commander.o
+
+# target to build an object file
+src/role_commander.cpp.o:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/src/role_commander.cpp.o
+.PHONY : src/role_commander.cpp.o
+
+src/role_commander.i: src/role_commander.cpp.i
+
+.PHONY : src/role_commander.i
+
+# target to preprocess a source file
+src/role_commander.cpp.i:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/src/role_commander.cpp.i
+.PHONY : src/role_commander.cpp.i
+
+src/role_commander.s: src/role_commander.cpp.s
+
+.PHONY : src/role_commander.s
+
+# target to generate assembly for a file
+src/role_commander.cpp.s:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/src/role_commander.cpp.s
+.PHONY : src/role_commander.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -478,10 +547,12 @@ help:
 	@echo "... depend"
 	@echo "... install/local"
 	@echo "... install"
+	@echo "... rebuild_cache"
 	@echo "... commander"
 	@echo "... controller"
 	@echo "... mocap_helper"
 	@echo "... type_methode"
+	@echo "... role_commander"
 	@echo "... crazyswarm_server"
 	@echo "... install/strip"
 	@echo "... list_install_components"
@@ -489,7 +560,6 @@ help:
 	@echo "... assignment_commander"
 	@echo "... test"
 	@echo "... edit_cache"
-	@echo "... rebuild_cache"
 	@echo "... include/cftracker.o"
 	@echo "... include/cftracker.i"
 	@echo "... include/cftracker.s"
@@ -502,6 +572,9 @@ help:
 	@echo "... include/type_methode.o"
 	@echo "... include/type_methode.i"
 	@echo "... include/type_methode.s"
+	@echo "... src/RoleCommander.o"
+	@echo "... src/RoleCommander.i"
+	@echo "... src/RoleCommander.s"
 	@echo "... src/crazyswarm_server.o"
 	@echo "... src/crazyswarm_server.i"
 	@echo "... src/crazyswarm_server.s"
@@ -511,6 +584,9 @@ help:
 	@echo "... src/mocap_helper.o"
 	@echo "... src/mocap_helper.i"
 	@echo "... src/mocap_helper.s"
+	@echo "... src/role_commander.o"
+	@echo "... src/role_commander.i"
+	@echo "... src/role_commander.s"
 .PHONY : help
 
 

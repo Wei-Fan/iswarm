@@ -1442,6 +1442,19 @@ type_methode/fast:
 .PHONY : type_methode/fast
 
 #=============================================================================
+# Target rules for targets named role_commander
+
+# Build rule for target.
+role_commander: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 role_commander
+.PHONY : role_commander
+
+# fast build rule for target.
+role_commander/fast:
+	$(MAKE) -f crazyswarm/CMakeFiles/role_commander.dir/build.make crazyswarm/CMakeFiles/role_commander.dir/build
+.PHONY : role_commander/fast
+
+#=============================================================================
 # Target rules for targets named crazyswarm_server
 
 # Build rule for target.
@@ -1591,6 +1604,7 @@ help:
 	@echo "... controller"
 	@echo "... mocap_helper"
 	@echo "... type_methode"
+	@echo "... role_commander"
 	@echo "... crazyswarm_server"
 	@echo "... crazyswarm_teleop"
 	@echo "... assignment_commander"
