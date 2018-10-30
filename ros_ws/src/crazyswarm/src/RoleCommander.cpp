@@ -86,15 +86,16 @@ void RoleCommander::start() {
         {
 
             // ROS_INFO("*************2");
-            /* obtain informaiton for every robots in gazebo*/
+            /* obtain informaiton for every crazyflie*/
             vector<robot_info> all_state;
 //            preprocess(all_state);
-
-            pair<double, double> all_robot_position;
-            vector<pair<double, double>> all_position;
+//
+//            pair<double, double> all_robot_position;
+            vector<Eigen::Vector2f> all_position;
             for(int i = 0; i < all_state.size(); i++){
-                all_robot_position = make_pair(all_state[i].pose.position.x,all_state[i].pose.position.y);
-                all_position.push_back(all_robot_position);               
+//                all_robot_position = make_pair(all_state[i].pose.position.x,all_state[i].pose.position.y);
+                Eigen::Vector2f tmp(all_state[i].pose.position.x,all_state[i].pose.position.y);
+                all_position.push_back(tmp);
             }
 
             /*Generate formation*/
@@ -193,7 +194,7 @@ void RoleCommander::start() {
             {
                 for (int j = 0; j < ROBOT_MAX; ++j) // targets
                 {
-                    cost[i][j] = sqrt(pow(formation(j,0)+target_position[0]-all_position[i].first, 2)+pow(formation(j,1)+target_position[1]-all_position[i].second, 2));
+                    cost[i][j] = sqrt(pow(formation(j,0)+target_position[0]-all_position[i][0], 2)+pow(formation(j,1)+target_position[1]-all_position[i][1], 2));
                 }
             }
 
