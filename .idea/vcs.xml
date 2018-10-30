@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/externalDependencies/libmotioncapture" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/externalDependencies/libobjecttracker" vcs="Git" />
   </component>
 </project>

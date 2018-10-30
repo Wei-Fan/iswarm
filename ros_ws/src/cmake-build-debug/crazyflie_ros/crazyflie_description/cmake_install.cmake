@@ -1,4 +1,4 @@
-# Install script for directory: /home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/crazyflie_ros/crazyflie_description
+# Install script for directory: /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_description/catkin_generated/installspace/crazyflie_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_description/catkin_generated/installspace/crazyflie_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyflie_description/cmake" TYPE FILE FILES
-    "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_description/catkin_generated/installspace/crazyflie_descriptionConfig.cmake"
-    "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_description/catkin_generated/installspace/crazyflie_descriptionConfig-version.cmake"
+    "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_description/catkin_generated/installspace/crazyflie_descriptionConfig.cmake"
+    "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_description/catkin_generated/installspace/crazyflie_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyflie_description" TYPE FILE FILES "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/crazyflie_ros/crazyflie_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyflie_description" TYPE FILE FILES "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_description/package.xml")
 endif()
 

@@ -7,10 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel:$CMAKE_PREFIX_PATH"
-export CPATH="/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/include:$CPATH"
-export LD_LIBRARY_PATH="/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PYTHONPATH="/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks"
+export CMAKE_PREFIX_PATH="/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PYTHONPATH="/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/lib/python2.7/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src:/home/wade/iswarm/ros_ws/src:$ROS_PACKAGE_PATH"

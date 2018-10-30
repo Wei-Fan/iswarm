@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/setup.sh
+    local-name: /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/setup.sh

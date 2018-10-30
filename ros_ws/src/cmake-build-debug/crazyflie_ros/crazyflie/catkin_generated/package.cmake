@@ -10,4 +10,7 @@ set(crazyflie_EXEC_DEPENDS "crazyflie_cpp" "crazyflie_driver" "crazyflie_descrip
 set(crazyflie_RUN_DEPENDS "crazyflie_cpp" "crazyflie_driver" "crazyflie_description" "crazyflie_controller" "crazyflie_demo" "crazyflie_tools")
 set(crazyflie_TEST_DEPENDS )
 set(crazyflie_DOC_DEPENDS )
+set(crazyflie_URL_WEBSITE "http://ros.org/wiki/crazyflie")
+set(crazyflie_URL_BUGTRACKER "https://github.com/whoenig/crazyflie_ros/issues")
+set(crazyflie_URL_REPOSITORY "")
 set(crazyflie_DEPRECATED "")

@@ -1,8 +1,8 @@
-prefix=/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel
+prefix=/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel
 
 Name: libobjecttracker
 Description: Description of libobjecttracker
 Version: 0.0.1
-Cflags: -I/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/externalDependencies/libobjecttracker/include
-Libs: -L/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/lib -llibobjecttracker
+Cflags: -I/home/wade/iswarm/ros_ws/src/externalDependencies/libobjecttracker/include
+Libs: -L/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/lib -llibobjecttracker
 Requires: 

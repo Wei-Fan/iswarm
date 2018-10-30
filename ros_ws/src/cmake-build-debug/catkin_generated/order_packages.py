@@ -1,5 +1,5 @@
 # generated from catkin/cmake/template/order_packages.context.py.in
-source_root_dir = "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src"
+source_root_dir = "/home/wade/iswarm/ros_ws/src"
 whitelisted_packages = "".split(';') if "" != "" else []
 blacklisted_packages = "".split(';') if "" != "" else []
-underlay_workspaces = "/opt/ros/indigo".split(';') if "/opt/ros/indigo" != "" else []
+underlay_workspaces = "/home/wade/swarm-primitives/swarm_simulator/devel;/home/wade/catkin_ws/devel;/opt/ros/kinetic".split(';') if "/home/wade/swarm-primitives/swarm_simulator/devel;/home/wade/catkin_ws/devel;/opt/ros/kinetic" != "" else []

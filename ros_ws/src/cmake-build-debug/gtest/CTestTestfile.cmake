@@ -1,6 +1,7 @@
 # CMake generated Testfile for 
-# Source directory: /usr/src/gtest
-# Build directory: /home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/gtest
+# Source directory: /usr/src/gmock
+# Build directory: /home/wade/iswarm/ros_ws/src/cmake-build-debug/gtest
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
+subdirs("gtest")

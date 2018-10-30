@@ -1,4 +1,4 @@
-# Install script for directory: /home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/crazyflie_ros/crazyflie_demo
+# Install script for directory: /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_demo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_demo/catkin_generated/installspace/crazyflie_demo.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_demo/catkin_generated/installspace/crazyflie_demo.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyflie_demo/cmake" TYPE FILE FILES
-    "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_demo/catkin_generated/installspace/crazyflie_demoConfig.cmake"
-    "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_demo/catkin_generated/installspace/crazyflie_demoConfig-version.cmake"
+    "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_demo/catkin_generated/installspace/crazyflie_demoConfig.cmake"
+    "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_demo/catkin_generated/installspace/crazyflie_demoConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyflie_demo" TYPE FILE FILES "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/crazyflie_ros/crazyflie_demo/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyflie_demo" TYPE FILE FILES "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_demo/package.xml")
 endif()
 

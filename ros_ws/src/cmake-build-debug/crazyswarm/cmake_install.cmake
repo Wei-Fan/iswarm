@@ -1,4 +1,4 @@
-# Install script for directory: /home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/crazyswarm
+# Install script for directory: /home/wade/iswarm/ros_ws/src/crazyswarm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyswarm/catkin_generated/installspace/crazyswarm.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/catkin_generated/installspace/crazyswarm.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyswarm/cmake" TYPE FILE FILES
-    "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyswarm/catkin_generated/installspace/crazyswarmConfig.cmake"
-    "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyswarm/catkin_generated/installspace/crazyswarmConfig-version.cmake"
+    "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/catkin_generated/installspace/crazyswarmConfig.cmake"
+    "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/catkin_generated/installspace/crazyswarmConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyswarm" TYPE FILE FILES "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/crazyswarm/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/crazyswarm" TYPE FILE FILES "/home/wade/iswarm/ros_ws/src/crazyswarm/package.xml")
 endif()
 

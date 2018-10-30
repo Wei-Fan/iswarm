@@ -10,4 +10,7 @@ set(crazyflie_driver_EXEC_DEPENDS "message_runtime" "std_msgs" "tf" "crazyflie_c
 set(crazyflie_driver_RUN_DEPENDS "message_runtime" "std_msgs" "tf" "crazyflie_cpp" "crazyflie_demo")
 set(crazyflie_driver_TEST_DEPENDS )
 set(crazyflie_driver_DOC_DEPENDS )
+set(crazyflie_driver_URL_WEBSITE "http://ros.org/wiki/crazyflie")
+set(crazyflie_driver_URL_BUGTRACKER "https://github.com/whoenig/crazyflie_ros/issues")
+set(crazyflie_driver_URL_REPOSITORY "")
 set(crazyflie_driver_DEPRECATED "")

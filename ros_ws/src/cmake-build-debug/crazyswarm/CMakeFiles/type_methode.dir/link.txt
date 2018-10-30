@@ -1,1 +1,1 @@
-/usr/bin/c++ -fPIC  -std=c++11  -Wno-deprecated -g   -shared -Wl,-soname,libtype_methode.so -o ../devel/lib/libtype_methode.so CMakeFiles/type_methode.dir/include/type_methode.cpp.o 
+/usr/bin/c++ -fPIC  -std=c++11  -g   -shared -Wl,-soname,libtype_methode.so -o ../devel/lib/libtype_methode.so CMakeFiles/type_methode.dir/include/type_methode.cpp.o 

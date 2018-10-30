@@ -1,8 +1,8 @@
-prefix=/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel
+prefix=/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel
 
 Name: crazyflie_controller
 Description: Description of crazyflie_controller
 Version: 0.0.1
 Cflags: 
-Libs: -L/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/lib 
+Libs: -L/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/lib 
 Requires: 

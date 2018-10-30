@@ -1,8 +1,8 @@
 # generated from catkin/cmake/template/pkg.context.pc.in
 CATKIN_PACKAGE_PREFIX = ""
-PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/include".split(';') if "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel/include" != "" else []
+PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include".split(';') if "/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include" != "" else []
 PROJECT_CATKIN_DEPENDS = "message_runtime;std_msgs;tf;crazyflie_cpp".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "crazyflie_driver"
-PROJECT_SPACE_DIR = "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/devel"
+PROJECT_SPACE_DIR = "/home/wade/iswarm/ros_ws/src/cmake-build-debug/devel"
 PROJECT_VERSION = "0.0.1"

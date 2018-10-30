@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/crazyswarm/src/crazyswarm_teleop.cpp" "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/crazyswarm_teleop.dir/src/crazyswarm_teleop.cpp.o"
+  "/home/wade/iswarm/ros_ws/src/crazyswarm/src/crazyswarm_teleop.cpp" "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/crazyswarm_teleop.dir/src/crazyswarm_teleop.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -14,19 +14,45 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "DISABLE_PNG"
   "ENABLE_OPTITRACK"
   "ENABLE_VICON"
+  "QT_CORE_LIB"
+  "QT_GUI_LIB"
+  "QT_WIDGETS_LIB"
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"crazyswarm\""
+  "vtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"
+  "vtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"
+  "vtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"
+  "vtkIOImage_AUTOINIT=1(vtkIOMPIImage)"
+  "vtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"
+  "vtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL)"
+  "vtkRenderingCore_AUTOINIT=4(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingFreeTypeOpenGL,vtkRenderingOpenGL)"
+  "vtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"
+  "vtkRenderingLIC_AUTOINIT=1(vtkRenderingParallelLIC)"
+  "vtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL)"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/include/vtk-5.8"
+  "/usr/include/vtk-6.2"
+  "/usr/include/freetype2"
+  "/usr/include/x86_64-linux-gnu/freetype2"
+  "/usr/include/jsoncpp"
+  "/usr/lib/openmpi/include/openmpi/opal/mca/event/libevent2021/libevent"
+  "/usr/lib/openmpi/include/openmpi/opal/mca/event/libevent2021/libevent/include"
+  "/usr/lib/openmpi/include"
+  "/usr/lib/openmpi/include/openmpi"
+  "/usr/include/python2.7"
+  "/usr/include/x86_64-linux-gnu"
+  "/usr/include/hdf5/openmpi"
+  "/usr/include/libxml2"
+  "/usr/include/tcl"
   "devel/include"
   "../crazyflie_ros/crazyflie_cpp/include"
   "../externalDependencies/libobjecttracker/include"
   "../externalDependencies/libmotioncapture/include"
-  "/opt/ros/indigo/include"
+  "/opt/ros/kinetic/include"
+  "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/eigen3"
   "/usr/include/pcl-1.7"
   "/usr/include/ni"
@@ -34,13 +60,18 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../crazyswarm/../externalDependencies/libobjecttracker/include"
   "../crazyswarm/./include"
   "../crazyswarm/../../../crazyflie-firmware/src/modules/interface"
+  "/usr/include/x86_64-linux-gnu/qt5"
+  "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
+  "/usr/include/x86_64-linux-gnu/qt5/QtGui"
+  "/usr/include/x86_64-linux-gnu/qt5/QtCore"
+  "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/DependInfo.cmake"
-  "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/DependInfo.cmake"
-  "/home/chengque/workspace/catkin_ws/src/crazyswarm/ros_ws/src/cmake-build-debug/externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/DependInfo.cmake"
+  "/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_cpp/CMakeFiles/crazyflie_cpp.dir/DependInfo.cmake"
+  "/home/wade/iswarm/ros_ws/src/cmake-build-debug/externalDependencies/libobjecttracker/CMakeFiles/libobjecttracker.dir/DependInfo.cmake"
+  "/home/wade/iswarm/ros_ws/src/cmake-build-debug/externalDependencies/libmotioncapture/CMakeFiles/libmotioncapture.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

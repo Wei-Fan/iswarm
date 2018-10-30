@@ -10,4 +10,7 @@ set(crazyswarm_EXEC_DEPENDS "message_runtime" "std_msgs" "tf" "crazyflie_cpp" "c
 set(crazyswarm_RUN_DEPENDS "message_runtime" "std_msgs" "tf" "crazyflie_cpp" "crazyflie_driver" "libobjecttracker" "libmotioncapture")
 set(crazyswarm_TEST_DEPENDS )
 set(crazyswarm_DOC_DEPENDS )
+set(crazyswarm_URL_WEBSITE "http://crazyswarm.readthedocs.io")
+set(crazyswarm_URL_BUGTRACKER "https://github.com/USC-ACTLab/crazyswarm/issues")
+set(crazyswarm_URL_REPOSITORY "")
 set(crazyswarm_DEPRECATED "")
