@@ -171,14 +171,15 @@
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/install/local.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/install.dir
-/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/crazyswarm_server.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/commander.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/controller.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/mocap_helper.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/type_methode.dir
+/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/crazyswarm_server.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/install/strip.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/list_install_components.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/crazyswarm_teleop.dir
+/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/assignment_commander.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/test.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/edit_cache.dir
 /home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyswarm/CMakeFiles/rebuild_cache.dir

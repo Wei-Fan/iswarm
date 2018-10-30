@@ -123,9 +123,14 @@ catkin_package(
 ###########
 ## Build ##
 ###########
+
+file(GLOB ASSIGNMENT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+        include/*.h include/*.cpp)
+
 add_library(type_methode SHARED include/type_methode.cpp)
 add_library(controller SHARED include/controller.cpp)
 add_library(commander SHARED include/commander.cpp)
+add_library(assignment_commander ${ASSIGNMENT_SOURCES})
 
 include_directories(
   ${catkin_INCLUDE_DIRS}

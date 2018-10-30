@@ -1390,19 +1390,6 @@ _crazyflie_driver_generate_messages_check_deps_AddCrazyflie/fast:
 .PHONY : _crazyflie_driver_generate_messages_check_deps_AddCrazyflie/fast
 
 #=============================================================================
-# Target rules for targets named crazyswarm_server
-
-# Build rule for target.
-crazyswarm_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 crazyswarm_server
-.PHONY : crazyswarm_server
-
-# fast build rule for target.
-crazyswarm_server/fast:
-	$(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_server.dir/build.make crazyswarm/CMakeFiles/crazyswarm_server.dir/build
-.PHONY : crazyswarm_server/fast
-
-#=============================================================================
 # Target rules for targets named commander
 
 # Build rule for target.
@@ -1455,6 +1442,19 @@ type_methode/fast:
 .PHONY : type_methode/fast
 
 #=============================================================================
+# Target rules for targets named crazyswarm_server
+
+# Build rule for target.
+crazyswarm_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 crazyswarm_server
+.PHONY : crazyswarm_server
+
+# fast build rule for target.
+crazyswarm_server/fast:
+	$(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_server.dir/build.make crazyswarm/CMakeFiles/crazyswarm_server.dir/build
+.PHONY : crazyswarm_server/fast
+
+#=============================================================================
 # Target rules for targets named crazyswarm_teleop
 
 # Build rule for target.
@@ -1466,6 +1466,19 @@ crazyswarm_teleop: cmake_check_build_system
 crazyswarm_teleop/fast:
 	$(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_teleop.dir/build.make crazyswarm/CMakeFiles/crazyswarm_teleop.dir/build
 .PHONY : crazyswarm_teleop/fast
+
+#=============================================================================
+# Target rules for targets named assignment_commander
+
+# Build rule for target.
+assignment_commander: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 assignment_commander
+.PHONY : assignment_commander
+
+# fast build rule for target.
+assignment_commander/fast:
+	$(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/build
+.PHONY : assignment_commander/fast
 
 # Help Target
 help:
@@ -1574,12 +1587,13 @@ help:
 	@echo "... _crazyflie_driver_generate_messages_check_deps_SetGroupMask"
 	@echo "... _crazyflie_driver_generate_messages_check_deps_Position"
 	@echo "... _crazyflie_driver_generate_messages_check_deps_AddCrazyflie"
-	@echo "... crazyswarm_server"
 	@echo "... commander"
 	@echo "... controller"
 	@echo "... mocap_helper"
 	@echo "... type_methode"
+	@echo "... crazyswarm_server"
 	@echo "... crazyswarm_teleop"
+	@echo "... assignment_commander"
 .PHONY : help
 
 

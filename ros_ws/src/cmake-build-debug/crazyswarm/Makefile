@@ -168,21 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-crazyswarm/CMakeFiles/crazyswarm_server.dir/rule:
-	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/crazyswarm_server.dir/rule
-.PHONY : crazyswarm/CMakeFiles/crazyswarm_server.dir/rule
-
-# Convenience name for target.
-crazyswarm_server: crazyswarm/CMakeFiles/crazyswarm_server.dir/rule
-
-.PHONY : crazyswarm_server
-
-# fast build rule for target.
-crazyswarm_server/fast:
-	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_server.dir/build.make crazyswarm/CMakeFiles/crazyswarm_server.dir/build
-.PHONY : crazyswarm_server/fast
-
-# Convenience name for target.
 crazyswarm/CMakeFiles/commander.dir/rule:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/commander.dir/rule
 .PHONY : crazyswarm/CMakeFiles/commander.dir/rule
@@ -243,6 +228,21 @@ type_methode/fast:
 .PHONY : type_methode/fast
 
 # Convenience name for target.
+crazyswarm/CMakeFiles/crazyswarm_server.dir/rule:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/crazyswarm_server.dir/rule
+.PHONY : crazyswarm/CMakeFiles/crazyswarm_server.dir/rule
+
+# Convenience name for target.
+crazyswarm_server: crazyswarm/CMakeFiles/crazyswarm_server.dir/rule
+
+.PHONY : crazyswarm_server
+
+# fast build rule for target.
+crazyswarm_server/fast:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_server.dir/build.make crazyswarm/CMakeFiles/crazyswarm_server.dir/build
+.PHONY : crazyswarm_server/fast
+
+# Convenience name for target.
 crazyswarm/CMakeFiles/crazyswarm_teleop.dir/rule:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/crazyswarm_teleop.dir/rule
 .PHONY : crazyswarm/CMakeFiles/crazyswarm_teleop.dir/rule
@@ -257,6 +257,48 @@ crazyswarm_teleop/fast:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/crazyswarm_teleop.dir/build.make crazyswarm/CMakeFiles/crazyswarm_teleop.dir/build
 .PHONY : crazyswarm_teleop/fast
 
+# Convenience name for target.
+crazyswarm/CMakeFiles/assignment_commander.dir/rule:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 crazyswarm/CMakeFiles/assignment_commander.dir/rule
+.PHONY : crazyswarm/CMakeFiles/assignment_commander.dir/rule
+
+# Convenience name for target.
+assignment_commander: crazyswarm/CMakeFiles/assignment_commander.dir/rule
+
+.PHONY : assignment_commander
+
+# fast build rule for target.
+assignment_commander/fast:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/build
+.PHONY : assignment_commander/fast
+
+include/cftracker.o: include/cftracker.cpp.o
+
+.PHONY : include/cftracker.o
+
+# target to build an object file
+include/cftracker.cpp.o:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/cftracker.cpp.o
+.PHONY : include/cftracker.cpp.o
+
+include/cftracker.i: include/cftracker.cpp.i
+
+.PHONY : include/cftracker.i
+
+# target to preprocess a source file
+include/cftracker.cpp.i:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/cftracker.cpp.i
+.PHONY : include/cftracker.cpp.i
+
+include/cftracker.s: include/cftracker.cpp.s
+
+.PHONY : include/cftracker.s
+
+# target to generate assembly for a file
+include/cftracker.cpp.s:
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/cftracker.cpp.s
+.PHONY : include/cftracker.cpp.s
+
 include/commander.o: include/commander.cpp.o
 
 .PHONY : include/commander.o
@@ -264,6 +306,7 @@ include/commander.o: include/commander.cpp.o
 # target to build an object file
 include/commander.cpp.o:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/commander.dir/build.make crazyswarm/CMakeFiles/commander.dir/include/commander.cpp.o
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/commander.cpp.o
 .PHONY : include/commander.cpp.o
 
 include/commander.i: include/commander.cpp.i
@@ -273,6 +316,7 @@ include/commander.i: include/commander.cpp.i
 # target to preprocess a source file
 include/commander.cpp.i:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/commander.dir/build.make crazyswarm/CMakeFiles/commander.dir/include/commander.cpp.i
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/commander.cpp.i
 .PHONY : include/commander.cpp.i
 
 include/commander.s: include/commander.cpp.s
@@ -282,6 +326,7 @@ include/commander.s: include/commander.cpp.s
 # target to generate assembly for a file
 include/commander.cpp.s:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/commander.dir/build.make crazyswarm/CMakeFiles/commander.dir/include/commander.cpp.s
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/commander.cpp.s
 .PHONY : include/commander.cpp.s
 
 include/controller.o: include/controller.cpp.o
@@ -291,6 +336,7 @@ include/controller.o: include/controller.cpp.o
 # target to build an object file
 include/controller.cpp.o:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/controller.dir/build.make crazyswarm/CMakeFiles/controller.dir/include/controller.cpp.o
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/controller.cpp.o
 .PHONY : include/controller.cpp.o
 
 include/controller.i: include/controller.cpp.i
@@ -300,6 +346,7 @@ include/controller.i: include/controller.cpp.i
 # target to preprocess a source file
 include/controller.cpp.i:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/controller.dir/build.make crazyswarm/CMakeFiles/controller.dir/include/controller.cpp.i
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/controller.cpp.i
 .PHONY : include/controller.cpp.i
 
 include/controller.s: include/controller.cpp.s
@@ -309,6 +356,7 @@ include/controller.s: include/controller.cpp.s
 # target to generate assembly for a file
 include/controller.cpp.s:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/controller.dir/build.make crazyswarm/CMakeFiles/controller.dir/include/controller.cpp.s
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/controller.cpp.s
 .PHONY : include/controller.cpp.s
 
 include/type_methode.o: include/type_methode.cpp.o
@@ -318,6 +366,7 @@ include/type_methode.o: include/type_methode.cpp.o
 # target to build an object file
 include/type_methode.cpp.o:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/type_methode.dir/build.make crazyswarm/CMakeFiles/type_methode.dir/include/type_methode.cpp.o
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/type_methode.cpp.o
 .PHONY : include/type_methode.cpp.o
 
 include/type_methode.i: include/type_methode.cpp.i
@@ -327,6 +376,7 @@ include/type_methode.i: include/type_methode.cpp.i
 # target to preprocess a source file
 include/type_methode.cpp.i:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/type_methode.dir/build.make crazyswarm/CMakeFiles/type_methode.dir/include/type_methode.cpp.i
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/type_methode.cpp.i
 .PHONY : include/type_methode.cpp.i
 
 include/type_methode.s: include/type_methode.cpp.s
@@ -336,6 +386,7 @@ include/type_methode.s: include/type_methode.cpp.s
 # target to generate assembly for a file
 include/type_methode.cpp.s:
 	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/type_methode.dir/build.make crazyswarm/CMakeFiles/type_methode.dir/include/type_methode.cpp.s
+	cd /home/wade/iswarm/ros_ws/src/cmake-build-debug && $(MAKE) -f crazyswarm/CMakeFiles/assignment_commander.dir/build.make crazyswarm/CMakeFiles/assignment_commander.dir/include/type_methode.cpp.s
 .PHONY : include/type_methode.cpp.s
 
 src/crazyswarm_server.o: src/crazyswarm_server.cpp.o
@@ -427,17 +478,21 @@ help:
 	@echo "... depend"
 	@echo "... install/local"
 	@echo "... install"
-	@echo "... crazyswarm_server"
 	@echo "... commander"
 	@echo "... controller"
 	@echo "... mocap_helper"
 	@echo "... type_methode"
+	@echo "... crazyswarm_server"
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... crazyswarm_teleop"
+	@echo "... assignment_commander"
 	@echo "... test"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... include/cftracker.o"
+	@echo "... include/cftracker.i"
+	@echo "... include/cftracker.s"
 	@echo "... include/commander.o"
 	@echo "... include/commander.i"
 	@echo "... include/commander.s"
