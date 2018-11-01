@@ -959,7 +959,7 @@ public:
     {
       auto start = std::chrono::high_resolution_clock::now();
         if (m_sendAttSp){
-            if(m_beginPosSp)//主要过程
+            if(m_beginPosSp)//main process
             {
                 for(int i=0;i<sp_states.size();++i){
                     //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);

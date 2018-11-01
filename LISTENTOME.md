@@ -16,4 +16,5 @@ run the node crazyswarm_server -> CrazyflieServer constructure function -> serve
 
 6 I should define a new flight state and flight mode in the commander.h
 
+7 What is the useMotionCaptureObjectTracking in the run fast function?-> getGroupCurPos(based on CrazyflieBroadcaster::externalPose state) -> groupcontrol:renew sp_state(nonlinearcontrol:Position+sp=sp_state) -> sendAttSps(sp_states)
 
