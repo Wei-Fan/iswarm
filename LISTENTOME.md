@@ -14,7 +14,8 @@ run the node crazyswarm_server -> CrazyflieServer constructure function -> serve
 
 5 Where is the part that recieving Vicon message and send out the position to crazyflies?
 
-6 I should define a new flight state and flight mode in the commander.h
+6 I should define a new flight state and flight mode in the commander.h No
 
-7 What is the useMotionCaptureObjectTracking in the run fast function?-> getGroupCurPos(based on CrazyflieBroadcaster::externalPose state) -> groupcontrol:renew sp_state(nonlinearcontrol:Position+sp=sp_state) -> sendAttSps(sp_states)
+7 What is the useMotionCaptureObjectTracking in the run fast function? -> getGroupCurPos(based on CrazyflieBroadcaster::externalPose state) -> groupcontrol:renew sp_state(nonlinearcontrol:Position+sp=sp_state) -> sendAttSps(sp_states)
 
+8 Positions can be obtained from getGroupCurPos. Obtain the setpoint of each vehicle from a new function instead of aflie_state_traj_cb
