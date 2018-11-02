@@ -19,3 +19,12 @@ run the node crazyswarm_server -> CrazyflieServer constructure function -> serve
 7 What is the useMotionCaptureObjectTracking in the run fast function? -> getGroupCurPos(based on CrazyflieBroadcaster::externalPose state) -> groupcontrol:renew sp_state(nonlinearcontrol:Position+sp=sp_state) -> sendAttSps(sp_states)
 
 8 Positions can be obtained from getGroupCurPos. Obtain the setpoint of each vehicle from a new function instead of aflie_state_traj_cb
+
+9 What is CallbackQueue for? Multi-thread spinning
+
+10 What is Latency in server.runfast?
+
+11 add a new for loop before groupcontrol loop in the group's run fast, to calculate formation control.
+Update the PVA setpoint before groupcontrol and delete aflie_state_traj_cb.
+
+Publish positions before the new loop, referring to getGroupCurPos.

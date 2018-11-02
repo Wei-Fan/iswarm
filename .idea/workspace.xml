@@ -5,6 +5,7 @@
       <config projectName="Project" targetName="std_msgs_generate_messages_py" />
       <config projectName="Project" targetName="sensor_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="assignment_commander" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="tf2_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="role_commander" />
       <config projectName="Project" targetName="quadrotor_teleop" />
@@ -30,12 +31,12 @@
       <config projectName="Project" targetName="tf2_msgs_generate_messages_py" />
       <config projectName="Project" targetName="roscpp_generate_messages_py" />
       <config projectName="Project" targetName="tf_generate_messages_eus" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_state_tg" />
       <config projectName="Project" targetName="crazyflie_driver_generate_messages_py" />
       <config projectName="Project" targetName="crazyflie_server" />
       <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_GoTo" />
       <config projectName="Project" targetName="actionlib_generate_messages_eus" />
       <config projectName="Project" targetName="actionlib_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="crazyflie_driver_genpy" />
       <config projectName="Project" targetName="clean_test_results" />
       <config projectName="Project" targetName="actionlib_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="sensor_msgs_generate_messages_lisp" />
@@ -77,10 +78,9 @@
       <config projectName="Project" targetName="roscpp_generate_messages_eus" />
       <config projectName="Project" targetName="gmock" />
       <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_GenericLogData" />
-      <config projectName="Project" targetName="tf_generate_messages_lisp" />
       <config projectName="Project" targetName="sensor_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_state_tg" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="tf_generate_messages_lisp" />
+      <config projectName="Project" targetName="crazyflie_driver_genpy" />
       <config projectName="Project" targetName="doxygen" />
       <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Takeoff" />
       <config projectName="Project" targetName="_catkin_empty_exported_target" />
@@ -189,38 +189,39 @@
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="3" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cpp" value="6" />
           <entry key="h" value="7" />
-          <entry key="md" value="9" />
+          <entry key="md" value="10" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="2" />
-          <entry key="Markdown" value="4" />
+          <entry key="Markdown" value="5" />
           <entry key="ObjectiveC" value="13" />
           <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="83" />
+          <entry key="cpp" value="88" />
           <entry key="h" value="215" />
-          <entry key="md" value="553" />
+          <entry key="md" value="999" />
           <entry key="txt" value="152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="152" />
-          <entry key="Markdown" value="437" />
-          <entry key="ObjectiveC" value="298" />
+          <entry key="Markdown" value="883" />
+          <entry key="ObjectiveC" value="303" />
           <entry key="PLAIN_TEXT" value="116" />
         </counts>
       </usages-collector>
@@ -232,10 +233,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LISTENTOME.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="551">
+                <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="457" column="17" selection-start-line="457" selection-start-column="4" selection-end-line="457" selection-end-column="17" />
+            <state relative-caret-position="177">
+              <caret line="872" column="16" selection-start-line="872" selection-start-column="10" selection-end-line="872" selection-end-column="16" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
                 <element signature="e#982#999#0" expanded="true" />
@@ -266,7 +281,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
+            <state relative-caret-position="-478">
               <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
               <folding>
                 <element signature="e#389#406#0" expanded="true" />
@@ -280,8 +295,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3344">
-              <caret line="176" column="22" selection-start-line="176" selection-start-column="22" selection-end-line="176" selection-end-column="22" />
+            <state relative-caret-position="1746">
+              <caret line="168" column="11" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -298,7 +313,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1919">
+            <state relative-caret-position="68">
               <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -309,61 +324,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/commander.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-              <folding>
-                <element signature="e#40#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/commander.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Trigger</find>
-      <find>control_request_sub</find>
-      <find>CPPRoleCommanderNode</find>
-      <find>robot_info</find>
-      <find>all_robot_position</find>
-      <find>Vector</find>
-      <find>Vector3f</find>
-      <find>all_position</find>
-      <find>m_id</find>
-      <find>aflie_state_traj_cb</find>
-      <find>m_cfbc</find>
-      <find>control_nonLineaire</find>
-      <find>cf</find>
-      <find>m_commander</find>
-      <find>m_controller</find>
-      <find>getPositionSetPoint</find>
-      <find>sp_state</find>
-      <find>startTrajectory</find>
-      <find>sp_states</find>
-      <find>Sp</find>
-      <find>pos_Sp</find>
-      <find>ml_control</find>
-      <find>sendAttSps</find>
-      <find>getGroupCurPos</find>
-      <find>states</find>
       <find>runInteractiveObject</find>
-      <find>m_currentPosition</find>
-      <find>giveCurrentPos</find>
-      <find>Groupcontrol</find>
       <find>m_PosSetPoint</find>
+      <find>run</find>
+      <find>spin</find>
+      <find>runFast</find>
+      <find>crazyflies</find>
+      <find>m_queue</find>
+      <find>runSlow</find>
+      <find>publishRigidBody</find>
+      <find>isStartTr</find>
+      <find>sp_states</find>
+      <find>giveCurrentPos</find>
+      <find>m_currentPosition</find>
+      <find>getGroupCurPos</find>
+      <find>getPositionSetPoint</find>
+      <find>Groupcontrol</find>
+      <find>addCrazyflie</find>
+      <find>readObjects</find>
+      <find>CrazyflieROS</find>
+      <find>getSetpoint</find>
+      <find>setTakeOffPos</find>
+      <find>m_cf</find>
+      <find>uploadTrajectory</find>
+      <find>aflie_state_traj_cb</find>
+      <find>m_pubPointCloud</find>
+      <find>m_pMarkers</find>
+      <find>pMarkers</find>
+      <find>pointCloud</find>
+      <find>update</find>
+      <find>m_tracker</find>
     </findStrings>
     <replaceStrings>
       <replace>RoleCommander</replace>
@@ -468,39 +462,6 @@
               <item name="iswarm" type="462c0819:PsiDirectoryNode" />
               <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="iswarm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crazyswarm" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="iswarm" type="462c0819:PsiDirectoryNode" />
-              <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="iswarm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crazyswarm" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="iswarm" type="462c0819:PsiDirectoryNode" />
-              <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="crazyswarm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="iswarm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crazyswarm" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="iswarm" type="462c0819:PsiDirectoryNode" />
-              <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="crazyswarm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="iswarm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crazyswarm" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="iswarm" type="462c0819:PsiDirectoryNode" />
-              <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="crazyswarm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -515,12 +476,12 @@
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ros_ws/src/crazyflie_ros/crazyflie_driver/srv" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ros_ws/src/crazyswarm/scripts" />
       <recent name="$PROJECT_DIR$/ros_ws/src/crazyflie_ros/crazyflie_driver" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ros_ws/src/crazyflie_ros/crazyflie_driver/srv" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1209,20 +1170,21 @@
       <workItem from="1540876108831" duration="2021000" />
       <workItem from="1540884372039" duration="932000" />
       <workItem from="1541050887008" duration="3813000" />
-      <workItem from="1541119003226" duration="1859000" />
+      <workItem from="1541119003226" duration="3743000" />
+      <workItem from="1541143006190" duration="6656000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272583000" />
+    <option name="totallyTimeSpent" value="281123000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.3786611" visible="true" weight="0.19181868" />
-      <window_info id="Structure" order="1" sideWeight="0.6213389" side_tool="true" visible="true" weight="0.19181868" />
-      <window_info id="Favorites" order="2" side_tool="true" weight="0.32991913" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63912135" visible="true" weight="0.19402985" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.36087865" side_tool="true" visible="true" weight="0.19402985" />
+      <window_info id="Favorites" order="2" sideWeight="0.36087865" side_tool="true" weight="0.19402985" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.499375" weight="0.10175879" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -1544,13 +1506,6 @@
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/Hungarian.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/control_modified.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="931">
@@ -1558,9 +1513,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/role_commander.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
+        <state relative-caret-position="-478">
           <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
           <folding>
             <element signature="e#389#406#0" expanded="true" />
@@ -1572,21 +1534,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3344">
-          <caret line="176" column="22" selection-start-line="176" selection-start-column="22" selection-end-line="176" selection-end-column="22" />
+        <state relative-caret-position="1746">
+          <caret line="168" column="11" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/role_commander.cpp">
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/commander.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        <state relative-caret-position="912">
+          <caret line="66" column="33" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/commander.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <element signature="e#40#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1919">
+        <state relative-caret-position="68">
           <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1596,49 +1568,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/commander.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding>
-            <element signature="e#40#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/commander.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LISTENTOME.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="235">
-            <caret line="20" column="135" selection-start-line="20" selection-start-column="135" selection-end-line="20" selection-end-column="135" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="457" column="17" selection-start-line="457" selection-start-column="4" selection-end-line="457" selection-end-column="17" />
+        <state relative-caret-position="177">
+          <caret line="872" column="16" selection-start-line="872" selection-start-column="10" selection-end-line="872" selection-end-column="16" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
             <element signature="e#982#999#0" expanded="true" />
             <element signature="e#1153#1172#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LISTENTOME.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="551">
+            <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
         </state>
       </provider>
     </entry>
