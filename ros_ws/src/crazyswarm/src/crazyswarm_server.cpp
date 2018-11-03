@@ -208,6 +208,7 @@ public:
     , m_initializedPosition(false)
     , isNotSendPIng(false)
     , m_controller(id)
+    , m_isHoverOK(false)
   {
     printf("-----------------hello swarmServer --------------------\n");
     ros::NodeHandle n;
@@ -217,7 +218,7 @@ public:
     m_serviceLand = n.advertiseService(tf_prefix + "/land", &CrazyflieROS::land, this);
     m_serviceGoTo = n.advertiseService(tf_prefix + "/go_to", &CrazyflieROS::goTo, this);
     m_serviceSetGroupMask = n.advertiseService(tf_prefix + "/set_group_mask", &CrazyflieROS::setGroupMask, this);
-//    m_traj_ref_sub = n.subscribe(tf_prefix + "/set_state", 100, &CrazyflieROS::aflie_state_traj_cb,this);
+    m_traj_ref_sub = n.subscribe(tf_prefix + "/set_state", 100, &CrazyflieROS::aflie_state_traj_cb,this);
     //m_serviceTrajectoryRef=n.advertiseService(tf_prefix + "/set_trajectory_ref", &CrazyflieROS::setTrajectoryRef, this);
     m_PosSetPoint.setZero();
     m_VelSetPoint.setZero();
@@ -457,20 +458,24 @@ public:
     std::cout<<"Initial position:"<<x<<y<<z<<std::endl;
   }
 
-//  void aflie_state_traj_cb(const crazyflie_driver::state_tg::ConstPtr& s_tg){
-//    s_tg_tmp = *s_tg;
-//    m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
-//    m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
-//    m_PosSetPoint(2) = s_tg_tmp.p_z;
-//    //m_PosSetPoint(3) = 0;
-//    m_VelSetPoint(0) = s_tg_tmp.v_x;
-//    m_VelSetPoint(1) = s_tg_tmp.v_y;
-//    m_VelSetPoint(2) = s_tg_tmp.v_z;
-//    m_AccSetPoint(0) = s_tg_tmp.a_x;
-//    m_AccSetPoint(1) = s_tg_tmp.a_y;
-//    m_AccSetPoint(2) = s_tg_tmp.a_z;
-//    //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
-//  };
+  void aflie_state_traj_cb(const crazyflie_driver::state_tg::ConstPtr& s_tg){
+    if(!m_isHoverOK)
+    {
+        s_tg_tmp = *s_tg;
+        m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
+        m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
+        m_PosSetPoint(2) = s_tg_tmp.p_z;
+        //m_PosSetPoint(3) = 0;
+        m_VelSetPoint(0) = s_tg_tmp.v_x;
+        m_VelSetPoint(1) = s_tg_tmp.v_y;
+        m_VelSetPoint(2) = s_tg_tmp.v_z;
+        m_AccSetPoint(0) = s_tg_tmp.a_x;
+        m_AccSetPoint(1) = s_tg_tmp.a_y;
+        m_AccSetPoint(2) = s_tg_tmp.a_z;
+        //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
+
+    }
+  };
 
 
   void run(
@@ -714,6 +719,7 @@ public:
     Eigen::Vector3f Euler;
     Controller m_controller;
     Commander m_commander;
+    bool m_isHoverOK;
 };
 
 
@@ -762,6 +768,7 @@ public:
     , m_initial_posMap()
     , m_formation_type("circle")
     , m_formation_scale(1.0)
+    , m_areHoverOk(false)
   {
       //added by yhz
       char str_csv[50] ;
@@ -980,35 +987,43 @@ public:
         if (m_sendAttSp){
             if(m_beginPosSp)//main process
             {
-                /**
-                 * add a formation control function
-                 */
+                if(m_areHoverOk)
+                {
+                    /**
+                     * add a formation control function
+                     */
 
-                /*obtain the group position and publish for role assignment*/
-                std::vector<int> m_cfs_id;
-                std::vector<pair<double, double>> m_cfs_cur_pos;
-                std::vector<int> assignment;
+                    /*obtain the group position and publish for role assignment*/
+                    std::vector<int> m_cfs_id;
+                    std::vector<pair<double, double>> m_cfs_cur_pos;
+                    std::vector<int> assignment;
 
-                getGroupPresentPos(states, m_cfs_id, m_cfs_cur_pos);
-//                assignment_pub.publish(m_cfs_cur_pos);
-                assignmentReMap(m_cfs_id, m_assignment, assignment);
+                    getGroupPresentPos(states, m_cfs_id, m_cfs_cur_pos);
+                    //                assignment_pub.publish(m_cfs_cur_pos);
+                    assignmentReMap(m_cfs_id, m_assignment, assignment);
 
-                /*obtain the velocity setpoint*/
-                for (int i = 0; i < sp_states.size(); ++i) {
-                    double raw_velocity[2];
-                    formationControl(i, m_cfs_cur_pos, m_target_position, assignment, raw_velocity);
-                    obtain_setpoint(m_cfs_id, m_cfs_cur_pos, raw_velocity);
+                    /*obtain the velocity setpoint from formation control and transform the setpoint to control variants*/
+                    for (int i = 0; i < sp_states.size(); ++i) {
+                        double vxy_sp[2];
+                        formationControl(i, m_cfs_cur_pos, m_target_position, assignment, vxy_sp);
+
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
+
+                        assignmentGroupcontrol(sp_states[i].id, sp_states[i], vxy_sp);
+                    }
+                } else {
+                    for(int i=0;i<sp_states.size();++i){
+                        //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+                        //getGroupCurPos(states[i].id,m_pMarkers);
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
+
+                        Groupcontrol(sp_states[i].id,sp_states[i]);
+                        if()
+                    }
                 }
 
-                /*transform PVA setpoints*/
-                for(int i=0;i<sp_states.size();++i){
-                    //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
-                    //getGroupCurPos(states[i].id,m_pMarkers);
-                    getGroupCurPos(states[i]);
-                    getPositionSetPoint();
-
-                    Groupcontrol(sp_states[i].id,sp_states[i]);
-                }
             }
             /*std::cout<<"setpoint ouside(trpy): "<< sp_states.back().thrust <<"; "
                      <<sp_states.back().roll<<"; "
@@ -1387,15 +1402,22 @@ public:
       return b;
     }
 
-  void obtain_setpoint(std::vector<int> m_cfs_id, std::vector<pair<double, double>> m_cfs_cur_pos, double *raw_velocity)
-  {
+    void assignmentGroupcontrol(int id,CrazyflieBroadcaster::AttSetPts& sp_state, double *vxy_sp) {
+        Eigen::Vector3f Euler;
+        Eigen::Vector4f vec4ftmp;
+        CrazyflieROS *cf = m_CrazyflieIdMap[id];
+        //std::cout<<"ID:"<<id<<std::endl;
+        double z_sp = 1.2;
+        cf->m_controller.control_nonLineaire(cf->m_currentPosition,
+                                             z_sp, vxy_sp, cf->Euler,
+                                             g_dt, &vec4ftmp);
+        sp_state.roll = vec4ftmp(0);
+        sp_state.pitch = vec4ftmp(1);
+        sp_state.yaw = vec4ftmp(2);
+        sp_state.thrust = vec4ftmp(3);
+    }
 
-  }
-
-
-
-
-    /**
+  /**
   * hongzhe
   */
   void getPositionSetPoint()
@@ -1763,6 +1785,7 @@ private:
     Eigen::Matrix2Xd m_formation;
     std::vector<pair<int,int>> m_assignment;
     int robot_number;
+    bool m_areHoverOk;
 
     std::vector<CrazyflieROS*> m_cfs;
     std::string m_interactiveObject;

@@ -119,6 +119,8 @@ public:
     Eigen::Vector3f l_posVicon;
     void control_nonLineaire(const Eigen::Vector3f& pos_est_Vicon, Eigen::Vector4f& Sp, Eigen::Vector3f& Vel_ff,
                                   Eigen::Vector3f& acc_Sp, Eigen::Vector3f& Euler, float dt, Eigen::Vector4f* Output);
+    void control_nonLineaire(const Eigen::Vector3f& pos_est_Vicon, double& Sp_z, double *vxy_sp,
+                                         Eigen::Vector3f& Euler, float dt, Eigen::Vector4f* Output);
 	// {
 	// 	if(dt<0.1f)
 	// 	{
