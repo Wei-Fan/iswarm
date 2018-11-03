@@ -38,6 +38,9 @@
 #include "commander.h"
 #include <crazyflie_cpp/Crazyflie.h>
 
+/*formation control dependencies*/
+#include <string>
+
 // debug test
 #include <signal.h>
 #include <csignal> // or C++ style alternative
@@ -213,7 +216,7 @@ public:
     m_serviceLand = n.advertiseService(tf_prefix + "/land", &CrazyflieROS::land, this);
     m_serviceGoTo = n.advertiseService(tf_prefix + "/go_to", &CrazyflieROS::goTo, this);
     m_serviceSetGroupMask = n.advertiseService(tf_prefix + "/set_group_mask", &CrazyflieROS::setGroupMask, this);
-    m_traj_ref_sub = n.subscribe(tf_prefix + "/set_state", 100, &CrazyflieROS::aflie_state_traj_cb,this);
+//    m_traj_ref_sub = n.subscribe(tf_prefix + "/set_state", 100, &CrazyflieROS::aflie_state_traj_cb,this);
     //m_serviceTrajectoryRef=n.advertiseService(tf_prefix + "/set_trajectory_ref", &CrazyflieROS::setTrajectoryRef, this);
     m_PosSetPoint.setZero();
     m_VelSetPoint.setZero();
@@ -453,20 +456,20 @@ public:
     std::cout<<"Initial position:"<<x<<y<<z<<std::endl;
   }
 
-  void aflie_state_traj_cb(const crazyflie_driver::state_tg::ConstPtr& s_tg){
-    s_tg_tmp = *s_tg;
-    m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
-    m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
-    m_PosSetPoint(2) = s_tg_tmp.p_z;
-    //m_PosSetPoint(3) = 0;
-    m_VelSetPoint(0) = s_tg_tmp.v_x;
-    m_VelSetPoint(1) = s_tg_tmp.v_y;
-    m_VelSetPoint(2) = s_tg_tmp.v_z;
-    m_AccSetPoint(0) = s_tg_tmp.a_x;
-    m_AccSetPoint(1) = s_tg_tmp.a_y;
-    m_AccSetPoint(2) = s_tg_tmp.a_z;
-    //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
-  };
+//  void aflie_state_traj_cb(const crazyflie_driver::state_tg::ConstPtr& s_tg){
+//    s_tg_tmp = *s_tg;
+//    m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
+//    m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
+//    m_PosSetPoint(2) = s_tg_tmp.p_z;
+//    //m_PosSetPoint(3) = 0;
+//    m_VelSetPoint(0) = s_tg_tmp.v_x;
+//    m_VelSetPoint(1) = s_tg_tmp.v_y;
+//    m_VelSetPoint(2) = s_tg_tmp.v_z;
+//    m_AccSetPoint(0) = s_tg_tmp.a_x;
+//    m_AccSetPoint(1) = s_tg_tmp.a_y;
+//    m_AccSetPoint(2) = s_tg_tmp.a_z;
+//    //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
+//  };
 
 
   void run(
@@ -756,23 +759,34 @@ public:
     , m_sendAttSp(true)
     , m_isGivingSp(true)
     , m_initial_posMap()
+    , m_formation_type("circle")
+    , m_formation_scale(1.0)
   {
-    //added by yhz
-    char str_csv[50] ;
-    sprintf(str_csv,"/home/wade/ros_ws/src/crazyswarm/Cfs%d.csv",channel);
-    Cf_csv.open(str_csv);printf("opened csv\n");
-    std::vector<libobjecttracker::Object> objects;
-    readObjects(objects, channel, logBlocks);
-    std::cout<<"------ Read Object successfully --------\n"<<std::endl;
-    m_tracker = new libobjecttracker::ObjectTracker(
-      dynamicsConfigurations,
-      markerConfigurations,
-      objects);
-    m_tracker->setLogWarningCallback(logWarn);
-    if (writeCSVs) {
-      m_outputCSVs.resize(m_cfs.size());
-    }
-      m_beginPosSp=true;
+      //added by yhz
+      char str_csv[50] ;
+      sprintf(str_csv,"/home/wade/ros_ws/src/crazyswarm/Cfs%d.csv",channel);
+      Cf_csv.open(str_csv);printf("opened csv\n");
+      std::vector<libobjecttracker::Object> objects;
+      readObjects(objects, channel, logBlocks);
+      std::cout<<"------ Read Object successfully --------\n"<<std::endl;
+      m_tracker = new libobjecttracker::ObjectTracker(
+        dynamicsConfigurations,
+        markerConfigurations,
+        objects);
+      m_tracker->setLogWarningCallback(logWarn);
+      if (writeCSVs) {
+        m_outputCSVs.resize(m_cfs.size());
+      }
+        m_beginPosSp=true;
+
+      /*formation control parameters and variants*/
+      robot_number = m_cfs.size();
+      m_formation.resize(2, robot_number);
+      for (int i = 0; i < robot_number; ++i) {
+          pair<int, int> tmp;
+          tmp = make_pair(m_cfs[i]->id(),i);
+          m_assignment.push_back(tmp);
+      }
   }
 
   ~CrazyflieGroup()
@@ -961,6 +975,28 @@ public:
         if (m_sendAttSp){
             if(m_beginPosSp)//main process
             {
+                /*
+                 * add a formation control function
+                 */
+                /*generate formation*/
+                double target_position[2];
+                generateFormation(target_position, m_formation_type, m_formation_scale, m_formation);
+
+                /*obtain the group position and publish for role assignment*/
+                std::vector<int> m_cfs_id;
+                std::vector<pair<double, double>> m_cfs_cur_pos;
+
+                getGroupPresentPos(states, m_cfs_id, m_cfs_cur_pos);
+//                assignment_pub.publish(m_cfs_cur_pos);
+
+                /*obtain the velocity setpoint*/
+                for (int i = 0; i < sp_states.size(); ++i) {
+                    double raw_velocity[2];
+                    formationControl(m_cfs_id, m_cfs_cur_pos, target_position, m_assignment, raw_velocity);
+                    obtain_setpoint(m_cfs_id, m_cfs_cur_pos, raw_velocity);
+                }
+
+                /*transform PVA setpoints*/
                 for(int i=0;i<sp_states.size();++i){
                     //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
                     //getGroupCurPos(states[i].id,m_pMarkers);
@@ -989,7 +1025,7 @@ public:
         }
       auto end = std::chrono::high_resolution_clock::now();
       std::chrono::duration<double> elapsedSeconds = end-start;
-      m_latency.broadcasting = elapsedSeconds.count();
+      m_latency.broadcasting = elapsedSeconds.count(); // what is this?
     }
   }
 
@@ -1039,7 +1075,34 @@ public:
       // std::this_thread::sleep_for(std::chrono::milliseconds(1));
     // }
   }
+
   /**
+   * Weifan
+  **/
+  void generateFormation(double *target_position, std::string formation_type, double formation_scale, Eigen::Matrix2Xd formation)
+  {
+
+  }
+
+  void getGroupPresentPos(std::vector<CrazyflieBroadcaster::externalPose> states, std::vector<int> &m_cfs_id, std::vector<pair<double, double>> &m_cfs_cur_pos)
+  {
+
+  }
+
+  void formationControl(std::vector<int> m_cfs_id, std::vector<pair<double, double>> m_cfs_cur_pos, double *target_position, std::vector<pair<int,int>> assignment, double *raw_velocity)
+  {
+
+  }
+
+  void obtain_setpoint(std::vector<int> m_cfs_id, std::vector<pair<double, double>> m_cfs_cur_pos, double *raw_velocity)
+  {
+
+  }
+
+
+
+
+    /**
   * hongzhe
   */
   void getPositionSetPoint()
@@ -1400,6 +1463,13 @@ private:
   }
 
 private:
+    /*formation control parameters and variants*/
+    std::string m_formation_type;
+    double m_formation_scale;
+    Eigen::Matrix2Xd m_formation;
+    std::vector<pair<int,int>> m_assignment;
+    int robot_number;
+
     std::vector<CrazyflieROS*> m_cfs;
     std::string m_interactiveObject;
     libobjecttracker::ObjectTracker* m_tracker;
