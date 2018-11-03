@@ -40,6 +40,7 @@
 
 /*formation control dependencies*/
 #include <string>
+#include <eiquadprog.h>
 
 // debug test
 #include <signal.h>
@@ -780,6 +781,8 @@ public:
         m_beginPosSp=true;
 
       /*formation control parameters and variants*/
+      m_target_position[0] = 0.0;
+      m_target_position[1] = 0.0;
       robot_number = m_cfs.size();
       m_formation.resize(2, robot_number);
       for (int i = 0; i < robot_number; ++i) {
@@ -787,6 +790,8 @@ public:
           tmp = make_pair(m_cfs[i]->id(),i);
           m_assignment.push_back(tmp);
       }
+      /*generate formation*/
+      generateFormation(m_formation_type, m_formation_scale, m_formation);
   }
 
   ~CrazyflieGroup()
@@ -975,24 +980,23 @@ public:
         if (m_sendAttSp){
             if(m_beginPosSp)//main process
             {
-                /*
+                /**
                  * add a formation control function
                  */
-                /*generate formation*/
-                double target_position[2];
-                generateFormation(target_position, m_formation_type, m_formation_scale, m_formation);
 
                 /*obtain the group position and publish for role assignment*/
                 std::vector<int> m_cfs_id;
                 std::vector<pair<double, double>> m_cfs_cur_pos;
+                std::vector<int> assignment;
 
                 getGroupPresentPos(states, m_cfs_id, m_cfs_cur_pos);
 //                assignment_pub.publish(m_cfs_cur_pos);
+                assignmentReMap(m_cfs_id, m_assignment, assignment);
 
                 /*obtain the velocity setpoint*/
                 for (int i = 0; i < sp_states.size(); ++i) {
                     double raw_velocity[2];
-                    formationControl(m_cfs_id, m_cfs_cur_pos, target_position, m_assignment, raw_velocity);
+                    formationControl(i, m_cfs_cur_pos, m_target_position, assignment, raw_velocity);
                     obtain_setpoint(m_cfs_id, m_cfs_cur_pos, raw_velocity);
                 }
 
@@ -1079,20 +1083,309 @@ public:
   /**
    * Weifan
   **/
-  void generateFormation(double *target_position, std::string formation_type, double formation_scale, Eigen::Matrix2Xd formation)
+  void generateFormation(std::string formation_type, double formation_scale, Eigen::Matrix2Xd &formation)
   {
+      /*Generate formation*/
+      int ROBOT_MAX = this->robot_number;
+      auto n1 = ROBOT_MAX - 1;
+      double CIRCLE_RADIUS = formation_scale;
 
+      // Circle case
+      if (formation_type == "circle")
+      {
+          Eigen::VectorXd t = Eigen::VectorXd::LinSpaced(ROBOT_MAX,0,n1).array()*(2*M_PI/ROBOT_MAX);
+          formation << CIRCLE_RADIUS * t.array().cos(), CIRCLE_RADIUS * t.array().sin(); //formation
+      }
+      else if (formation_type == "square") // Square case
+      {
+          double total_length = formation_scale * 4.0;
+          double x = -(formation_scale/2.0);
+          double y = -(formation_scale/2.0);
+          double dl = total_length / (double) ROBOT_MAX;
+          double prev_l = 0;
+          double dx, dy;
+          for(int i = 0;i < ROBOT_MAX;i++)
+          {
+              double l = dl * (i+1);
+              if(l < total_length/4.0)
+              {
+                  // go right
+                  x = x + dl;
+                  y = -(formation_scale/2.0);
+              }
+              else if(l >= total_length/4.0 && l < total_length/2.0)
+              {
+                  // go up
+                  if(prev_l < total_length/4.0)
+                  {
+                      dx = formation_scale/2.0 - x;
+                      dy = dl - dx;
+                      x = formation_scale/2.0;
+                      y = y + dy;
+                  }
+                  else{
+                      y = y + dl;
+                  }
+
+              }
+              else if(l >= total_length/2.0 && l < total_length * 3.0/4.0)
+              {
+                  // go left
+                  if(prev_l < total_length/2.0){
+                      dy = formation_scale/2.0 - y;
+                      dx = dl - dy;
+                      y = formation_scale/2.0;
+                      x = x - dx;
+                  }
+                  else{
+                      x = x - dl;
+                  }
+              }
+              else{
+                  // go down
+                  if(prev_l < total_length * 3.0/4.0){
+                      dx = x + formation_scale/2.0;
+                      dy = dl - dx;
+                      x = -(formation_scale/2.0);
+                      y = y - dy;
+                  }
+                  else{
+                      y = y - dl;
+                  }
+              }
+
+              formation(i,0) = x;
+              formation(i,1) = y;
+              prev_l = l;
+          }
+      }
+      else{
+          ROS_ERROR("generate formation fails!");
+      }
   }
 
-  void getGroupPresentPos(std::vector<CrazyflieBroadcaster::externalPose> states, std::vector<int> &m_cfs_id, std::vector<pair<double, double>> &m_cfs_cur_pos)
+  void getGroupPresentPos(std::vector<CrazyflieBroadcaster::externalPose> states, std::vector<int> &cfs_id, std::vector<pair<double, double>> &cfs_cur_pos)
   {
-
+      for (int i = 0; i < states.size(); ++i) {
+          cfs_id.push_back(states[i].id);
+          pair<double, double> tmp;
+          tmp = make_pair(states[i].x, states[i].y);
+          cfs_cur_pos.push_back(tmp);
+      }
   }
 
-  void formationControl(std::vector<int> m_cfs_id, std::vector<pair<double, double>> m_cfs_cur_pos, double *target_position, std::vector<pair<int,int>> assignment, double *raw_velocity)
+  void assignmentReMap(std::vector<int> cfs_id, std::vector<pair<int, int>> a_assignment, std::vector<int> &assignment)
   {
-
+      assignment.resize(cfs_id.size());
+      for (int i = 0; i < cfs_id.size(); ++i) {
+          for (int j = 0; j < a_assignment.size(); ++j) {
+              if (cfs_id[i] == a_assignment[j].first)
+              {
+                  assignment[i] = a_assignment[j].second;
+                  break;
+              }
+          }
+      }
   }
+
+  void formationControl(int rid, std::vector<pair<double, double>> cfs_cur_pos, double *target_position, std::vector<int> assignment, double *raw_velocity)
+  {
+      /**
+       * Run the core control loop which does all of the heavy calculation.
+       * In order to cooperate the role assignment, some adjustments need to be done
+       * First, assignment matrix is unnecessary but need to replaced by the one that
+       * allows two identical targets for two agents.
+       * Then, self_id will be replaced by what is corresponsing.
+       */
+      double velocity_target_following[2],velocity_formation_control[2];
+      double publish_velocity, publish_heading_velocity;
+
+      target_following(velocity_target_following, cfs_cur_pos, target_position); //target following
+      formation_control(velocity_formation_control, rid, cfs_cur_pos, m_formation, assignment);//, CONNECT_RADIUS); //establish permiter
+
+      double velocity[2];
+      velocity[0]= velocity_target_following[0] + velocity_formation_control[0];
+      velocity[1]= velocity_target_following[1] + velocity_formation_control[1];//two velocities add together
+      double v_t[2];
+      v_t[0] = velocity[0];
+      v_t[1] = velocity[1];
+      barrier_certificate(velocity, rid, cfs_cur_pos);//barrier certificate
+
+      /*check if the role assignment is required*/
+      double nominal_velocity = sqrt(v_t[0]*v_t[0]+v_t[1]*v_t[1]);
+      double bc_velocity = sqrt(velocity[0]*velocity[0]+velocity[1]*velocity[1]);
+      if ((bc_velocity/2) < 0.1 && (nominal_velocity - bc_velocity) > 1.0)
+      {
+//          std_msgs::Empty signal;
+//          assignment_request_pub.publish(signal);
+      }
+  }
+
+    void target_following(double *v, std::vector<std::pair<double, double>> position, double *target_position){
+        double d[2], dv[2];
+        double n;
+
+        for (int j = 0; j < position.size(); j++)
+        {
+            d[0] = target_position[0] - position[j].first;
+            d[1] = target_position[1] - position[j].second;
+
+            dv[0] = d[0];
+            dv[1] = d[1];
+            n = n + 1;
+
+            v[0] += dv[0];
+            v[1] += dv[1];
+        }
+        v[0] = v[0] / (n + 1);
+        v[1] = v[1] / (n + 1);// we must divide first
+    }
+
+    void formation_control(double *v, int rid, std::vector<pair<double, double>> position, Eigen::Matrix2Xd formation, std::vector<int> assignment){//, double connectivity_radius){
+        // double connectivity_radius = CONNECT_RADIUS;
+        int i = rid;
+        double d[2], dv[2];
+        double n, norm_d;
+        n = 0;
+
+        for (int j = 0; j < position.size(); j++)
+        {
+            if(i == j) continue;
+            d[0] = position[j].first - position[i].first;
+            d[1] = position[j].second - position[i].second;
+            norm_d = sqrt(pow(d[0], 2) + pow(d[1], 2));
+
+            if (norm_d < 10)//connectivity_radius)
+            {
+//                dv[0] = d[0] - (formation(assignment[j],0) - formation(assignment[i],0));
+//                dv[1] = d[1] - (formation(assignment[j],1) - formation(assignment[i],1));
+                 dv[0] = d[0] - (formation(j,0) - formation(i,0));
+                 dv[1] = d[1] - (formation(j,1) - formation(i,1));
+                n = n + 1;
+            }
+            else
+            {
+                dv[0] = 0;
+                dv[1] = 0;
+                // ROS_INFO("~~~~~~~!!!cannot see");
+            }
+            v[0] += dv[0];
+            v[1] += dv[1];
+        }
+        v[0] = v[0] / (n + 1);
+        v[1] = v[1] / (n + 1);// we must divide first
+    }
+
+    void barrier_certificate(double *v, int rid, std::vector<pair<double, double>> position){
+        int c = 0; //c=0 assumes agressive behaviour, =1 assumes neutral, =2 assumes enemy will avoid collision
+        double Ds = 0.3;
+        double delta_amax = 1.0;
+        double gamma = 10000.0;
+        double a_max = 2.0;
+        double delta_vmax = 1.0;
+        double obstacle_radius = 0.5;
+        double neighbour_radius = Ds + 1/(2*delta_amax)* pow((pow(2*delta_amax/gamma, 1.0/3.0) + delta_vmax), 2);
+
+        vector<double> d0_vec;
+        vector<double> d1_vec;
+        vector<double> h_vec;
+
+        double d[2], delta_v[2], d_minus[2];
+        double n, norm_d;
+        int i = rid;
+
+        //Avoid the other robots
+        for (int j = 0; j < position.size(); j++)
+        {
+            if(i == j) continue;
+            d[0] = position[j].first - position[i].first;
+            d[1] = position[j].second - position[i].second;
+            norm_d = sqrt(pow(d[0], 2) + pow(d[1], 2));
+            double v_norm = sqrt(pow(v[0], 2) + pow(v[1], 2));
+            if (norm_d <= neighbour_radius)
+            {
+                n = n + 1;
+                d0_vec.push_back(d[0]);
+                d1_vec.push_back(d[1]);
+                bool obstacle_avoid = false;
+                d_minus[0] = -1 * d[0];
+                d_minus[1] = -1 * d[1];
+                delta_v[0] = v[0]/(v_norm+0.01);
+                delta_v[1] = v[1]/(v_norm+0.01);
+                double b = b_func(d_minus, Ds, delta_v, delta_amax, gamma, obstacle_radius, obstacle_avoid,c);
+                h_vec.push_back(b);
+            }
+        }
+
+        if(h_vec.size()>0){
+            int k = 2;
+            Eigen::VectorXd x_v = Eigen::VectorXd::Zero(k);
+            Eigen::VectorXd g0(k);
+            g0(0) = -2 * v[0];
+            g0(1) = -2 * v[1];
+            Eigen::MatrixXd G(k,k);
+            G << 2, 0, 0, 2;
+
+            d0_vec.push_back(1.0);
+            d0_vec.push_back(0.0);
+            d1_vec.push_back(0.0);
+            d1_vec.push_back(1.0); // add matrix(1,0; 0,1)
+            h_vec.push_back(a_max);
+            h_vec.push_back(a_max); // add vector(a_max, a_max)
+
+            Eigen::MatrixXd CI(k,d0_vec.size());
+            Eigen::VectorXd ci0(CI.cols());
+
+            Eigen::MatrixXd CE = Eigen::MatrixXd::Zero(k,0);
+            Eigen::VectorXd ce0 = Eigen::VectorXd::Zero(CE.cols());
+
+            for (int j = 0; j < d0_vec.size(); j++)
+            {
+                CI(0,j) = -1 * d0_vec[j];
+                CI(1,j) = -1 * d1_vec[j];
+            }
+
+            for (int j = 0; j < h_vec.size(); j++)
+            {
+                ci0(j) = h_vec[j];
+            }
+
+            solve_quadprog(G, g0, CE, ce0, CI, ci0, x_v);
+            v[0] = x_v(0);
+            v[1] = x_v(1);
+        }
+    }
+
+    double h_func(double *delta_p, double Ds, double *delta_v, double delta_amax, double obstacle_radius, bool obstacle_avoid, int c)
+    {
+      double delta_p_norm = sqrt(pow(delta_p[0], 2) + pow(delta_p[1], 2));
+      if (obstacle_avoid){
+        double h = (delta_v[0]*delta_p[0] + delta_v[1]*delta_p[1])/delta_p_norm + sqrt(c*delta_amax*(delta_p_norm - (Ds/2.0 + obstacle_radius)));
+        return h;
+      }
+      else{
+        double h = (delta_v[0]*delta_p[0] + delta_v[1]*delta_p[1])/delta_p_norm + sqrt(c*delta_amax*(delta_p_norm - Ds));
+        return h;
+      }
+    }
+
+    double B_func(double *delta_p, double Ds, double *delta_v, double delta_amax, double obstacle_radius, bool obstacle_avoid, int c){
+      double h = h_func(delta_p, Ds, delta_v, delta_amax, obstacle_radius, obstacle_avoid, c);
+      double B = 1/h;
+      return B;
+    }
+
+    double b_func(double *delta_p, double Ds, double *delta_v, double delta_amax, double gamma, double obstacle_radius, bool obstacle_avoid, int c)
+    {
+      double B = B_func(delta_p, Ds, delta_v, delta_amax, obstacle_radius, obstacle_avoid, c);
+      double h = h_func(delta_p, Ds, delta_v, delta_amax, obstacle_radius, obstacle_avoid, c);
+      double delta_p_norm;
+      delta_p_norm = sqrt(pow(delta_p[0], 2) + pow(delta_p[1], 2));
+      double delta_v_norm = sqrt(pow(delta_v[0], 2) + pow(delta_v[1], 2));
+      double amax_term = delta_amax * (delta_p[0]*delta_v[0] + delta_p[1]*delta_v[1]) / sqrt(2*delta_amax*(delta_p_norm - Ds));
+      double b = gamma / B * pow(h,2) * delta_p_norm - pow((delta_p[0]*delta_v[0] + delta_p[1]*delta_v[1])/delta_p_norm,2) + pow(delta_v_norm,2) + amax_term;
+      return b;
+    }
 
   void obtain_setpoint(std::vector<int> m_cfs_id, std::vector<pair<double, double>> m_cfs_cur_pos, double *raw_velocity)
   {
@@ -1465,6 +1758,7 @@ private:
 private:
     /*formation control parameters and variants*/
     std::string m_formation_type;
+    double m_target_position[2];
     double m_formation_scale;
     Eigen::Matrix2Xd m_formation;
     std::vector<pair<int,int>> m_assignment;
