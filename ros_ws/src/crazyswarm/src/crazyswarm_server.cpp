@@ -208,7 +208,7 @@ public:
     , m_initializedPosition(false)
     , isNotSendPIng(false)
     , m_controller(id)
-    , m_isHoverOK(false)
+//    , m_isHoverOK(false)
   {
     printf("-----------------hello swarmServer --------------------\n");
     ros::NodeHandle n;
@@ -218,7 +218,7 @@ public:
     m_serviceLand = n.advertiseService(tf_prefix + "/land", &CrazyflieROS::land, this);
     m_serviceGoTo = n.advertiseService(tf_prefix + "/go_to", &CrazyflieROS::goTo, this);
     m_serviceSetGroupMask = n.advertiseService(tf_prefix + "/set_group_mask", &CrazyflieROS::setGroupMask, this);
-    m_traj_ref_sub = n.subscribe(tf_prefix + "/set_state", 100, &CrazyflieROS::aflie_state_traj_cb,this);
+//    m_traj_ref_sub = n.subscribe(tf_prefix + "/set_state", 100, &CrazyflieROS::aflie_state_traj_cb,this);
     //m_serviceTrajectoryRef=n.advertiseService(tf_prefix + "/set_trajectory_ref", &CrazyflieROS::setTrajectoryRef, this);
     m_PosSetPoint.setZero();
     m_VelSetPoint.setZero();
@@ -459,22 +459,19 @@ public:
   }
 
   void aflie_state_traj_cb(const crazyflie_driver::state_tg::ConstPtr& s_tg){
-    if(!m_isHoverOK)
-    {
-        s_tg_tmp = *s_tg;
-        m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
-        m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
-        m_PosSetPoint(2) = s_tg_tmp.p_z;
-        //m_PosSetPoint(3) = 0;
-        m_VelSetPoint(0) = s_tg_tmp.v_x;
-        m_VelSetPoint(1) = s_tg_tmp.v_y;
-        m_VelSetPoint(2) = s_tg_tmp.v_z;
-        m_AccSetPoint(0) = s_tg_tmp.a_x;
-        m_AccSetPoint(1) = s_tg_tmp.a_y;
-        m_AccSetPoint(2) = s_tg_tmp.a_z;
-        //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
+    s_tg_tmp = *s_tg;
+    m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
+    m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
+    m_PosSetPoint(2) = s_tg_tmp.p_z;
+    //m_PosSetPoint(3) = 0;
+    m_VelSetPoint(0) = s_tg_tmp.v_x;
+    m_VelSetPoint(1) = s_tg_tmp.v_y;
+    m_VelSetPoint(2) = s_tg_tmp.v_z;
+    m_AccSetPoint(0) = s_tg_tmp.a_x;
+    m_AccSetPoint(1) = s_tg_tmp.a_y;
+    m_AccSetPoint(2) = s_tg_tmp.a_z;
+    //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
 
-    }
   };
 
 
@@ -719,7 +716,7 @@ public:
     Eigen::Vector3f Euler;
     Controller m_controller;
     Commander m_commander;
-    bool m_isHoverOK;
+//    bool m_isHoverOK;
 };
 
 
@@ -768,7 +765,7 @@ public:
     , m_initial_posMap()
     , m_formation_type("circle")
     , m_formation_scale(1.0)
-    , m_areHoverOk(false)
+//    , m_areHoverOk(false)
   {
       //added by yhz
       char str_csv[50] ;
@@ -788,6 +785,7 @@ public:
         m_beginPosSp=true;
 
       /*formation control parameters and variants*/
+      m_start_time = std::chrono::high_resolution_clock::now();
       m_target_position[0] = 0.0;
       m_target_position[1] = 0.0;
       robot_number = m_cfs.size();
@@ -987,12 +985,34 @@ public:
         if (m_sendAttSp){
             if(m_beginPosSp)//main process
             {
-                if(m_areHoverOk)
+                /**
+                 * add a formation control function
+                 */
+                auto cur_time = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> hover_time = cur_time-m_start_time;
+                if(hover_time.count() < 2)
                 {
-                    /**
-                     * add a formation control function
-                     */
+                    for(int i=0;i<sp_states.size();++i){
+                        //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+                        //getGroupCurPos(states[i].id,m_pMarkers);
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
 
+                        CrazyflieROS *cf = m_CrazyflieIdMap[sp_states[i].id];
+                        cf->m_PosSetPoint(0) = cf->m_initialPosition(0);
+                        cf->m_PosSetPoint(1) = cf->m_initialPosition(1);
+                        cf->m_PosSetPoint(2) = 1.0;
+                        cf->m_VelSetPoint(0) = 0;
+                        cf->m_VelSetPoint(1) = 0;
+                        cf->m_VelSetPoint(2) = 0;
+                        cf->m_AccSetPoint(0) = 0;
+                        cf->m_AccSetPoint(1) = 0;
+                        cf->m_AccSetPoint(2) = 0;
+
+                        Groupcontrol(sp_states[i].id,sp_states[i]);
+
+                    }
+                } else {
                     /*obtain the group position and publish for role assignment*/
                     std::vector<int> m_cfs_id;
                     std::vector<pair<double, double>> m_cfs_cur_pos;
@@ -1012,18 +1032,17 @@ public:
 
                         assignmentGroupcontrol(sp_states[i].id, sp_states[i], vxy_sp);
                     }
-                } else {
-                    for(int i=0;i<sp_states.size();++i){
-                        //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
-                        //getGroupCurPos(states[i].id,m_pMarkers);
-                        getGroupCurPos(states[i]);
-                        getPositionSetPoint();
-
-                        Groupcontrol(sp_states[i].id,sp_states[i]);
-                        if()
-                    }
                 }
 
+
+//                for(int i=0;i<sp_states.size();++i){
+//                    //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+//                    //getGroupCurPos(states[i].id,m_pMarkers);
+//                    getGroupCurPos(states[i]);
+//                    getPositionSetPoint();
+//
+//                    Groupcontrol(sp_states[i].id,sp_states[i]);
+//                }
             }
             /*std::cout<<"setpoint ouside(trpy): "<< sp_states.back().thrust <<"; "
                      <<sp_states.back().roll<<"; "
@@ -1785,7 +1804,8 @@ private:
     Eigen::Matrix2Xd m_formation;
     std::vector<pair<int,int>> m_assignment;
     int robot_number;
-    bool m_areHoverOk;
+    std::chrono::high_resolution_clock::time_point m_start_time;
+//    bool m_areHoverOk;
 
     std::vector<CrazyflieROS*> m_cfs;
     std::string m_interactiveObject;
