@@ -1012,6 +1012,48 @@ public:
                         Groupcontrol(sp_states[i].id,sp_states[i]);
 
                     }
+                } else if (hover_time.count() < 13 && hover_time.count() > 12)
+                {
+                    for(int i=0;i<sp_states.size();++i){
+                        //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+                        //getGroupCurPos(states[i].id,m_pMarkers);
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
+
+                        CrazyflieROS *cf = m_CrazyflieIdMap[sp_states[i].id];
+                        cf->m_PosSetPoint(0) = states[i].x;
+                        cf->m_PosSetPoint(1) = states[i].y;
+                        cf->m_PosSetPoint(2) = 0.5;
+                        cf->m_VelSetPoint(0) = 0;
+                        cf->m_VelSetPoint(1) = 0;
+                        cf->m_VelSetPoint(2) = 0;
+                        cf->m_AccSetPoint(0) = 0;
+                        cf->m_AccSetPoint(1) = 0;
+                        cf->m_AccSetPoint(2) = 0;
+
+                        Groupcontrol(sp_states[i].id,sp_states[i]);
+                    }
+                } else if (hover_time.count() > 13)
+                {
+                    for(int i=0;i<sp_states.size();++i){
+                        //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+                        //getGroupCurPos(states[i].id,m_pMarkers);
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
+
+                        CrazyflieROS *cf = m_CrazyflieIdMap[sp_states[i].id];
+                        cf->m_PosSetPoint(0) = states[i].x;
+                        cf->m_PosSetPoint(1) = states[i].y;
+                        cf->m_PosSetPoint(2) = -0.5;
+                        cf->m_VelSetPoint(0) = 0;
+                        cf->m_VelSetPoint(1) = 0;
+                        cf->m_VelSetPoint(2) = 0;
+                        cf->m_AccSetPoint(0) = 0;
+                        cf->m_AccSetPoint(1) = 0;
+                        cf->m_AccSetPoint(2) = 0;
+
+                        Groupcontrol(sp_states[i].id,sp_states[i]);
+                    }
                 } else {
                     /*obtain the group position and publish for role assignment*/
                     std::vector<int> m_cfs_id;
