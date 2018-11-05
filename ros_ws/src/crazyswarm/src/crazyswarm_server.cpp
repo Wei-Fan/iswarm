@@ -41,6 +41,8 @@
 /*formation control dependencies*/
 #include <string>
 #include <eiquadprog.h>
+#include <std_msgs/Float64MultiArray.h>
+#include <std_msgs/Int32MultiArray.h>
 
 // debug test
 #include <signal.h>
@@ -763,8 +765,9 @@ public:
     , m_sendAttSp(true)
     , m_isGivingSp(true)
     , m_initial_posMap()
-    , m_formation_type("circle")
+    , m_formation_type("square")
     , m_formation_scale(1.0)
+    , m_require_assignment(false)
 //    , m_areHoverOk(false)
   {
       //added by yhz
@@ -785,6 +788,9 @@ public:
         m_beginPosSp=true;
 
       /*formation control parameters and variants*/
+      ros::NodeHandle nh;
+      assignment_request_pub = nh.advertise<std_msgs::Float64MultiArray>("/role_assignment_request",10);
+      assignment_command_sub = nh.subscribe("/role_assignment_command", 10, &CrazyflieGroup::assignment_cb, this);
       m_start_time = std::chrono::high_resolution_clock::now();
       m_target_position[0] = 0.0;
       m_target_position[1] = 0.0;
@@ -990,7 +996,7 @@ public:
                  */
                 auto cur_time = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<double> hover_time = cur_time-m_start_time;
-                if(hover_time.count() < 2)
+                if(hover_time.count() < 10)
                 {
                     for(int i=0;i<sp_states.size();++i){
                         //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
@@ -1001,10 +1007,10 @@ public:
                         CrazyflieROS *cf = m_CrazyflieIdMap[sp_states[i].id];
                         cf->m_PosSetPoint(0) = cf->m_initialPosition(0);
                         cf->m_PosSetPoint(1) = cf->m_initialPosition(1);
-                        cf->m_PosSetPoint(2) = 1.0;
+                        cf->m_PosSetPoint(2) = min(0.16*hover_time.count(),0.8);
                         cf->m_VelSetPoint(0) = 0;
                         cf->m_VelSetPoint(1) = 0;
-                        cf->m_VelSetPoint(2) = 0;
+                        cf->m_VelSetPoint(2) = 0.16;
                         cf->m_AccSetPoint(0) = 0;
                         cf->m_AccSetPoint(1) = 0;
                         cf->m_AccSetPoint(2) = 0;
@@ -1012,7 +1018,7 @@ public:
                         Groupcontrol(sp_states[i].id,sp_states[i]);
 
                     }
-                } else if (hover_time.count() < 13 && hover_time.count() > 12)
+                } else if (hover_time.count() < 38 && hover_time.count() > 35)
                 {
                     for(int i=0;i<sp_states.size();++i){
                         //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
@@ -1033,7 +1039,7 @@ public:
 
                         Groupcontrol(sp_states[i].id,sp_states[i]);
                     }
-                } else if (hover_time.count() > 13)
+                } else if (hover_time.count() > 38)
                 {
                     for(int i=0;i<sp_states.size();++i){
                         //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
@@ -1073,6 +1079,22 @@ public:
                         getPositionSetPoint();
 
                         assignmentGroupcontrol(sp_states[i].id, sp_states[i], vxy_sp);
+                    }
+
+                    if (m_require_assignment)
+                    {
+                        m_require_assignment = false;
+                        std_msgs::Float64MultiArray msg;
+                        for (int i = 0; i < m_cfs_id.size(); ++i) {
+                            msg.data.push_back(double(m_cfs_id[i]));
+                        }
+                        for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
+                            msg.data.push_back(m_cfs_cur_pos[j].first);
+                        }
+                        for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
+                            msg.data.push_back(m_cfs_cur_pos[j].second);
+                        }
+                        assignment_request_pub.publish(msg);
                     }
                 }
 
@@ -1280,8 +1302,8 @@ public:
       formation_control(velocity_formation_control, rid, cfs_cur_pos, m_formation, assignment);//, CONNECT_RADIUS); //establish permiter
 
       double velocity[2];
-      velocity[0]= velocity_target_following[0] + velocity_formation_control[0];
-      velocity[1]= velocity_target_following[1] + velocity_formation_control[1];//two velocities add together
+      velocity[0]= (velocity_target_following[0] + velocity_formation_control[0])*0.1;
+      velocity[1]= (velocity_target_following[1] + velocity_formation_control[1])*0.1;//two velocities add together
       double v_t[2];
       v_t[0] = velocity[0];
       v_t[1] = velocity[1];
@@ -1290,11 +1312,22 @@ public:
       /*check if the role assignment is required*/
       double nominal_velocity = sqrt(v_t[0]*v_t[0]+v_t[1]*v_t[1]);
       double bc_velocity = sqrt(velocity[0]*velocity[0]+velocity[1]*velocity[1]);
+
+      if (v_t[0]*velocity[0]+v_t[1]*velocity[1] < 0)
+      {
+//          ROS_INFO("warning!!!");
+          velocity[0] = velocity[0]/fabs(velocity[0])*0.3;
+          velocity[1] = velocity[1]/fabs(velocity[1])*0.3;
+      }
+
       if ((bc_velocity/2) < 0.1 && (nominal_velocity - bc_velocity) > 1.0)
       {
-//          std_msgs::Empty signal;
+          m_require_assignment = true;
 //          assignment_request_pub.publish(signal);
       }
+
+      raw_velocity[0] = velocity[0];
+      raw_velocity[1] = velocity[1];
   }
 
     void target_following(double *v, std::vector<std::pair<double, double>> position, double *target_position){
@@ -1333,10 +1366,10 @@ public:
 
             if (norm_d < 10)//connectivity_radius)
             {
-//                dv[0] = d[0] - (formation(assignment[j],0) - formation(assignment[i],0));
-//                dv[1] = d[1] - (formation(assignment[j],1) - formation(assignment[i],1));
-                 dv[0] = d[0] - (formation(j,0) - formation(i,0));
-                 dv[1] = d[1] - (formation(j,1) - formation(i,1));
+                dv[0] = d[0] - (formation(assignment[j],0) - formation(assignment[i],0));
+                dv[1] = d[1] - (formation(assignment[j],1) - formation(assignment[i],1));
+//                 dv[0] = d[0] - (formation(j,0) - formation(i,0));
+//                 dv[1] = d[1] - (formation(j,1) - formation(i,1));
                 n = n + 1;
             }
             else
@@ -1354,11 +1387,11 @@ public:
 
     void barrier_certificate(double *v, int rid, std::vector<pair<double, double>> position){
         int c = 0; //c=0 assumes agressive behaviour, =1 assumes neutral, =2 assumes enemy will avoid collision
-        double Ds = 0.3;
+        double Ds = 0.4;
         double delta_amax = 1.0;
         double gamma = 10000.0;
-        double a_max = 2.0;
-        double delta_vmax = 1.0;
+        double a_max = 1.0;
+        double delta_vmax = 0.5;
         double obstacle_radius = 0.5;
         double neighbour_radius = Ds + 1/(2*delta_amax)* pow((pow(2*delta_amax/gamma, 1.0/3.0) + delta_vmax), 2);
 
@@ -1468,7 +1501,7 @@ public:
         Eigen::Vector4f vec4ftmp;
         CrazyflieROS *cf = m_CrazyflieIdMap[id];
         //std::cout<<"ID:"<<id<<std::endl;
-        double z_sp = 1.2;
+        double z_sp = 0.8;
         cf->m_controller.control_nonLineaire(cf->m_currentPosition,
                                              z_sp, vxy_sp, cf->Euler,
                                              g_dt, &vec4ftmp);
@@ -1476,6 +1509,18 @@ public:
         sp_state.pitch = vec4ftmp(1);
         sp_state.yaw = vec4ftmp(2);
         sp_state.thrust = vec4ftmp(3);
+    }
+
+    void assignment_cb(const std_msgs::Int32MultiArray &msg) {
+        /*update the assignment matrix*/
+        int number = int(msg.data.size()/2);
+        m_assignment.clear();
+        for (int i = 0; i < number; ++i) {
+            std::pair<int, int> tmp;
+            tmp.first = msg.data[i];
+            tmp.second = msg.data[i+number];
+            m_assignment.push_back(tmp);
+        }
     }
 
   /**
@@ -1847,6 +1892,9 @@ private:
     std::vector<pair<int,int>> m_assignment;
     int robot_number;
     std::chrono::high_resolution_clock::time_point m_start_time;
+    ros::Publisher assignment_request_pub;
+    ros::Subscriber assignment_command_sub;
+    bool m_require_assignment;
 //    bool m_areHoverOk;
 
     std::vector<CrazyflieROS*> m_cfs;

@@ -321,8 +321,8 @@ void Controller::control_nonLineaire(const Eigen::Vector3f& pos_est_Vicon, doubl
         vel_Sp(1) =  vxy_sp[1]; //m_pidY.pp_update(y_temp_est , y_sp) + Vel_ff(1)*0.0f;
         vel_Sp(2) =  m_pidZ.pp_update(z_temp_est , z_sp); // + Vel_ff(2)*0.0f;
 
-        vel_Sp(0) = std::min(std::max(vel_Sp(0),-2.0f),2.0f);
-        vel_Sp(1) = std::min(std::max(vel_Sp(1),-2.0f),2.0f);
+        vel_Sp(0) = std::min(std::max(vel_Sp(0),-1.5f),1.5f);
+        vel_Sp(1) = std::min(std::max(vel_Sp(1),-1.5f),1.5f);
         vel_Sp(2) = std::min(std::max(vel_Sp(2),-2.0f),2.0f);
 
 

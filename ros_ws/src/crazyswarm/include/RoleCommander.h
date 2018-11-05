@@ -19,16 +19,9 @@
 #include <eiquadprog.h>
 
 // #include <std_msgs/Int8MultiArray.h>
-#include <std_msgs/Empty.h>
+#include <std_msgs/Float64MultiArray.h>
 #include <geometry_msgs/Pose.h>
 
-/**
- * This may be the actual lower level controller which does heavy calculations.
- */
-struct robot_info {
-    std::string name;
-    geometry_msgs::Pose pose;
-};
 /**
  * The ROS wrapper around a controller which will take in message and adapt them to the controllers input.
  */
@@ -59,23 +52,22 @@ private:
     /**
      * Parameters of role assignment
      */
-    // std::vector<int> assignment;
     bool enable_assign;
     // double start_time;
     double request_time;
     double execute_time;
-    std::vector<ros::Publisher> assignment_command_pub_v;
+    ros::Publisher assignment_command_pub;
     ros::Subscriber assignment_command_sub;
 
     std::vector<int> assignment;
+    std::vector<int> assignment_id;
+    std::vector<std::pair<double, double>> all_position;
 
     /*
      * Parameters of formation
      */
-    std::string formation_type = "circle";
-    double formation_center[2] = {0,0}; 
-    double circle_radius = 0;
-    double square_length = 0; 
+    std::string formation_type = "square";
+    double m_formation_scale = 1.0;
 
     /**
      * obtain the swarm positon from other node
@@ -102,7 +94,7 @@ public:
 //
 //    void model_states_cb(const gazebo_msgs::ModelStates &states);
 
-    void ra_request_cb(const std_msgs::Empty &msg);
+    void ra_request_cb(const std_msgs::Float64MultiArray &msg);
 };
 
 #endif //RoleCommander_H

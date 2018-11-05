@@ -186,18 +186,18 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="3" />
-          <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.12" value="4" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.6" value="5" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="7" />
+          <entry key="cpp" value="8" />
           <entry key="h" value="7" />
           <entry key="md" value="10" />
           <entry key="txt" value="2" />
@@ -207,14 +207,14 @@
         <counts>
           <entry key="CMakeLists.txt" value="2" />
           <entry key="Markdown" value="5" />
-          <entry key="ObjectiveC" value="14" />
+          <entry key="ObjectiveC" value="15" />
           <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="3342" />
-          <entry key="h" value="226" />
+          <entry key="cpp" value="4408" />
+          <entry key="h" value="314" />
           <entry key="md" value="999" />
           <entry key="txt" value="152" />
         </counts>
@@ -224,7 +224,7 @@
           <entry key="CMakeLists.txt" value="152" />
           <entry key="Doxygen file" value="4" />
           <entry key="Markdown" value="883" />
-          <entry key="ObjectiveC" value="3564" />
+          <entry key="ObjectiveC" value="4718" />
           <entry key="PLAIN_TEXT" value="116" />
         </counts>
       </usages-collector>
@@ -249,45 +249,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="807">
-              <caret line="1046" column="52" lean-forward="true" selection-start-line="1046" selection-start-column="52" selection-end-line="1046" selection-end-column="52" />
+            <state relative-caret-position="312">
+              <caret line="767" column="30" selection-start-line="767" selection-start-column="30" selection-end-line="767" selection-end-column="30" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
                 <element signature="e#982#999#0" expanded="true" />
                 <element signature="e#1174#1191#0" expanded="true" />
-                <element signature="e#36342#38961#1" />
-                <element signature="e#37857#38243#0" />
-                <element signature="e#38247#38707#0" />
-                <element signature="e#38711#40378#0" />
-                <element signature="e#40384#40949#0" />
-                <element signature="e#40955#42277#0" />
-                <element signature="e#42283#45068#0" />
-                <element signature="e#45074#45649#0" />
-                <element signature="e#45655#45924#0" />
-                <element signature="e#45930#46747#0" />
-                <element signature="e#46753#47389#0" />
+                <element signature="e#55176#59031#0" />
+                <element signature="e#59035#60350#0" />
+                <element signature="e#60354#62675#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4655">
-              <caret line="245" column="38" selection-start-line="245" selection-start-column="38" selection-end-line="245" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/control_modified.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2299">
-              <caret line="121" column="87" selection-start-line="121" selection-start-column="87" selection-end-line="121" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -295,12 +269,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+            <state relative-caret-position="437">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#389#406#0" expanded="true" />
                 <element signature="e#465#487#0" expanded="true" />
-                <element signature="e#553#580#0" expanded="true" />
+                <element signature="e#553#592#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#77#95#0" expanded="true" />
+                <element signature="e#277#296#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -309,8 +297,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3192">
+            <state relative-caret-position="179">
               <caret line="168" column="11" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="324" column="52" selection-start-line="324" selection-start-column="52" selection-end-line="324" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -324,54 +321,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1919">
-              <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#77#95#0" expanded="true" />
-                <element signature="e#277#296#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>traj</find>
-      <find>traj_cb</find>
-      <find>formation</find>
-      <find>m_formation</find>
-      <find>m_cfs_id</find>
-      <find>m_cf_id</find>
-      <find>m_assignment</find>
-      <find>states</find>
-      <find>generateFormation</find>
-      <find>target_position</find>
-      <find>states.size</find>
-      <find>pair</find>
-      <find>m_formation_type</find>
-      <find>formation_control</find>
-      <find>control_nonLineaire</find>
-      <find>getGroupPresentPos</find>
-      <find>m_currentPosition</find>
-      <find>Vel_ff</find>
-      <find>x_temp_est</find>
-      <find>vel_Sp</find>
-      <find>_acc_Sp_W</find>
-      <find>m_PosSetPoint</find>
-      <find>isHoverOk</find>
-      <find>m_isHoverOK</find>
-      <find>stamp</find>
-      <find>start_time</find>
-      <find>m_start_time</find>
-      <find>m_cfs</find>
       <find>Groupcontrol</find>
       <find>getGroupCurPos</find>
+      <find>NodeHandle</find>
+      <find>advertise</find>
+      <find>assignment_request_pub</find>
+      <find>Empty</find>
+      <find>publish</find>
+      <find>std_msgs</find>
+      <find>Float32MultiArray</find>
+      <find>Float64MultiArray</find>
+      <find>m_assi</find>
+      <find>m_assignment</find>
+      <find>Int32MultiArray</find>
+      <find>assignment_cb</find>
+      <find>assignmentReMap</find>
+      <find>formation_control</find>
+      <find>formationControl</find>
+      <find>this-&gt;</find>
+      <find>ra_request_cb</find>
+      <find>m_start_time</find>
+      <find>all_state</find>
+      <find>generateFormation</find>
+      <find>m_formation_scale</find>
+      <find>target</find>
+      <find>target_position</find>
+      <find>all_position</find>
+      <find>formation_center</find>
+      <find>assignment_command_sub</find>
+      <find>formation_type</find>
+      <find>robot_info</find>
     </findStrings>
     <replaceStrings>
       <replace>RoleCommander</replace>
@@ -430,12 +413,12 @@
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/launch/allCrazyflies.yaml" />
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/src/role_commander.cpp" />
-        <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h" />
-        <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp" />
         <option value="$PROJECT_DIR$/LISTENTOME.md" />
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/include/control_modified.h" />
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp" />
+        <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp" />
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp" />
+        <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h" />
       </list>
     </option>
   </component>
@@ -446,11 +429,11 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="-4" />
-    <option name="width" value="1855" />
-    <option name="height" value="1084" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="75" />
+    <option name="y" value="24" />
+    <option name="width" value="1349" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -458,7 +441,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -477,10 +459,35 @@
               <item name="iswarm" type="462c0819:PsiDirectoryNode" />
               <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="iswarm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crazyswarm" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="iswarm" type="462c0819:PsiDirectoryNode" />
+              <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iswarm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crazyswarm" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="iswarm" type="462c0819:PsiDirectoryNode" />
+              <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="crazyswarm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iswarm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crazyswarm" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="iswarm" type="462c0819:PsiDirectoryNode" />
+              <item name="ros_ws" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="crazyswarm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1191,18 +1198,20 @@
       <workItem from="1541210158439" duration="9796000" />
       <workItem from="1541230873950" duration="2203000" />
       <workItem from="1541295069228" duration="1186000" />
+      <workItem from="1541377327599" duration="1071000" />
+      <workItem from="1541381229061" duration="5489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300766000" />
+    <option name="totallyTimeSpent" value="307326000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="75" y="24" width="1349" height="1056" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.51508844" visible="true" weight="0.14782129" />
-      <window_info id="Structure" order="1" sideWeight="0.48491156" side_tool="true" visible="true" weight="0.14782129" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.51293105" visible="true" weight="0.21028396" />
+      <window_info id="Structure" order="1" sideWeight="0.48706895" side_tool="true" visible="true" weight="0.21028396" />
       <window_info id="Favorites" order="2" sideWeight="0.36087865" side_tool="true" weight="0.19402985" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.499375" weight="0.10175879" />
@@ -1214,7 +1223,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.500625" side_tool="true" weight="0.10175879" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3298647" />
-      <window_info anchor="bottom" id="CMake" order="10" weight="0.18295218" />
+      <window_info anchor="bottom" id="CMake" order="10" weight="0.18817204" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1532,10 +1541,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyflie_ros/crazyflie_driver/src/crazyflie_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4655">
-          <caret line="245" column="38" selection-start-line="245" selection-start-column="38" selection-end-line="245" selection-end-column="38" />
+        <state relative-caret-position="311">
+          <caret line="80" column="6" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1543,51 +1552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2299">
           <caret line="121" column="87" selection-start-line="121" selection-start-column="87" selection-end-line="121" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="e#389#406#0" expanded="true" />
-            <element signature="e#465#487#0" expanded="true" />
-            <element signature="e#553#580#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3192">
-          <caret line="168" column="11" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/role_commander.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1919">
-          <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#77#95#0" expanded="true" />
-            <element signature="e#277#296#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyflie_ros/crazyflie_driver/src/crazyflie_server.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="80" column="6" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1608,25 +1572,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="324" column="52" selection-start-line="324" selection-start-column="52" selection-end-line="324" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="168" column="11" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/role_commander.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="1046" column="52" lean-forward="true" selection-start-line="1046" selection-start-column="52" selection-end-line="1046" selection-end-column="52" />
+        <state relative-caret-position="312">
+          <caret line="767" column="30" selection-start-line="767" selection-start-column="30" selection-end-line="767" selection-end-column="30" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
             <element signature="e#982#999#0" expanded="true" />
             <element signature="e#1174#1191#0" expanded="true" />
-            <element signature="e#36342#38961#1" />
-            <element signature="e#37857#38243#0" />
-            <element signature="e#38247#38707#0" />
-            <element signature="e#38711#40378#0" />
-            <element signature="e#40384#40949#0" />
-            <element signature="e#40955#42277#0" />
-            <element signature="e#42283#45068#0" />
-            <element signature="e#45074#45649#0" />
-            <element signature="e#45655#45924#0" />
-            <element signature="e#45930#46747#0" />
-            <element signature="e#46753#47389#0" />
+            <element signature="e#55176#59031#0" />
+            <element signature="e#59035#60350#0" />
+            <element signature="e#60354#62675#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#389#406#0" expanded="true" />
+            <element signature="e#465#487#0" expanded="true" />
+            <element signature="e#553#592#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#77#95#0" expanded="true" />
+            <element signature="e#277#296#0" expanded="true" />
           </folding>
         </state>
       </provider>
