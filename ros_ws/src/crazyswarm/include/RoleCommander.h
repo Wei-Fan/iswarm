@@ -69,7 +69,7 @@ private:
      * Parameters of formation
      */
     std::string formation_type = "square";
-    double m_formation_scale = 1.5;
+    double m_formation_scale = 2.0;
 
     /**
      * obtain the swarm positon from other node

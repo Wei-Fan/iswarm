@@ -40,6 +40,8 @@ RoleCommander::RoleCommander() {
 
     this->active = true;
     this->enable_assign = false;
+    // this->enable_assign = true;
+    // all_position.resize(8);
     this->isFirst = true;
     this->execute_time = ros::Time::now().toSec();
     this->request_time = this->execute_time;
@@ -79,21 +81,23 @@ void RoleCommander::start() {
                 double total_length = m_formation_scale * 4.0;
                 double x = -(m_formation_scale/2.0);
                 double y = -(m_formation_scale/2.0);
-                double dl = total_length / (double) ROBOT_MAX;
+                double dl = total_length / double(ROBOT_MAX);
                 double prev_l = 0;
                 double dx, dy;
                 for(int i = 0;i < ROBOT_MAX;i++)
                 {
                     double l = dl * (i+1);
-                    if(l < total_length/4.0)
+                    if(l <= total_length/4.0)
                     {
                         // go right
+                        // ROS_INFO("go right");
                         x = x + dl;
                         y = -(m_formation_scale/2.0);
                     }
-                    else if(l >= total_length/4.0 && l < total_length/2.0)
+                    else if(l > total_length/4.0 && l <= total_length/2.0)
                     {
                         // go up
+                        // ROS_INFO("go up");
                         if(prev_l < total_length/4.0)
                         {
                             dx = m_formation_scale/2.0 - x;
@@ -106,9 +110,10 @@ void RoleCommander::start() {
                         }
 
                     }
-                    else if(l >= total_length/2.0 && l < total_length * 3.0/4.0)
+                    else if(l > total_length/2.0 && l <= total_length * 3.0/4.0)
                     {
                         // go left
+                        // ROS_INFO("go left");
                         if(prev_l < total_length/2.0){
                             dy = m_formation_scale/2.0 - y;
                             dx = dl - dy;
@@ -121,6 +126,7 @@ void RoleCommander::start() {
                     }
                     else{
                         // go down
+                        // ROS_INFO("go down");
                         if(prev_l < total_length * 3.0/4.0){
                             dx = x + m_formation_scale/2.0;
                             dy = dl - dx;
@@ -139,6 +145,10 @@ void RoleCommander::start() {
             }
             else{
                 ROS_ERROR("generate formation fails!");
+            }
+            for (int i = 0; i < ROBOT_MAX; ++i)
+            {
+                cout<<formation(i,0)<<" "<<formation(i,1)<<endl;
             }
             /*
              *Solve the role assignment
@@ -208,7 +218,13 @@ void RoleCommander::start() {
 
             assignment_command_pub.publish(assign_msg);
 
-            ROS_INFO("*************** send out assignment from the commander!");
+            // ROS_INFO("*************** send out assignment from the commander!");
+            cout<<"commander return : ";
+            for (int i = 0; i < all_position.size(); ++i)
+            {
+                cout<<unsigned(assignment_id[i])<<" : "<<formation(assignment[i],0)<<", "<<formation(assignment[i],1)<<" ";
+            }
+            cout<<endl;
             this->enable_assign = false;
         }
 

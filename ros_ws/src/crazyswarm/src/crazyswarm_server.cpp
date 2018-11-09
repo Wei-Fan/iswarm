@@ -768,7 +768,7 @@ public:
     , m_isGivingSp(true)
     , m_initial_posMap()
     , m_formation_type("square")
-    , m_formation_scale(1.5)
+    , m_formation_scale(2.0)
     , m_require_assignment(true)
 //    , m_areHoverOk(false)
   {
@@ -797,13 +797,14 @@ public:
       m_target_position[0] = 0.0;
       m_target_position[1] = 0.0;
       robot_number = m_cfs.size();
-      m_formation.resize(2, robot_number);
+      m_formation.resize(robot_number,2);
+      cerr<<m_formation.rows()<<" "<<m_formation.cols();
       for (int i = 0; i < robot_number; ++i) {
           pair<int, int> tmp;
           tmp = make_pair(m_cfs[i]->id(),i);
           m_assignment.push_back(tmp);
       }
-      cout<<"assignment : ";
+      cout<<"assignment ";
       for (int i = 0; i < robot_number; ++i)
       {
       	cout<< m_assignment[i].first << "--" << m_assignment[i].second<< " ";
@@ -811,6 +812,10 @@ public:
       cout<<endl;
       /*generate formation*/
       generateFormation(m_formation_type, m_formation_scale, m_formation);
+      for (int i = 0; i < robot_number; ++i)
+      {
+      	cout<<m_formation(i,0)<<" "<<m_formation(i,1)<<endl;
+      }
   }
 
   ~CrazyflieGroup()
@@ -1004,6 +1009,16 @@ public:
                  */
                 auto cur_time = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<double> hover_time = cur_time-m_start_time;
+
+                /*obtain the group position and publish for role assignment*/
+                std::vector<uint8_t> m_cfs_id;
+                std::vector<pair<double, double>> m_cfs_cur_pos;
+                std::vector<int> assignment;
+
+                getGroupPresentPos(states, m_cfs_id, m_cfs_cur_pos);
+                //                assignment_pub.publish(m_cfs_cur_pos);
+                assignmentReMap(m_cfs_id, m_assignment, assignment);
+
                 if(hover_time.count() < 6)
                 {
                 	// ROS_INFO("~~~~~~~Taking off");
@@ -1027,6 +1042,7 @@ public:
                         Groupcontrol(sp_states[i].id,sp_states[i]);
 
                     }
+                    m_require_assignment = true;
                 } else if (hover_time.count() < 38 && hover_time.count() > 35)
                 {
                 	ROS_INFO("~~~~~~~Landing");
@@ -1071,47 +1087,44 @@ public:
                         Groupcontrol(sp_states[i].id,sp_states[i]);
                     }
                 } else {
-                    /*obtain the group position and publish for role assignment*/
-                    std::vector<uint8_t> m_cfs_id;
-                    std::vector<pair<double, double>> m_cfs_cur_pos;
-                    std::vector<int> assignment;
-
-                    getGroupPresentPos(states, m_cfs_id, m_cfs_cur_pos);
-                    //                assignment_pub.publish(m_cfs_cur_pos);
-                    assignmentReMap(m_cfs_id, m_assignment, assignment);
+                    
 
                     /*obtain the velocity setpoint from formation control and transform the setpoint to control variants*/
                     for (int i = 0; i < sp_states.size(); ++i) {
                         double vxy_sp[2];
                         formationControl(i, m_cfs_cur_pos, m_target_position, assignment, vxy_sp);
+                        // ROS_INFO_STREAM("uav "<<unsigned(m_cfs_id[i])<<" "<<m_formation(assignment[i],0)<<", "<<m_formation(assignment[i],1));
+                        // vxy_sp[1] = -vxy_sp[0];
 
                         getGroupCurPos(states[i]);
                         getPositionSetPoint();
-
+                        if (fabs(vxy_sp[0])>10||fabs(vxy_sp[1])>10)
+                        {
+                        	ROS_INFO("uav %d v : %f, %f", unsigned(m_cfs_id[i]), vxy_sp[0], vxy_sp[1]);
+                        }
                         assignmentGroupcontrol(sp_states[i].id, sp_states[i], vxy_sp);
                     }
-
-                    if (m_require_assignment)
-                    {
-                        m_require_assignment = false;
-                        crazyflie_driver::IdPos msg;
+                }
+                if (m_require_assignment)
+                {
+                    m_require_assignment = false;
+                    crazyflie_driver::IdPos msg;
 //                        cout<<"m_cfs_id : ";
-                        for (int i = 0; i < m_cfs_id.size(); ++i) {
+                    for (int i = 0; i < m_cfs_id.size(); ++i) {
 //                        	cout<<unsigned(m_cfs_id[i])<<" ";
-                            msg.id.push_back(m_cfs_id[i]);
-                            msg.x.push_back(m_cfs_cur_pos[i].first);
-                            msg.y.push_back(m_cfs_cur_pos[i].second);
-                        }
-//                        cout<<endl;
-                        // for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
-                        //     msg.x.push_back(m_cfs_cur_pos[j].first);
-                        // }
-                        // for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
-                        //     msg.y.push_back(m_cfs_cur_pos[j].second);
-                        // }
-                        assignment_request_pub.publish(msg);
-                        // ROS_INFO("~~~~~~~~~request role assignment!");
+                        msg.id.push_back(m_cfs_id[i]);
+                        msg.x.push_back(m_cfs_cur_pos[i].first);
+                        msg.y.push_back(m_cfs_cur_pos[i].second);
                     }
+//                        cout<<endl;
+                    // for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
+                    //     msg.x.push_back(m_cfs_cur_pos[j].first);
+                    // }
+                    // for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
+                    //     msg.y.push_back(m_cfs_cur_pos[j].second);
+                    // }
+                    assignment_request_pub.publish(msg);
+                    // ROS_INFO("~~~~~~~~~request role assignment!");
                 }
 
 
@@ -1197,7 +1210,7 @@ public:
   /**
    * Weifan
   **/
-  void generateFormation(std::string formation_type, double formation_scale, Eigen::Matrix2Xd &formation)
+  void generateFormation(std::string formation_type, double formation_scale, Eigen::MatrixXd &formation)
   {
       /*Generate formation*/
       int ROBOT_MAX = this->robot_number;
@@ -1215,58 +1228,62 @@ public:
           double total_length = formation_scale * 4.0;
           double x = -(formation_scale/2.0);
           double y = -(formation_scale/2.0);
-          double dl = total_length / (double) ROBOT_MAX;
+          double dl = total_length / double(ROBOT_MAX);
           double prev_l = 0;
           double dx, dy;
           for(int i = 0;i < ROBOT_MAX;i++)
           {
               double l = dl * (i+1);
-              if(l < total_length/4.0)
-              {
-                  // go right
-                  x = x + dl;
-                  y = -(formation_scale/2.0);
-              }
-              else if(l >= total_length/4.0 && l < total_length/2.0)
-              {
-                  // go up
-                  if(prev_l < total_length/4.0)
-                  {
-                      dx = formation_scale/2.0 - x;
-                      dy = dl - dx;
-                      x = formation_scale/2.0;
-                      y = y + dy;
-                  }
-                  else{
-                      y = y + dl;
-                  }
+	            if(l <= total_length/4.0)
+	            {
+	                // go right
+	                // ROS_INFO("go right");
+	                x = x + dl;
+	                y = -(m_formation_scale/2.0);
+	            }
+	            else if(l > total_length/4.0 && l <= total_length/2.0)
+	            {
+	                // go up
+	                // ROS_INFO("go up");
+	                if(prev_l < total_length/4.0)
+	                {
+	                    dx = m_formation_scale/2.0 - x;
+	                    dy = dl - dx;
+	                    x = m_formation_scale/2.0;
+	                    y = y + dy;
+	                }
+	                else{
+	                    y = y + dl;
+	                }
 
-              }
-              else if(l >= total_length/2.0 && l < total_length * 3.0/4.0)
-              {
-                  // go left
-                  if(prev_l < total_length/2.0){
-                      dy = formation_scale/2.0 - y;
-                      dx = dl - dy;
-                      y = formation_scale/2.0;
-                      x = x - dx;
-                  }
-                  else{
-                      x = x - dl;
-                  }
-              }
-              else{
-                  // go down
-                  if(prev_l < total_length * 3.0/4.0){
-                      dx = x + formation_scale/2.0;
-                      dy = dl - dx;
-                      x = -(formation_scale/2.0);
-                      y = y - dy;
-                  }
-                  else{
-                      y = y - dl;
-                  }
-              }
+	            }
+	            else if(l > total_length/2.0 && l <= total_length * 3.0/4.0)
+	            {
+	                // go left
+	                // ROS_INFO("go left");
+	                if(prev_l < total_length/2.0){
+	                    dy = m_formation_scale/2.0 - y;
+	                    dx = dl - dy;
+	                    y = m_formation_scale/2.0;
+	                    x = x - dx;
+	                }
+	                else{
+	                    x = x - dl;
+	                }
+	            }
+	            else{
+	                // go down
+	                // ROS_INFO("go down");
+	                if(prev_l < total_length * 3.0/4.0){
+	                    dx = x + m_formation_scale/2.0;
+	                    dy = dl - dx;
+	                    x = -(m_formation_scale/2.0);
+	                    y = y - dy;
+	                }
+	                else{
+	                    y = y - dl;
+	                }
+	            }
 
               formation(i,0) = x;
               formation(i,1) = y;
@@ -1312,27 +1329,34 @@ public:
        * Then, self_id will be replaced by what is corresponsing.
        */
       double velocity_target_following[2],velocity_formation_control[2];
-      double publish_velocity, publish_heading_velocity;
+      // double publish_velocity, publish_heading_velocity;
+      velocity_target_following[0] = 0.0f;
+      velocity_target_following[1] = 0.0f;
+      velocity_formation_control[0] = 0.0f;
+      velocity_formation_control[1] = 0.0f;
+
 
       target_following(velocity_target_following, cfs_cur_pos, target_position); //target following
       formation_control(velocity_formation_control, rid, cfs_cur_pos, m_formation, assignment);//, CONNECT_RADIUS); //establish permiter
 
+		// ROS_INFO_STREAM("abc");
 
-      // ROS_INFO("*********** velocity_target_following : %f, %f", velocity_target_following[0],velocity_target_following[1]);
-      // ROS_INFO("*********** velocity_formation_control : %f, %f", velocity_formation_control[0],velocity_formation_control[1]);
+      // ROS_INFO_STREAM("robot "<<rid<<" v_formation_control : "<<velocity_formation_control[0]<<", "<<velocity_formation_control[1]);
+      // ROS_INFO("v_formation_control : %f, %f", velocity_formation_control[0],velocity_formation_control[1]);
       double velocity[2];
-      velocity[0]= velocity_target_following[0]*0.3 + velocity_formation_control[0]*0.15;
-      velocity[1]= velocity_target_following[1]*0.3 + velocity_formation_control[1]*0.15;//two velocities add together
+      velocity[0]= velocity_target_following[0]*0.05 + velocity_formation_control[0]*0.4;
+      velocity[1]= velocity_target_following[1]*0.05 + velocity_formation_control[1]*0.4;//two velocities add together
       double v_t[2];
       v_t[0] = velocity[0];
       v_t[1] = velocity[1];
+      // ROS_INFO("before bc %d: %f, %f",rid, velocity[0],velocity[1]);
       barrier_certificate(velocity, rid, cfs_cur_pos);//barrier certificate
 
       /*check if the role assignment is required*/
       double nominal_velocity = sqrt(v_t[0]*v_t[0]+v_t[1]*v_t[1]);
       double bc_velocity = sqrt(velocity[0]*velocity[0]+velocity[1]*velocity[1]);
 
-      if (v_t[0]*velocity[0]+v_t[1]*velocity[1] < 0)
+      if (v_t[0]*velocity[0]+v_t[1]*velocity[1] < 0||bc_velocity>10)
       {
 //          ROS_INFO("warning!!!");
           velocity[0] = velocity[0]/fabs(velocity[0])*0.3;
@@ -1354,7 +1378,7 @@ public:
 
     void target_following(double *v, std::vector<std::pair<double, double>> position, double *target_position){
         double d[2], dv[2];
-        double n;
+        double n = 0;
 
         for (int j = 0; j < position.size(); j++)
         {
@@ -1372,7 +1396,7 @@ public:
         v[1] = v[1] / (n + 1);// we must divide first
     }
 
-    void formation_control(double *v, int rid, std::vector<pair<double, double>> position, Eigen::Matrix2Xd formation, std::vector<int> assignment){//, double connectivity_radius){
+    void formation_control(double *v, int rid, std::vector<pair<double, double>> position, Eigen::MatrixXd formation, std::vector<int> assignment){//, double connectivity_radius){
         // double connectivity_radius = CONNECT_RADIUS;
         int i = rid;
         double d[2], dv[2];
@@ -1393,6 +1417,10 @@ public:
 //                 dv[0] = d[0] - (formation(j,0) - formation(i,0));
 //                 dv[1] = d[1] - (formation(j,1) - formation(i,1));
                 n = n + 1;
+                // if (i==1)
+                // {
+                // 	cout<<"norm_d "<<norm_d<<" dv : "<<dv[0]<<" "<<dv[1]<<endl;
+                // }
             }
             else
             {
@@ -1409,11 +1437,11 @@ public:
 
     void barrier_certificate(double *v, int rid, std::vector<pair<double, double>> position){
         int c = 0; //c=0 assumes agressive behaviour, =1 assumes neutral, =2 assumes enemy will avoid collision
-        double Ds = 0.4;
+        double Ds = 0.2;
         double delta_amax = 1.0;
         double gamma = 10000.0;
-        double a_max = 1.0;
-        double delta_vmax = 0.5;
+        double a_max = 2.0;
+        double delta_vmax = 1.0;
         double obstacle_radius = 0.5;
         double neighbour_radius = Ds + 1/(2*delta_amax)* pow((pow(2*delta_amax/gamma, 1.0/3.0) + delta_vmax), 2);
 
@@ -1916,7 +1944,7 @@ private:
     std::string m_formation_type;
     double m_target_position[2];
     double m_formation_scale;
-    Eigen::Matrix2Xd m_formation;
+    Eigen::MatrixXd m_formation;
     std::vector<pair<int,int>> m_assignment;
     int robot_number;
     std::chrono::high_resolution_clock::time_point m_start_time;
