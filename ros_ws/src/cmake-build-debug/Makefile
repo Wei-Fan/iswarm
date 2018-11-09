@@ -1065,6 +1065,188 @@ crazyflie_driver_generate_messages_cpp/fast:
 .PHONY : crazyflie_driver_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_sendPacket
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_sendPacket: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_sendPacket
+.PHONY : _crazyflie_driver_generate_messages_check_deps_sendPacket
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_sendPacket/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_sendPacket.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_sendPacket.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_sendPacket/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_Takeoff
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_Takeoff: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_Takeoff
+.PHONY : _crazyflie_driver_generate_messages_check_deps_Takeoff
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_Takeoff/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Takeoff.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Takeoff.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_Takeoff/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_Position
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_Position: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_Position
+.PHONY : _crazyflie_driver_generate_messages_check_deps_Position
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_Position/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Position.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Position.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_Position/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_SetGroupMask
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_SetGroupMask: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_SetGroupMask
+.PHONY : _crazyflie_driver_generate_messages_check_deps_SetGroupMask
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_SetGroupMask/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_SetGroupMask.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_SetGroupMask.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_SetGroupMask/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_LogBlock
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_LogBlock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_LogBlock
+.PHONY : _crazyflie_driver_generate_messages_check_deps_LogBlock
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_LogBlock/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_LogBlock.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_LogBlock.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_LogBlock/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie
+.PHONY : _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_FullState
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_FullState: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_FullState
+.PHONY : _crazyflie_driver_generate_messages_check_deps_FullState
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_FullState/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_FullState.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_FullState.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_FullState/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_UploadTrajectory
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_UploadTrajectory: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_UploadTrajectory
+.PHONY : _crazyflie_driver_generate_messages_check_deps_UploadTrajectory
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_UploadTrajectory/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_UploadTrajectory.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_UploadTrajectory.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_UploadTrajectory/fast
+
+#=============================================================================
+# Target rules for targets named crazyflie_driver_generate_messages
+
+# Build rule for target.
+crazyflie_driver_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 crazyflie_driver_generate_messages
+.PHONY : crazyflie_driver_generate_messages
+
+# fast build rule for target.
+crazyflie_driver_generate_messages/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages.dir/build
+.PHONY : crazyflie_driver_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_TrajectoryRef
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_TrajectoryRef: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_TrajectoryRef
+.PHONY : _crazyflie_driver_generate_messages_check_deps_TrajectoryRef
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_TrajectoryRef/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_TrajectoryRef.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_TrajectoryRef.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_TrajectoryRef/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_state_tg
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_state_tg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_state_tg
+.PHONY : _crazyflie_driver_generate_messages_check_deps_state_tg
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_state_tg/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_state_tg.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_state_tg.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_state_tg/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_Hover
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_Hover: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_Hover
+.PHONY : _crazyflie_driver_generate_messages_check_deps_Hover
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_Hover/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Hover.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Hover.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_Hover/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_crtpPacket
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_crtpPacket: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_crtpPacket
+.PHONY : _crazyflie_driver_generate_messages_check_deps_crtpPacket
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_crtpPacket/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_crtpPacket.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_crtpPacket.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_crtpPacket/fast
+
+#=============================================================================
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_Land
+
+# Build rule for target.
+_crazyflie_driver_generate_messages_check_deps_Land: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_Land
+.PHONY : _crazyflie_driver_generate_messages_check_deps_Land
+
+# fast build rule for target.
+_crazyflie_driver_generate_messages_check_deps_Land/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Land.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Land.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_Land/fast
+
+#=============================================================================
 # Target rules for targets named _crazyflie_driver_generate_messages_check_deps_TrajectoryPolynomialPiece
 
 # Build rule for target.
@@ -1117,43 +1299,30 @@ _crazyflie_driver_generate_messages_check_deps_UpdateParams/fast:
 .PHONY : _crazyflie_driver_generate_messages_check_deps_UpdateParams/fast
 
 #=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_state_tg
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_getPosSetPoint
 
 # Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_state_tg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_state_tg
-.PHONY : _crazyflie_driver_generate_messages_check_deps_state_tg
+_crazyflie_driver_generate_messages_check_deps_getPosSetPoint: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_getPosSetPoint
+.PHONY : _crazyflie_driver_generate_messages_check_deps_getPosSetPoint
 
 # fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_state_tg/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_state_tg.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_state_tg.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_state_tg/fast
+_crazyflie_driver_generate_messages_check_deps_getPosSetPoint/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_getPosSetPoint.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_getPosSetPoint.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_getPosSetPoint/fast
 
 #=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_Hover
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_AddCrazyflie
 
 # Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_Hover: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_Hover
-.PHONY : _crazyflie_driver_generate_messages_check_deps_Hover
+_crazyflie_driver_generate_messages_check_deps_AddCrazyflie: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_AddCrazyflie
+.PHONY : _crazyflie_driver_generate_messages_check_deps_AddCrazyflie
 
 # fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_Hover/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Hover.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Hover.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_Hover/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_GenericLogData
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_GenericLogData: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_GenericLogData
-.PHONY : _crazyflie_driver_generate_messages_check_deps_GenericLogData
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_GenericLogData/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_GenericLogData.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_GenericLogData.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_GenericLogData/fast
+_crazyflie_driver_generate_messages_check_deps_AddCrazyflie/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_AddCrazyflie/fast
 
 #=============================================================================
 # Target rules for targets named _crazyflie_driver_generate_messages_check_deps_StartTrajectory
@@ -1169,147 +1338,30 @@ _crazyflie_driver_generate_messages_check_deps_StartTrajectory/fast:
 .PHONY : _crazyflie_driver_generate_messages_check_deps_StartTrajectory/fast
 
 #=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_LogBlock
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_GenericLogData
 
 # Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_LogBlock: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_LogBlock
-.PHONY : _crazyflie_driver_generate_messages_check_deps_LogBlock
+_crazyflie_driver_generate_messages_check_deps_GenericLogData: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_GenericLogData
+.PHONY : _crazyflie_driver_generate_messages_check_deps_GenericLogData
 
 # fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_LogBlock/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_LogBlock.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_LogBlock.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_LogBlock/fast
+_crazyflie_driver_generate_messages_check_deps_GenericLogData/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_GenericLogData.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_GenericLogData.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_GenericLogData/fast
 
 #=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_FullState
+# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_IdPos
 
 # Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_FullState: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_FullState
-.PHONY : _crazyflie_driver_generate_messages_check_deps_FullState
+_crazyflie_driver_generate_messages_check_deps_IdPos: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_IdPos
+.PHONY : _crazyflie_driver_generate_messages_check_deps_IdPos
 
 # fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_FullState/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_FullState.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_FullState.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_FullState/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie
-.PHONY : _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_UploadTrajectory
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_UploadTrajectory: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_UploadTrajectory
-.PHONY : _crazyflie_driver_generate_messages_check_deps_UploadTrajectory
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_UploadTrajectory/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_UploadTrajectory.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_UploadTrajectory.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_UploadTrajectory/fast
-
-#=============================================================================
-# Target rules for targets named crazyflie_driver_generate_messages
-
-# Build rule for target.
-crazyflie_driver_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 crazyflie_driver_generate_messages
-.PHONY : crazyflie_driver_generate_messages
-
-# fast build rule for target.
-crazyflie_driver_generate_messages/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages.dir/build
-.PHONY : crazyflie_driver_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_Takeoff
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_Takeoff: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_Takeoff
-.PHONY : _crazyflie_driver_generate_messages_check_deps_Takeoff
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_Takeoff/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Takeoff.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Takeoff.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_Takeoff/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_Land
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_Land: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_Land
-.PHONY : _crazyflie_driver_generate_messages_check_deps_Land
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_Land/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Land.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Land.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_Land/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_crtpPacket
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_crtpPacket: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_crtpPacket
-.PHONY : _crazyflie_driver_generate_messages_check_deps_crtpPacket
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_crtpPacket/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_crtpPacket.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_crtpPacket.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_crtpPacket/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_TrajectoryRef
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_TrajectoryRef: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_TrajectoryRef
-.PHONY : _crazyflie_driver_generate_messages_check_deps_TrajectoryRef
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_TrajectoryRef/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_TrajectoryRef.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_TrajectoryRef.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_TrajectoryRef/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_getPosSetPoint
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_getPosSetPoint: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_getPosSetPoint
-.PHONY : _crazyflie_driver_generate_messages_check_deps_getPosSetPoint
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_getPosSetPoint/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_getPosSetPoint.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_getPosSetPoint.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_getPosSetPoint/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_sendPacket
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_sendPacket: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_sendPacket
-.PHONY : _crazyflie_driver_generate_messages_check_deps_sendPacket
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_sendPacket/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_sendPacket.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_sendPacket.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_sendPacket/fast
+_crazyflie_driver_generate_messages_check_deps_IdPos/fast:
+	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_IdPos.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_IdPos.dir/build
+.PHONY : _crazyflie_driver_generate_messages_check_deps_IdPos/fast
 
 #=============================================================================
 # Target rules for targets named crazyflie_driver_gencpp
@@ -1349,45 +1401,6 @@ _crazyflie_driver_generate_messages_check_deps_Stop: cmake_check_build_system
 _crazyflie_driver_generate_messages_check_deps_Stop/fast:
 	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Stop.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Stop.dir/build
 .PHONY : _crazyflie_driver_generate_messages_check_deps_Stop/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_SetGroupMask
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_SetGroupMask: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_SetGroupMask
-.PHONY : _crazyflie_driver_generate_messages_check_deps_SetGroupMask
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_SetGroupMask/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_SetGroupMask.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_SetGroupMask.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_SetGroupMask/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_Position
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_Position: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_Position
-.PHONY : _crazyflie_driver_generate_messages_check_deps_Position
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_Position/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Position.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Position.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_Position/fast
-
-#=============================================================================
-# Target rules for targets named _crazyflie_driver_generate_messages_check_deps_AddCrazyflie
-
-# Build rule for target.
-_crazyflie_driver_generate_messages_check_deps_AddCrazyflie: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _crazyflie_driver_generate_messages_check_deps_AddCrazyflie
-.PHONY : _crazyflie_driver_generate_messages_check_deps_AddCrazyflie
-
-# fast build rule for target.
-_crazyflie_driver_generate_messages_check_deps_AddCrazyflie/fast:
-	$(MAKE) -f crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir/build.make crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_AddCrazyflie.dir/build
-.PHONY : _crazyflie_driver_generate_messages_check_deps_AddCrazyflie/fast
 
 #=============================================================================
 # Target rules for targets named commander
@@ -1575,31 +1588,32 @@ help:
 	@echo "... crazyflie_driver_generate_messages_lisp"
 	@echo "... crazyflie_driver_geneus"
 	@echo "... crazyflie_driver_generate_messages_cpp"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_sendPacket"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_Takeoff"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_Position"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_SetGroupMask"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_LogBlock"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_FullState"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_UploadTrajectory"
+	@echo "... crazyflie_driver_generate_messages"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_TrajectoryRef"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_state_tg"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_Hover"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_crtpPacket"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_Land"
 	@echo "... _crazyflie_driver_generate_messages_check_deps_TrajectoryPolynomialPiece"
 	@echo "... crazyflie_driver_genpy"
 	@echo "... crazyflie_driver_generate_messages_eus"
 	@echo "... _crazyflie_driver_generate_messages_check_deps_UpdateParams"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_state_tg"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_Hover"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_GenericLogData"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_StartTrajectory"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_LogBlock"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_FullState"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_UploadTrajectory"
-	@echo "... crazyflie_driver_generate_messages"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_Takeoff"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_Land"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_crtpPacket"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_TrajectoryRef"
 	@echo "... _crazyflie_driver_generate_messages_check_deps_getPosSetPoint"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_sendPacket"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_AddCrazyflie"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_StartTrajectory"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_GenericLogData"
+	@echo "... _crazyflie_driver_generate_messages_check_deps_IdPos"
 	@echo "... crazyflie_driver_gencpp"
 	@echo "... _crazyflie_driver_generate_messages_check_deps_GoTo"
 	@echo "... _crazyflie_driver_generate_messages_check_deps_Stop"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_SetGroupMask"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_Position"
-	@echo "... _crazyflie_driver_generate_messages_check_deps_AddCrazyflie"
 	@echo "... commander"
 	@echo "... controller"
 	@echo "... mocap_helper"

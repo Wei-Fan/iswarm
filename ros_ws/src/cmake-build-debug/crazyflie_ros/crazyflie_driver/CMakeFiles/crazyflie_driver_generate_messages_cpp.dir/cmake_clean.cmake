@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "../../devel/include/crazyflie_driver/GenericLogData.h"
   "../../devel/include/crazyflie_driver/TrajectoryPolynomialPiece.h"
   "../../devel/include/crazyflie_driver/state_tg.h"
+  "../../devel/include/crazyflie_driver/IdPos.h"
   "../../devel/include/crazyflie_driver/Position.h"
   "../../devel/include/crazyflie_driver/Hover.h"
   "../../devel/include/crazyflie_driver/crtpPacket.h"

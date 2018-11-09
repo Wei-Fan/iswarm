@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "../../devel/share/gennodejs/ros/crazyflie_driver/msg/GenericLogData.js"
   "../../devel/share/gennodejs/ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.js"
   "../../devel/share/gennodejs/ros/crazyflie_driver/msg/state_tg.js"
+  "../../devel/share/gennodejs/ros/crazyflie_driver/msg/IdPos.js"
   "../../devel/share/gennodejs/ros/crazyflie_driver/msg/Position.js"
   "../../devel/share/gennodejs/ros/crazyflie_driver/msg/Hover.js"
   "../../devel/share/gennodejs/ros/crazyflie_driver/msg/crtpPacket.js"

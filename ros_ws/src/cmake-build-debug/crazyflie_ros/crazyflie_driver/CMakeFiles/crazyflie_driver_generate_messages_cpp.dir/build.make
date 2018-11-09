@@ -58,6 +58,7 @@ crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/GenericLogData.h
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/TrajectoryPolynomialPiece.h
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/state_tg.h
+crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/IdPos.h
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/Position.h
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/Hover.h
 crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/crtpPacket.h
@@ -114,31 +115,37 @@ devel/include/crazyflie_driver/state_tg.h: /opt/ros/kinetic/share/gencpp/msg.h.t
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from crazyflie_driver/state_tg.msg"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+devel/include/crazyflie_driver/IdPos.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+devel/include/crazyflie_driver/IdPos.h: ../crazyflie_ros/crazyflie_driver/msg/IdPos.msg
+devel/include/crazyflie_driver/IdPos.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from crazyflie_driver/IdPos.msg"
+	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 devel/include/crazyflie_driver/Position.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/Position.h: ../crazyflie_ros/crazyflie_driver/msg/Position.msg
 devel/include/crazyflie_driver/Position.h: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 devel/include/crazyflie_driver/Position.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from crazyflie_driver/Position.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from crazyflie_driver/Position.msg"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/Hover.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/Hover.h: ../crazyflie_ros/crazyflie_driver/msg/Hover.msg
 devel/include/crazyflie_driver/Hover.h: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 devel/include/crazyflie_driver/Hover.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from crazyflie_driver/Hover.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from crazyflie_driver/Hover.msg"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/crtpPacket.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/crtpPacket.h: ../crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg
 devel/include/crazyflie_driver/crtpPacket.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from crazyflie_driver/crtpPacket.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from crazyflie_driver/crtpPacket.msg"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/Takeoff.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/Takeoff.h: ../crazyflie_ros/crazyflie_driver/srv/Takeoff.srv
 devel/include/crazyflie_driver/Takeoff.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/Takeoff.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from crazyflie_driver/Takeoff.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from crazyflie_driver/Takeoff.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/GoTo.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
@@ -146,21 +153,21 @@ devel/include/crazyflie_driver/GoTo.h: ../crazyflie_ros/crazyflie_driver/srv/GoT
 devel/include/crazyflie_driver/GoTo.h: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
 devel/include/crazyflie_driver/GoTo.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/GoTo.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from crazyflie_driver/GoTo.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from crazyflie_driver/GoTo.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/StartTrajectory.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/StartTrajectory.h: ../crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv
 devel/include/crazyflie_driver/StartTrajectory.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/StartTrajectory.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from crazyflie_driver/StartTrajectory.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating C++ code from crazyflie_driver/StartTrajectory.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/SetGroupMask.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/SetGroupMask.h: ../crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv
 devel/include/crazyflie_driver/SetGroupMask.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/SetGroupMask.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating C++ code from crazyflie_driver/SetGroupMask.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating C++ code from crazyflie_driver/SetGroupMask.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/AddCrazyflie.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
@@ -168,21 +175,21 @@ devel/include/crazyflie_driver/AddCrazyflie.h: ../crazyflie_ros/crazyflie_driver
 devel/include/crazyflie_driver/AddCrazyflie.h: ../crazyflie_ros/crazyflie_driver/msg/LogBlock.msg
 devel/include/crazyflie_driver/AddCrazyflie.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/AddCrazyflie.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating C++ code from crazyflie_driver/AddCrazyflie.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating C++ code from crazyflie_driver/AddCrazyflie.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/RemoveCrazyflie.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/RemoveCrazyflie.h: ../crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv
 devel/include/crazyflie_driver/RemoveCrazyflie.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/RemoveCrazyflie.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating C++ code from crazyflie_driver/RemoveCrazyflie.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating C++ code from crazyflie_driver/RemoveCrazyflie.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/TrajectoryRef.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/TrajectoryRef.h: ../crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv
 devel/include/crazyflie_driver/TrajectoryRef.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/TrajectoryRef.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating C++ code from crazyflie_driver/TrajectoryRef.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating C++ code from crazyflie_driver/TrajectoryRef.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/UploadTrajectory.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
@@ -190,35 +197,35 @@ devel/include/crazyflie_driver/UploadTrajectory.h: ../crazyflie_ros/crazyflie_dr
 devel/include/crazyflie_driver/UploadTrajectory.h: ../crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg
 devel/include/crazyflie_driver/UploadTrajectory.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/UploadTrajectory.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating C++ code from crazyflie_driver/UploadTrajectory.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating C++ code from crazyflie_driver/UploadTrajectory.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/Stop.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/Stop.h: ../crazyflie_ros/crazyflie_driver/srv/Stop.srv
 devel/include/crazyflie_driver/Stop.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/Stop.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating C++ code from crazyflie_driver/Stop.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating C++ code from crazyflie_driver/Stop.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/Land.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/Land.h: ../crazyflie_ros/crazyflie_driver/srv/Land.srv
 devel/include/crazyflie_driver/Land.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/Land.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating C++ code from crazyflie_driver/Land.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating C++ code from crazyflie_driver/Land.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/UpdateParams.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/UpdateParams.h: ../crazyflie_ros/crazyflie_driver/srv/UpdateParams.srv
 devel/include/crazyflie_driver/UpdateParams.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/UpdateParams.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating C++ code from crazyflie_driver/UpdateParams.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating C++ code from crazyflie_driver/UpdateParams.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UpdateParams.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/getPosSetPoint.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 devel/include/crazyflie_driver/getPosSetPoint.h: ../crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv
 devel/include/crazyflie_driver/getPosSetPoint.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/getPosSetPoint.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating C++ code from crazyflie_driver/getPosSetPoint.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating C++ code from crazyflie_driver/getPosSetPoint.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 devel/include/crazyflie_driver/sendPacket.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
@@ -226,7 +233,7 @@ devel/include/crazyflie_driver/sendPacket.h: ../crazyflie_ros/crazyflie_driver/s
 devel/include/crazyflie_driver/sendPacket.h: ../crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg
 devel/include/crazyflie_driver/sendPacket.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 devel/include/crazyflie_driver/sendPacket.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating C++ code from crazyflie_driver/sendPacket.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wade/iswarm/ros_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating C++ code from crazyflie_driver/sendPacket.srv"
 	cd /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver && /home/wade/iswarm/ros_ws/src/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/sendPacket.srv -Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p crazyflie_driver -o /home/wade/iswarm/ros_ws/src/cmake-build-debug/devel/include/crazyflie_driver -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 crazyflie_driver_generate_messages_cpp: crazyflie_ros/crazyflie_driver/CMakeFiles/crazyflie_driver_generate_messages_cpp
@@ -235,6 +242,7 @@ crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/FullState
 crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/GenericLogData.h
 crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/TrajectoryPolynomialPiece.h
 crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/state_tg.h
+crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/IdPos.h
 crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/Position.h
 crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/Hover.h
 crazyflie_driver_generate_messages_cpp: devel/include/crazyflie_driver/crtpPacket.h

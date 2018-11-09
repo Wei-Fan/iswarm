@@ -19,10 +19,9 @@
 #include <eiquadprog.h>
 
 // #include <std_msgs/Int8MultiArray.h>
-// #include <std_msgs/Float64MultiArray.h>
+#include <std_msgs/Float64MultiArray.h>
 #include <geometry_msgs/Pose.h>
 
-#include "crazyflie_driver/IdPos.h"
 /**
  * The ROS wrapper around a controller which will take in message and adapt them to the controllers input.
  */
@@ -61,14 +60,14 @@ private:
     ros::Subscriber assignment_command_sub;
 
     std::vector<int> assignment;
-    std::vector<uint8_t> assignment_id;
+    std::vector<int> assignment_id;
     std::vector<std::pair<double, double>> all_position;
 
     /*
      * Parameters of formation
      */
     std::string formation_type = "square";
-    double m_formation_scale = 1.5;
+    double m_formation_scale = 1.0;
 
     /**
      * obtain the swarm positon from other node
@@ -95,7 +94,7 @@ public:
 //
 //    void model_states_cb(const gazebo_msgs::ModelStates &states);
 
-    void ra_request_cb(const crazyflie_driver::IdPos &msg);
+    void ra_request_cb(const std_msgs::Float64MultiArray &msg);
 };
 
 #endif //RoleCommander_H

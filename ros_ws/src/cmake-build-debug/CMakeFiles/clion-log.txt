@@ -171,7 +171,7 @@ but not all the files it references.
 -- +++ processing catkin package: 'crazyflie_driver'
 -- ==> add_subdirectory(crazyflie_ros/crazyflie_driver)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
--- crazyflie_driver: 8 messages, 13 services
+-- crazyflie_driver: 9 messages, 13 services
 -- +++ processing catkin package: 'crazyswarm'
 -- ==> add_subdirectory(crazyswarm)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy

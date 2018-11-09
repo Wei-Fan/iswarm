@@ -65,6 +65,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg"
     "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg"
     "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg"
+    "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg"
     )
 endif()
 

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "crazyflie_driver: 8 messages, 13 services")
+message(STATUS "crazyflie_driver: 9 messages, 13 services")
 
 set(MSG_I_FLAGS "-Icrazyflie_driver:/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg")
 
@@ -17,19 +17,9 @@ add_custom_target(crazyflie_driver_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" ""
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" ""
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" "geometry_msgs/Point"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" "std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/FullState.msg" NAME_WE)
@@ -37,29 +27,9 @@ add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/FullState.msg" "geometry_msgs/Twist:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/Vector3:geometry_msgs/Point:geometry_msgs/Pose"
 )
 
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" ""
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" ""
-)
-
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/GenericLogData.msg" NAME_WE)
 add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/GenericLogData.msg" "std_msgs/Header"
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" ""
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" "std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv" NAME_WE)
@@ -67,19 +37,29 @@ add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv" ""
 )
 
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" "std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" ""
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" ""
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" ""
+)
+
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv" NAME_WE)
 add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv" ""
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" ""
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" "crazyflie_driver/TrajectoryPolynomialPiece"
 )
 
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg" NAME_WE)
@@ -87,14 +67,54 @@ add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg" ""
 )
 
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
 add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" "geometry_msgs/Point"
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" ""
 )
 
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg" NAME_WE)
 add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg" "std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" ""
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" ""
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" "crazyflie_driver/TrajectoryPolynomialPiece"
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" "crazyflie_driver/LogBlock"
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg" ""
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" ""
+)
+
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
+add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" ""
 )
 
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UpdateParams.srv" NAME_WE)
@@ -105,21 +125,6 @@ add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/sendPacket.srv" NAME_WE)
 add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/sendPacket.srv" "crazyflie_driver/crtpPacket"
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" ""
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" "std_msgs/Header"
-)
-
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
-add_custom_target(_crazyflie_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "crazyflie_driver" "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" "crazyflie_driver/LogBlock"
 )
 
 #
@@ -156,6 +161,12 @@ _generate_msg_cpp(crazyflie_driver
   "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/crazyflie_driver
+)
+_generate_msg_cpp(crazyflie_driver
+  "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/crazyflie_driver
 )
 _generate_msg_cpp(crazyflie_driver
@@ -269,47 +280,49 @@ add_custom_target(crazyflie_driver_generate_messages_cpp
 add_dependencies(crazyflie_driver_generate_messages crazyflie_driver_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/FullState.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/GenericLogData.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UpdateParams.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/sendPacket.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_cpp _crazyflie_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -349,6 +362,12 @@ _generate_msg_eus(crazyflie_driver
   "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/crazyflie_driver
+)
+_generate_msg_eus(crazyflie_driver
+  "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/crazyflie_driver
 )
 _generate_msg_eus(crazyflie_driver
@@ -462,47 +481,49 @@ add_custom_target(crazyflie_driver_generate_messages_eus
 add_dependencies(crazyflie_driver_generate_messages crazyflie_driver_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/FullState.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/GenericLogData.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UpdateParams.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/sendPacket.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_eus _crazyflie_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -542,6 +563,12 @@ _generate_msg_lisp(crazyflie_driver
   "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/crazyflie_driver
+)
+_generate_msg_lisp(crazyflie_driver
+  "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/crazyflie_driver
 )
 _generate_msg_lisp(crazyflie_driver
@@ -655,47 +682,49 @@ add_custom_target(crazyflie_driver_generate_messages_lisp
 add_dependencies(crazyflie_driver_generate_messages crazyflie_driver_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/FullState.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/GenericLogData.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UpdateParams.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/sendPacket.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_lisp _crazyflie_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -735,6 +764,12 @@ _generate_msg_nodejs(crazyflie_driver
   "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/crazyflie_driver
+)
+_generate_msg_nodejs(crazyflie_driver
+  "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/crazyflie_driver
 )
 _generate_msg_nodejs(crazyflie_driver
@@ -848,47 +883,49 @@ add_custom_target(crazyflie_driver_generate_messages_nodejs
 add_dependencies(crazyflie_driver_generate_messages crazyflie_driver_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/FullState.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/GenericLogData.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UpdateParams.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/sendPacket.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_nodejs _crazyflie_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -928,6 +965,12 @@ _generate_msg_py(crazyflie_driver
   "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/crazyflie_driver
+)
+_generate_msg_py(crazyflie_driver
+  "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/crazyflie_driver
 )
 _generate_msg_py(crazyflie_driver
@@ -1041,47 +1084,49 @@ add_custom_target(crazyflie_driver_generate_messages_py
 add_dependencies(crazyflie_driver_generate_messages crazyflie_driver_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/FullState.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/GenericLogData.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/state_tg.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/RemoveCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Takeoff.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/StartTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/TrajectoryRef.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/crtpPacket.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/GoTo.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.msg" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Hover.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/getPosSetPoint.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/LogBlock.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UploadTrajectory.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/IdPos.msg" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Stop.srv" NAME_WE)
+add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/Land.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/UpdateParams.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/sendPacket.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/SetGroupMask.srv" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/msg/Position.msg" NAME_WE)
-add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/wade/iswarm/ros_ws/src/crazyflie_ros/crazyflie_driver/srv/AddCrazyflie.srv" NAME_WE)
 add_dependencies(crazyflie_driver_generate_messages_py _crazyflie_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

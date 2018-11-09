@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "../../devel/share/common-lisp/ros/crazyflie_driver/msg/GenericLogData.lisp"
   "../../devel/share/common-lisp/ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.lisp"
   "../../devel/share/common-lisp/ros/crazyflie_driver/msg/state_tg.lisp"
+  "../../devel/share/common-lisp/ros/crazyflie_driver/msg/IdPos.lisp"
   "../../devel/share/common-lisp/ros/crazyflie_driver/msg/Position.lisp"
   "../../devel/share/common-lisp/ros/crazyflie_driver/msg/Hover.lisp"
   "../../devel/share/common-lisp/ros/crazyflie_driver/msg/crtpPacket.lisp"

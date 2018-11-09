@@ -43,6 +43,8 @@
 #include <eiquadprog.h>
 #include <std_msgs/Float64MultiArray.h>
 #include <std_msgs/Int32MultiArray.h>
+#include "crazyflie_driver/IdPos.h"
+#include <stdint.h>
 
 // debug test
 #include <signal.h>
@@ -766,8 +768,8 @@ public:
     , m_isGivingSp(true)
     , m_initial_posMap()
     , m_formation_type("square")
-    , m_formation_scale(1.0)
-    , m_require_assignment(false)
+    , m_formation_scale(1.5)
+    , m_require_assignment(true)
 //    , m_areHoverOk(false)
   {
       //added by yhz
@@ -789,7 +791,7 @@ public:
 
       /*formation control parameters and variants*/
       ros::NodeHandle nh;
-      assignment_request_pub = nh.advertise<std_msgs::Float64MultiArray>("/role_assignment_request",10);
+      assignment_request_pub = nh.advertise<crazyflie_driver::IdPos>("/role_assignment_request",10);
       assignment_command_sub = nh.subscribe("/role_assignment_command", 10, &CrazyflieGroup::assignment_cb, this);
       m_start_time = std::chrono::high_resolution_clock::now();
       m_target_position[0] = 0.0;
@@ -801,6 +803,12 @@ public:
           tmp = make_pair(m_cfs[i]->id(),i);
           m_assignment.push_back(tmp);
       }
+      cout<<"assignment : ";
+      for (int i = 0; i < robot_number; ++i)
+      {
+      	cout<< m_assignment[i].first << "--" << m_assignment[i].second<< " ";
+      }
+      cout<<endl;
       /*generate formation*/
       generateFormation(m_formation_type, m_formation_scale, m_formation);
   }
@@ -996,8 +1004,9 @@ public:
                  */
                 auto cur_time = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<double> hover_time = cur_time-m_start_time;
-                if(hover_time.count() < 10)
+                if(hover_time.count() < 6)
                 {
+                	// ROS_INFO("~~~~~~~Taking off");
                     for(int i=0;i<sp_states.size();++i){
                         //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
                         //getGroupCurPos(states[i].id,m_pMarkers);
@@ -1020,6 +1029,7 @@ public:
                     }
                 } else if (hover_time.count() < 38 && hover_time.count() > 35)
                 {
+                	ROS_INFO("~~~~~~~Landing");
                     for(int i=0;i<sp_states.size();++i){
                         //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
                         //getGroupCurPos(states[i].id,m_pMarkers);
@@ -1062,7 +1072,7 @@ public:
                     }
                 } else {
                     /*obtain the group position and publish for role assignment*/
-                    std::vector<int> m_cfs_id;
+                    std::vector<uint8_t> m_cfs_id;
                     std::vector<pair<double, double>> m_cfs_cur_pos;
                     std::vector<int> assignment;
 
@@ -1084,17 +1094,23 @@ public:
                     if (m_require_assignment)
                     {
                         m_require_assignment = false;
-                        std_msgs::Float64MultiArray msg;
+                        crazyflie_driver::IdPos msg;
+                        cout<<"m_cfs_id : ";
                         for (int i = 0; i < m_cfs_id.size(); ++i) {
-                            msg.data.push_back(double(m_cfs_id[i]));
+                        	cout<<unsigned(m_cfs_id[i])<<" ";
+                            msg.id.push_back(m_cfs_id[i]);
+                            msg.x.push_back(m_cfs_cur_pos[i].first);
+                            msg.y.push_back(m_cfs_cur_pos[i].second);
                         }
-                        for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
-                            msg.data.push_back(m_cfs_cur_pos[j].first);
-                        }
-                        for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
-                            msg.data.push_back(m_cfs_cur_pos[j].second);
-                        }
+                        cout<<endl;
+                        // for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
+                        //     msg.x.push_back(m_cfs_cur_pos[j].first);
+                        // }
+                        // for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
+                        //     msg.y.push_back(m_cfs_cur_pos[j].second);
+                        // }
                         assignment_request_pub.publish(msg);
+                        // ROS_INFO("~~~~~~~~~request role assignment!");
                     }
                 }
 
@@ -1262,7 +1278,7 @@ public:
       }
   }
 
-  void getGroupPresentPos(std::vector<CrazyflieBroadcaster::externalPose> states, std::vector<int> &cfs_id, std::vector<pair<double, double>> &cfs_cur_pos)
+  void getGroupPresentPos(std::vector<CrazyflieBroadcaster::externalPose> states, std::vector<uint8_t> &cfs_id, std::vector<pair<double, double>> &cfs_cur_pos)
   {
       for (int i = 0; i < states.size(); ++i) {
           cfs_id.push_back(states[i].id);
@@ -1272,7 +1288,7 @@ public:
       }
   }
 
-  void assignmentReMap(std::vector<int> cfs_id, std::vector<pair<int, int>> a_assignment, std::vector<int> &assignment)
+  void assignmentReMap(std::vector<uint8_t> cfs_id, std::vector<pair<int, int>> a_assignment, std::vector<int> &assignment)
   {
       assignment.resize(cfs_id.size());
       for (int i = 0; i < cfs_id.size(); ++i) {
@@ -1280,7 +1296,7 @@ public:
               if (cfs_id[i] == a_assignment[j].first)
               {
                   assignment[i] = a_assignment[j].second;
-                  break;
+                  // break;
               }
           }
       }
@@ -1301,9 +1317,12 @@ public:
       target_following(velocity_target_following, cfs_cur_pos, target_position); //target following
       formation_control(velocity_formation_control, rid, cfs_cur_pos, m_formation, assignment);//, CONNECT_RADIUS); //establish permiter
 
+
+      // ROS_INFO("*********** velocity_target_following : %f, %f", velocity_target_following[0],velocity_target_following[1]);
+      // ROS_INFO("*********** velocity_formation_control : %f, %f", velocity_formation_control[0],velocity_formation_control[1]);
       double velocity[2];
-      velocity[0]= (velocity_target_following[0] + velocity_formation_control[0])*0.1;
-      velocity[1]= (velocity_target_following[1] + velocity_formation_control[1])*0.1;//two velocities add together
+      velocity[0]= velocity_target_following[0]*0.3 + velocity_formation_control[0]*0.15;
+      velocity[1]= velocity_target_following[1]*0.3 + velocity_formation_control[1]*0.15;//two velocities add together
       double v_t[2];
       v_t[0] = velocity[0];
       v_t[1] = velocity[1];
@@ -1318,13 +1337,16 @@ public:
 //          ROS_INFO("warning!!!");
           velocity[0] = velocity[0]/fabs(velocity[0])*0.3;
           velocity[1] = velocity[1]/fabs(velocity[1])*0.3;
+          m_require_assignment = true;
       }
 
-      if ((bc_velocity/2) < 0.1 && (nominal_velocity - bc_velocity) > 1.0)
-      {
-          m_require_assignment = true;
-//          assignment_request_pub.publish(signal);
-      }
+//       ROS_INFO("*********** bc_velocity : %f", bc_velocity);
+//       ROS_INFO("*********** nominal_velocity : %f", nominal_velocity);
+//       if ((bc_velocity/2) < 0.04 && (nominal_velocity - bc_velocity) > 0.3)
+//       {
+//           m_require_assignment = true;
+// //          assignment_request_pub.publish(signal);
+      // }
 
       raw_velocity[0] = velocity[0];
       raw_velocity[1] = velocity[1];
@@ -1521,6 +1543,12 @@ public:
             tmp.second = msg.data[i+number];
             m_assignment.push_back(tmp);
         }
+        cout<<"assignment : ";
+      for (int i = 0; i < robot_number; ++i)
+      {
+      	cout<< m_assignment[i].first << "--" << m_assignment[i].second<< " ";
+      }
+      cout<<endl;
     }
 
   /**

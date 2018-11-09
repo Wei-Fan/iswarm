@@ -1415,6 +1415,146 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_sendPacket">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_sendPacket"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_Takeoff">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Takeoff"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_Position">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Position"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_SetGroupMask">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_SetGroupMask"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_LogBlock">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_LogBlock"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_FullState">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_FullState"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_UploadTrajectory">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_UploadTrajectory"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="crazyflie_driver_generate_messages">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 crazyflie_driver_generate_messages"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_TrajectoryRef">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_TrajectoryRef"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_state_tg">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_state_tg"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_Hover">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Hover"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_crtpPacket">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_crtpPacket"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_crazyflie_driver_generate_messages_check_deps_Land">
+				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Land"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="_crazyflie_driver_generate_messages_check_deps_TrajectoryPolynomialPiece">
 				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
 				<Option type="4"/>
@@ -1455,31 +1595,21 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_state_tg">
+			<Target title="_crazyflie_driver_generate_messages_check_deps_getPosSetPoint">
 				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_state_tg"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_getPosSetPoint"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_Hover">
+			<Target title="_crazyflie_driver_generate_messages_check_deps_AddCrazyflie">
 				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Hover"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_GenericLogData">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_GenericLogData"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_AddCrazyflie"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
@@ -1495,111 +1625,21 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_LogBlock">
+			<Target title="_crazyflie_driver_generate_messages_check_deps_GenericLogData">
 				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_LogBlock"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_GenericLogData"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_FullState">
+			<Target title="_crazyflie_driver_generate_messages_check_deps_IdPos">
 				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_FullState"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_UploadTrajectory">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_UploadTrajectory"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="crazyflie_driver_generate_messages">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 crazyflie_driver_generate_messages"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_Takeoff">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Takeoff"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_Land">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Land"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_crtpPacket">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_crtpPacket"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_TrajectoryRef">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_TrajectoryRef"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_getPosSetPoint">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_getPosSetPoint"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_sendPacket">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_sendPacket"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_IdPos"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
@@ -1630,36 +1670,6 @@
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Stop"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_SetGroupMask">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_SetGroupMask"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_Position">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_Position"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="_crazyflie_driver_generate_messages_check_deps_AddCrazyflie">
-				<Option working_dir="/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 _crazyflie_driver_generate_messages_check_deps_AddCrazyflie"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/wade/iswarm/ros_ws/src/cmake-build-debug/crazyflie_ros/crazyflie_driver/Makefile&quot;  VERBOSE=1 clean"/>
@@ -2802,6 +2812,9 @@
 		</Unit>
 		<Unit filename="/home/wade/iswarm/ros_ws/src/crazyswarm/include/RoleCommander.h">
 			<Option target="role_commander"/>
+			<Option target="assignment_commander"/>
+		</Unit>
+		<Unit filename="/home/wade/iswarm/ros_ws/src/crazyswarm/include/RoleCommander_bk.h">
 			<Option target="assignment_commander"/>
 		</Unit>
 		<Unit filename="/home/wade/iswarm/ros_ws/src/crazyswarm/include/basic_types.h">

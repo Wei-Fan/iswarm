@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "../../devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_GenericLogData.py"
   "../../devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_TrajectoryPolynomialPiece.py"
   "../../devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_state_tg.py"
+  "../../devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_IdPos.py"
   "../../devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_Position.py"
   "../../devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_Hover.py"
   "../../devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_crtpPacket.py"

@@ -5,6 +5,7 @@ e6eaf3a7a81558890dc530f7684f7a51 crazyflie_ros/crazyflie_driver/CMakeFiles/_craz
 e97fa98a4be4c68870af8af7c0480d0c crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_GenericLogData
 b38bec92f4bfaa05f7b71695ba8dfa94 crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_GoTo
 e988e143f5538b51393d687461785165 crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Hover
+5da01486cf7d3d66e5ceba92f13725cf crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_IdPos
 6aab28a254db8c38c51b13e9b219266a crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Land
 bf7f7c9c98a3e64c66e667a434d248ca crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_LogBlock
 d41740e62be40b1e43a359b0784c0639 crazyflie_ros/crazyflie_driver/CMakeFiles/_crazyflie_driver_generate_messages_check_deps_Position
@@ -31,6 +32,7 @@ a239bb37e43f25ce29203127757b8af4 crazyflie_ros/crazyflie_driver/CMakeFiles/crazy
 d5dac61ec7c449ac02a6c59500189032 devel/include/crazyflie_driver/GenericLogData.h
 33b865fa71cae3fcd96b4c60bcb15893 devel/include/crazyflie_driver/GoTo.h
 285eab5790f4bc539b4caf399aabc91e devel/include/crazyflie_driver/Hover.h
+7c54447d99bcb3f81f479d9d2958aee5 devel/include/crazyflie_driver/IdPos.h
 542e0d120aa469aad68d90fe7d8c50e2 devel/include/crazyflie_driver/Land.h
 5d1e47c5a0d6e6b333f286dc0875b361 devel/include/crazyflie_driver/LogBlock.h
 ac7559bb3340aee1f5f8663c38ae19d1 devel/include/crazyflie_driver/Position.h
@@ -50,6 +52,7 @@ ba65a0a331d97a93512dacaff4fc66e4 devel/include/crazyflie_driver/sendPacket.h
 eb57291bd287b99f45a7c368a86df610 devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_FullState.py
 3dee0d68d073382c61209e0e576e14dd devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_GenericLogData.py
 2de9ac077470c1e2f878fbd6ba1ac2e6 devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_Hover.py
+40c792e771626b239dfd3f5bb2a59c26 devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_IdPos.py
 a79ce8fb2e7adfa230bada04b2d59be9 devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_LogBlock.py
 ee32fc33726bb09546b9e93a646630e0 devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_Position.py
 2ea3c0041af988019b562cd7b2374313 devel/lib/python2.7/dist-packages/crazyflie_driver/msg/_TrajectoryPolynomialPiece.py
@@ -73,6 +76,7 @@ eb41035c4ccaef2d4e025c8aefbe89d5 devel/lib/python2.7/dist-packages/crazyflie_dri
 d83ca744faddb7b05486b628bbdb1c9d devel/share/common-lisp/ros/crazyflie_driver/msg/FullState.lisp
 74d43ff582ca515beb2ee29b2dc53fb4 devel/share/common-lisp/ros/crazyflie_driver/msg/GenericLogData.lisp
 22884199e2ffd7d5dd5f662c1bb33383 devel/share/common-lisp/ros/crazyflie_driver/msg/Hover.lisp
+ef44daf3fd89cc4fd0a3708bac1ef06e devel/share/common-lisp/ros/crazyflie_driver/msg/IdPos.lisp
 ca604b4cc45801ac05217f2c5a1eb49d devel/share/common-lisp/ros/crazyflie_driver/msg/LogBlock.lisp
 04e203fce6bb2fb0563c56d729207ad0 devel/share/common-lisp/ros/crazyflie_driver/msg/Position.lisp
 c07e48a458946197a1930c4e823c0aa5 devel/share/common-lisp/ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.lisp
@@ -94,6 +98,7 @@ c879c41a044db7dbb8d097e2945c98f2 devel/share/common-lisp/ros/crazyflie_driver/sr
 a28c0012bef97bc07397d5c808e0daea devel/share/gennodejs/ros/crazyflie_driver/msg/FullState.js
 675836c200cecd2ce51ed8934d5994c0 devel/share/gennodejs/ros/crazyflie_driver/msg/GenericLogData.js
 aedef90b98756e7c2b073ca4678bb3fc devel/share/gennodejs/ros/crazyflie_driver/msg/Hover.js
+5bc4fdc421f202bd1d7d5b7cfa225a83 devel/share/gennodejs/ros/crazyflie_driver/msg/IdPos.js
 ff3976851ebd213b7b833e0e3999df8f devel/share/gennodejs/ros/crazyflie_driver/msg/LogBlock.js
 bcdf33bf0abcd50ce5abaecad2e3d168 devel/share/gennodejs/ros/crazyflie_driver/msg/Position.js
 bc1a9b3fdee6a6b588b064ad0d5faf9c devel/share/gennodejs/ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.js
@@ -116,6 +121,7 @@ d427b4ff133ce21434b6e8fb52e4c555 devel/share/gennodejs/ros/crazyflie_driver/srv/
 93e98e2d303fc6808c890bb18058d64b devel/share/roseus/ros/crazyflie_driver/msg/FullState.l
 45a8d3fbc12211788f7defbc9aef7208 devel/share/roseus/ros/crazyflie_driver/msg/GenericLogData.l
 58b72821149693c68690637fe6f3ee30 devel/share/roseus/ros/crazyflie_driver/msg/Hover.l
+947d3076112b7b250db98b83f33bec90 devel/share/roseus/ros/crazyflie_driver/msg/IdPos.l
 246a76a53d4a762a4aac292e53f57541 devel/share/roseus/ros/crazyflie_driver/msg/LogBlock.l
 d2ce3196e8e12797762a3fdbb88079ce devel/share/roseus/ros/crazyflie_driver/msg/Position.l
 a9f0ffc67d8fdaa5dd8d3c37b7bab99c devel/share/roseus/ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.l

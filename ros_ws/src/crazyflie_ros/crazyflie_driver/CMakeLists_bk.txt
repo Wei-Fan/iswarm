@@ -55,7 +55,6 @@ add_message_files(
   Hover.msg
   state_tg.msg
   Position.msg
-  IdPos.msg
 )
 
 ## Generate added messages and services with any dependencies listed here

@@ -20,7 +20,7 @@
 using namespace std;
 static int DEFAULT_RATE = 50;
 static int MAX_QUEUE_SIZE = 10;
-static int ASSIGNMENT_INTERVAL = 3;
+static int ASSIGNMENT_INTERVAL = 5;
 static int M_INF = 100;
 // static int CONNECT_RADIUS = 16;
 
@@ -30,7 +30,7 @@ RoleCommander::RoleCommander() {
     ros::NodeHandle global;
     this->global = global;
 
-    ROS_INFO("~~~~~~~~~~Initializing Role Commander");
+    ROS_INFO("Initializing Role Commander");
 
     /*establish the assignment communication channels*/
     this->assignment_command_pub = global.advertise<std_msgs::Int32MultiArray>("/role_assignment_command",
@@ -38,8 +38,8 @@ RoleCommander::RoleCommander() {
     this->assignment_command_sub = global.subscribe("/role_assignment_request", MAX_QUEUE_SIZE,
                                                     &RoleCommander::ra_request_cb, this);
 
-    this->active = true;
-    this->enable_assign = false;
+    this->active = false;
+    this->enable_assign = true;
     this->execute_time = ros::Time::now().toSec();
     this->request_time = this->execute_time;
 }
@@ -52,7 +52,7 @@ void RoleCommander::start() {
         if (this->enable_assign && this->active)
         {
 
-            // ROS_INFO("*************1");/
+            // ROS_INFO("*************2");
             /* obtain informaiton for every crazyflie*/
 //
 //            pair<double, double> all_robot_position;
@@ -144,7 +144,7 @@ void RoleCommander::start() {
              *Input: all_position, formation; Output: assignment
              */
 
-            // ROS_INFO("*************2");
+            // ROS_INFO("*************3");
 
             std::vector<std::vector<double>> cost(ROBOT_MAX, std::vector<double>(ROBOT_MAX,1));
             for (int i = 0; i < ROBOT_MAX; ++i) // agents
@@ -204,7 +204,6 @@ void RoleCommander::start() {
                 assign_msg.data.push_back(assignment[i]);
             }
 
-
             assignment_command_pub.publish(assign_msg);
 
             ROS_INFO("*************** send out assignment from the commander!");
@@ -218,28 +217,19 @@ void RoleCommander::start() {
 }
 
 
-void RoleCommander::ra_request_cb(const crazyflie_driver::IdPos &msg){
-    
+void RoleCommander::ra_request_cb(const std_msgs::Float64MultiArray &msg){
     this->request_time = ros::Time::now().toSec();
     if ((this->request_time - this->execute_time) > ASSIGNMENT_INTERVAL)
     {
-        ROS_INFO("!!!!!!!recieve");
-        cout<<"uav_id : ";
-        int number = msg.id.size();
-        assignment_id.clear();
-        all_position.clear();
-        for (int i = 0; i < number; ++i) {
-            
 
-            
-            assignment_id.push_back(msg.id[i]);
-            
-            std::pair<double, double> tmp = make_pair(msg.x[i],msg.y[i]);
+        int number = int(msg.data.size()/3);
+        for (int i = 0; i < number; ++i) {
+            assignment_id.clear();
+            assignment_id.push_back(int(msg.data[i]));
+            all_position.clear();
+            std::pair<double, double> tmp = make_pair(msg.data[i+number],msg.data[i+2*number]);
             all_position.push_back(tmp);
-            cout<< unsigned(assignment_id[i]) << " ";
         }
-        
-      cout<<endl;
 
         this->enable_assign = true;
         this->execute_time = this->request_time;

@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "../../devel/share/roseus/ros/crazyflie_driver/msg/GenericLogData.l"
   "../../devel/share/roseus/ros/crazyflie_driver/msg/TrajectoryPolynomialPiece.l"
   "../../devel/share/roseus/ros/crazyflie_driver/msg/state_tg.l"
+  "../../devel/share/roseus/ros/crazyflie_driver/msg/IdPos.l"
   "../../devel/share/roseus/ros/crazyflie_driver/msg/Position.l"
   "../../devel/share/roseus/ros/crazyflie_driver/msg/Hover.l"
   "../../devel/share/roseus/ros/crazyflie_driver/msg/crtpPacket.l"

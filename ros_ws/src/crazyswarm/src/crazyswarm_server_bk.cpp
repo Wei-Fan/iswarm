@@ -1,6 +1,6 @@
 #include "ros/ros.h"
 #include <tf/transform_broadcaster.h>
-#include <tf_conversions/tf_eigen.h>
+//#include <tf_conversions/tf_eigen.h>
 #include <ros/callback_queue.h>
 
 #include "crazyflie_driver/AddCrazyflie.h"
@@ -8,6 +8,7 @@
 #include "crazyflie_driver/GenericLogData.h"
 #include "crazyflie_driver/UpdateParams.h"
 #include "crazyflie_driver/UploadTrajectory.h"
+#include "crazyflie_driver/TrajectoryRef.h"
 #undef major
 #undef minor
 #include "crazyflie_driver/Takeoff.h"
@@ -15,6 +16,8 @@
 #include "crazyflie_driver/GoTo.h"
 #include "crazyflie_driver/StartTrajectory.h"
 #include "crazyflie_driver/SetGroupMask.h"
+#include "crazyflie_driver/getPosSetPoint.h"
+
 #include "std_srvs/Empty.h"
 #include "geometry_msgs/Twist.h"
 #include "sensor_msgs/Imu.h"
@@ -24,14 +27,22 @@
 
 #include <sensor_msgs/Joy.h>
 #include <sensor_msgs/PointCloud.h>
+#include "crazyflie_driver/state_tg.h"
 
 //#include <regex>
 #include <thread>
 #include <mutex>
 #include <condition_variable>
 
-
+#include "control_modified.h"
+#include "commander.h"
 #include <crazyflie_cpp/Crazyflie.h>
+
+/*formation control dependencies*/
+#include <string>
+#include <eiquadprog.h>
+#include <std_msgs/Float64MultiArray.h>
+#include <std_msgs/Int32MultiArray.h>
 
 // debug test
 #include <signal.h>
@@ -58,6 +69,8 @@
 #include <wordexp.h> // tilde expansion
 
 #include <stdio.h>
+
+#define DYN_ERR 0.02
 /*
 Threading
  * There are 2N+1 threads, where N is the number of groups (== number of unique channels)
@@ -75,6 +88,14 @@ Threading
 
 constexpr double pi() { return std::atan(1)*4; }
 int isStartTr = 0;
+long cnt = 0;
+
+float g_dt=0.01;
+
+
+
+Eigen::Vector3f gPositionRef;
+
 double degToRad(double deg) {
     return deg / 180.0 * pi();
 }
@@ -188,6 +209,8 @@ public:
     , m_forceNoCache(force_no_cache)
     , m_initializedPosition(false)
     , isNotSendPIng(false)
+    , m_controller(id)
+//    , m_isHoverOK(false)
   {
     printf("-----------------hello swarmServer --------------------\n");
     ros::NodeHandle n;
@@ -197,6 +220,33 @@ public:
     m_serviceLand = n.advertiseService(tf_prefix + "/land", &CrazyflieROS::land, this);
     m_serviceGoTo = n.advertiseService(tf_prefix + "/go_to", &CrazyflieROS::goTo, this);
     m_serviceSetGroupMask = n.advertiseService(tf_prefix + "/set_group_mask", &CrazyflieROS::setGroupMask, this);
+//    m_traj_ref_sub = n.subscribe(tf_prefix + "/set_state", 100, &CrazyflieROS::aflie_state_traj_cb,this);
+    //m_serviceTrajectoryRef=n.advertiseService(tf_prefix + "/set_trajectory_ref", &CrazyflieROS::setTrajectoryRef, this);
+    m_PosSetPoint.setZero();
+    m_VelSetPoint.setZero();
+    m_AccSetPoint.setZero();
+    m_currentPosition.setZero();
+    m_lastPosition.setZero();
+    m_initialPosition.setZero();
+    m_positionRef.setZero();
+    m_velocityRef.setZero();
+    m_accelerationRef.setZero();
+    s_tg_tmp.p_x = 0.0;
+    s_tg_tmp.p_y = 0.0;
+    s_tg_tmp.p_z = -1.0;
+    s_tg_tmp.v_x = 0.0;
+    s_tg_tmp.v_y = 0.0;
+    s_tg_tmp.v_z = 0.0;
+    s_tg_tmp.a_x = 0.0;
+    s_tg_tmp.a_y = 0.0;
+    s_tg_tmp.a_z = 0.0;
+    m_PosSetPoint(2)=-1;
+
+
+    Euler.setZero();
+    m_positionRef(2)=-1;
+    m_dt=0.01;
+    m_commander.initSps(m_PosSetPoint,m_VelSetPoint,m_AccSetPoint);
     m_rpy(0) = -3;
     if (m_enableLogging) {
       m_logFile.open("logcf" + std::to_string(id) + ".csv");
@@ -238,49 +288,6 @@ public:
       m_cf.sendPing();
       }
   }
-
-  // void joyChanged(
-  //       const sensor_msgs::Joy::ConstPtr& msg)
-  // {
-  //   static bool lastState = false;
-  //   // static float x = 0.0;
-  //   // static float y = 0.0;
-  //   // static float z = 1.0;
-  //   // static float yaw = 0;
-  //   // bool changed = false;
-
-  //   // float dx = msg->axes[4];
-  //   // if (fabs(dx) > 0.1) {
-  //   //   x += dx * 0.01;
-  //   //   changed = true;
-  //   // }
-  //   // float dy = msg->axes[3];
-  //   // if (fabs(dy) > 0.1) {
-  //   //   y += dy * 0.01;
-  //   //   changed = true;
-  //   // }
-  //   // float dz = msg->axes[1];
-  //   // if (fabs(dz) > 0.1) {
-  //   //   z += dz * 0.01;
-  //   //   changed = true;
-  //   // }
-  //   // float dyaw = msg->axes[0];
-  //   // if (fabs(dyaw) > 0.1) {
-  //   //   yaw += dyaw * 1.0;
-  //   //   changed = true;
-  //   // }
-
-  //   // if (changed) {
-  //   //   ROS_INFO("[%f, %f, %f, %f]", x, y, z, yaw);
-  //   //   m_cf.trajectoryHover(x, y, z, yaw);
-  //   // }
-
-  //   if (msg->buttons[4] && !lastState) {
-  //     ROS_INFO("hover!");
-  //     m_cf.trajectoryHover(0, 0, 1.0, 0, 2.0);
-  //   }
-  //   lastState = msg->buttons[4];
-  // }
 
 public:
   bool isNotSendPIng;
@@ -335,6 +342,7 @@ public:
         ROS_ERROR("Could not find param %s/%s", group.c_str(), name.c_str());
       }
     }
+    std::cout<<"CF "<<m_id<<" Send paramters."<<std::endl;
     m_cf.setRequestedParams();
     return true;
   }
@@ -364,12 +372,7 @@ public:
         pieces[i].p[3][j] = req.pieces[i].poly_yaw[j];
       }
     }
-    // for(int j=0;j<10;++j) //hongzhe: repeat request
-    // {
       m_cf.uploadTrajectory(req.trajectoryId, req.pieceOffset, pieces);
-      // std::this_thread::sleep_for(std::chrono::milliseconds(3));
-    // }
-    
 
     ROS_INFO("[%s] Uploaded trajectory", m_frame.c_str());
 
@@ -421,6 +424,58 @@ public:
 
     return true;
   }
+
+  bool setTrajectoryRef(
+            crazyflie_driver::TrajectoryRef::Request& req,
+            crazyflie_driver::TrajectoryRef::Response& res)
+  {
+    //ROS_INFO("[%s] Set Group Mask", m_frame.c_str());
+
+    m_positionRef(0)=req.x;
+    m_positionRef(1)=req.y;
+    m_positionRef(2)=req.z;
+    m_velocityRef(0)=req.vx;
+    m_velocityRef(1)=req.vy;
+    m_velocityRef(2)=req.vz;
+    m_accelerationRef(0)=req.ax;
+    m_accelerationRef(1)=req.ay;
+    m_accelerationRef(2)=req.az;
+
+    return true;
+  }
+
+
+  void setTakeOffPos(const float& x,const float& y,const float& z){
+    m_commander.setTakeOffPos(x, y, z);
+    m_initialPosition(0)=x;
+    m_initialPosition(1)=y;
+    m_initialPosition(2)=z;
+    m_lastPosition(0)=x;
+    m_lastPosition(1)=y;
+    m_lastPosition(2)=z;
+    m_controller.l_posVicon(0)=x;
+    m_controller.l_posVicon(1)=y;
+    m_controller.l_posVicon(2)=z;
+
+    std::cout<<"Initial position:"<<x<<y<<z<<std::endl;
+  }
+
+  void aflie_state_traj_cb(const crazyflie_driver::state_tg::ConstPtr& s_tg){
+    s_tg_tmp = *s_tg;
+    m_PosSetPoint(0) = s_tg_tmp.p_x + m_initialPosition(0);
+    m_PosSetPoint(1) = s_tg_tmp.p_y + m_initialPosition(1);
+    m_PosSetPoint(2) = s_tg_tmp.p_z;
+    //m_PosSetPoint(3) = 0;
+    m_VelSetPoint(0) = s_tg_tmp.v_x;
+    m_VelSetPoint(1) = s_tg_tmp.v_y;
+    m_VelSetPoint(2) = s_tg_tmp.v_z;
+    m_AccSetPoint(0) = s_tg_tmp.a_x;
+    m_AccSetPoint(1) = s_tg_tmp.a_y;
+    m_AccSetPoint(2) = s_tg_tmp.a_z;
+    //std::cout<<"flie"<<m_id<<"set point"<<m_PosSetPoint(0)<<" "<<m_PosSetPoint(1)<<" "<<m_PosSetPoint(2)<<std::endl;
+
+  };
+
 
   void run(
     ros::CallbackQueue& queue)
@@ -567,6 +622,59 @@ public:
 
     m_initializedPosition = true;
   }
+  //added by yhz
+  void initSetPoint()
+  {
+    m_commander.init_sp(&m_PosSetPoint,&m_VelSetPoint,&m_AccSetPoint);
+  }
+
+  void getSetpoint()
+  {
+//        m_commander.command_takeoff(0.02f);
+      m_PosSetPoint(0) =  m_initialPosition(0)+gPositionRef(0);//m_positionRef(0);
+      m_PosSetPoint(1) =  m_initialPosition(1)+gPositionRef(1);//m_positionRef(1);
+      m_PosSetPoint(2) = 0.0f + gPositionRef(2);//m_positionRef(2);
+      m_PosSetPoint(3) = 0.0f; //yaw
+      //std::cout<<"Pos ref:"<<m_PosSetPoint(0)<<","<<m_PosSetPoint(1)<<","<<m_PosSetPoint(2)<<std::endl;
+//
+      m_VelSetPoint(0) = 0.0f+m_velocityRef(0);
+      m_VelSetPoint(1) = 0.0f+m_velocityRef(1);
+      m_VelSetPoint(2) = 0.0f+m_velocityRef(2);
+
+      m_AccSetPoint(0) = 0.0f+m_accelerationRef(0);
+      m_AccSetPoint(1) = 0.0f+m_accelerationRef(1);
+      m_AccSetPoint(2) = 0.0f+m_accelerationRef(2);
+
+  }
+
+
+  void getPositionSetPoint()
+    {
+      ros::spinOnce(); //added by xs
+      /*for(auto& cf : m_cfs)
+      {
+        //cf->getSetpoint();
+        cf->getSetpoint_from_topic();
+      }*/
+    }
+
+  void giveCurrentPos(float x, float y, float z)
+  {
+      m_currentPosition(0) = x;
+      m_currentPosition(1) = y;
+      m_currentPosition(2) = z;
+  }
+
+  void giveCurrentPos(pcl::PointCloud<pcl::PointXYZ>::Ptr pmarkers)
+  {
+    Eigen::Vector3f temp;
+    temp=m_lastPosition;
+    for(int i=0;i<pmarkers->size();i++)
+     {
+
+     }
+  }
+
 
 private:
   Crazyflie m_cf;
@@ -584,7 +692,10 @@ private:
   ros::ServiceServer m_serviceLand;
   ros::ServiceServer m_serviceGoTo;
   ros::ServiceServer m_serviceSetGroupMask;
+  ros::ServiceServer m_serviceTrajectoryRef;
+  crazyflie_driver::state_tg s_tg_tmp;
 
+  ros::Subscriber m_traj_ref_sub;
   std::vector<crazyflie_driver::LogBlock> m_logBlocks;
   std::vector<ros::Publisher> m_pubLogDataGeneric;
   std::vector<std::unique_ptr<LogBlockGeneric> > m_logBlocksGeneric;
@@ -594,15 +705,28 @@ private:
   std::ofstream m_logFile;
   bool m_forceNoCache;
   bool m_initializedPosition;
+
+  float m_dt;
+  //added by yhz
+public:
+    Eigen::Vector3f m_currentPosition,m_lastPosition,m_VelSetPoint,m_AccSetPoint;
+    Eigen::Vector3f m_initialPosition;
+    Eigen::Vector3f m_positionRef;
+    Eigen::Vector3f m_velocityRef;
+    Eigen::Vector3f m_accelerationRef;
+    Eigen::Vector4f m_PosSetPoint;
+    Eigen::Vector3f Euler;
+    Controller m_controller;
+    Commander m_commander;
+//    bool m_isHoverOK;
 };
 
 
 // handles a group of Crazyflies, which share a radio
-
 class CrazyflieGroup
 {
 public:
-  bool isNotSendPIng;
+  bool isNotSendPIng;//added by yhz
   struct latency
   {
     double objectTracking;
@@ -637,24 +761,48 @@ public:
     , m_outputCSVs()
     , m_phase(0)
     , m_phaseStart()
+    //added by yhz
+    , m_sendAttSp(true)
+    , m_isGivingSp(true)
+    , m_initial_posMap()
+    , m_formation_type("square")
+    , m_formation_scale(1.0)
+    , m_require_assignment(true)
+//    , m_areHoverOk(false)
   {
-    printf("----------open csv--------------\n");
-    char str_csv[50] ;
-    sprintf(str_csv,"/home/lucasyu/ros_ws/src/crazyswarm/Cfs%d.csv",channel);
-    Cf_csv.open(str_csv);printf("opened csv\n");
-    std::vector<libobjecttracker::Object> objects;
-    readObjects(objects, channel, logBlocks);
-    printf("----------------crazyflie group 0---------------\n");
-    m_tracker = new libobjecttracker::ObjectTracker(
-      dynamicsConfigurations,
-      markerConfigurations,
-      objects);
-    printf("----------------crazyflie group 1---------------\n");
-    m_tracker->setLogWarningCallback(logWarn);
-    if (writeCSVs) {
-      m_outputCSVs.resize(m_cfs.size());
-    }
-    printf("----------------crazyflie group ---------------\n");
+      //added by yhz
+      char str_csv[50] ;
+      sprintf(str_csv,"/home/wade/ros_ws/src/crazyswarm/Cfs%d.csv",channel);
+      Cf_csv.open(str_csv);printf("opened csv\n");
+      std::vector<libobjecttracker::Object> objects;
+      readObjects(objects, channel, logBlocks);
+      std::cout<<"------ Read Object successfully --------\n"<<std::endl;
+      m_tracker = new libobjecttracker::ObjectTracker(
+        dynamicsConfigurations,
+        markerConfigurations,
+        objects);
+      m_tracker->setLogWarningCallback(logWarn);
+      if (writeCSVs) {
+        m_outputCSVs.resize(m_cfs.size());
+      }
+        m_beginPosSp=true;
+
+      /*formation control parameters and variants*/
+      ros::NodeHandle nh;
+      assignment_request_pub = nh.advertise<std_msgs::Float64MultiArray>("/role_assignment_request",10);
+      assignment_command_sub = nh.subscribe("/role_assignment_command", 10, &CrazyflieGroup::assignment_cb, this);
+      m_start_time = std::chrono::high_resolution_clock::now();
+      m_target_position[0] = 0.0;
+      m_target_position[1] = 0.0;
+      robot_number = m_cfs.size();
+      m_formation.resize(2, robot_number);
+      for (int i = 0; i < robot_number; ++i) {
+          pair<int, int> tmp;
+          tmp = make_pair(m_cfs[i]->id(),i);
+          m_assignment.push_back(tmp);
+      }
+      /*generate formation*/
+      generateFormation(m_formation_type, m_formation_scale, m_formation);
   }
 
   ~CrazyflieGroup()
@@ -664,7 +812,11 @@ public:
     }
     delete m_tracker;
   }
-
+  //added by yhz
+  void beginPosSp()
+  {
+      m_beginPosSp = true;
+  }
   const latency& lastLatency() const {
     return m_latency;
   }
@@ -683,6 +835,7 @@ public:
     auto stamp = std::chrono::high_resolution_clock::now();
 
     std::vector<CrazyflieBroadcaster::externalPose> states;
+    std::vector<CrazyflieBroadcaster::AttSetPts> sp_states;
 
     if (!m_interactiveObject.empty()) {
       runInteractiveObject(states);
@@ -700,11 +853,7 @@ public:
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsedSeconds = end-start;
         m_latency.objectTracking = elapsedSeconds.count();
-        // totalLatency += elapsedSeconds.count();
-        // ROS_INFO("Tracking: %f s", elapsedSeconds.count());
       }
-      // sring temple;
-      
       for (size_t i = 0; i < m_cfs.size(); ++i) {
         if (m_tracker->objects()[i].lastTransformationValid()) {
           
@@ -730,7 +879,6 @@ public:
             else {rpy(2)+=3.14;}
           }
           if(m_cfs[i]->m_rpy(0) > -2){
-            // Eigen::Quaternionf qq(m_cfs[i]->states.qw,m_cfs[i]->states.qx,m_cfs[i]->states.qy,m_cfs[i]->states.qz);
             auto rpy2 = m_cfs[i]->m_rpy;
 
             if((fabs(rpy(0)-rpy2(0))>0.1)&&( (rpy(0)*rpy2(0))<0))
@@ -762,6 +910,7 @@ public:
           states.back().qy = q.y();
           states.back().qz = q.z();
           states.back().qw = q.w();
+
           float x,y,z;
           x = rpy(0);
           y = rpy(1);
@@ -769,7 +918,6 @@ public:
           m_cfs[i]->m_rpy(0) = x;
           m_cfs[i]->m_rpy(1) = y;
           m_cfs[i]->m_rpy(2) = z;
-
           
           if(isStartTr>0){
               // auto rpy = q.toRotationMatrix().eulerAngles(0, 1, 2);
@@ -784,52 +932,35 @@ public:
           vicon state prediction
           **/
           float rho = 0.6;
-          /*if(states.size()>1){
-            float vx,vy,vz,e_x,e_y,e_z,x_star,y_star,z_star;
-            const auto& lstate = states[states.size()-2];
-            vx = (states.back().x-lstate.x)/0.01f;
-            vy = (states.back().y-lstate.y)/0.01f;
-            vz = (states.back().z-lstate.z)/0.01f;
-            x_star = states.back().x + vx*0.01;
-            y_star = states.back().y + vy*0.01;
-            z_star = states.back().z + vz*0.01;
-            e_x = states.back().x - x_star;
-            e_y = states.back().y - y_star;
-            e_z = states.back().z - z_star;
-            states.back().x = states.back().x + rho*e_x;
-            states.back().y = states.back().y + rho*e_y;
-            states.back().z = states.back().z + rho*e_z;
-          }*/
-          
+
+            if(m_sendAttSp){
+                sp_states.resize(sp_states.size()+1);
+                sp_states.back().id = m_cfs[i]->id();
+                sp_states.back().roll = 0.0f;
+                sp_states.back().pitch = 0.0f;
+                sp_states.back().yaw = 0.0f;
+                sp_states.back().thrust = 600.0f;
+            }
 
           m_cfs[i]->initializePositionIfNeeded(states.back().x, states.back().y, states.back().z);
 
           tf::Transform tftransform;
           tftransform.setOrigin(tf::Vector3(translation.x(), translation.y(), translation.z()));
           tftransform.setRotation(tf::Quaternion(q.x(), q.y(), q.z(), q.w()));
-          // Eigen::Affine3d transformd = transform.cast<double>();
-          // tf::transformEigenToTF(transformd, tftransform);
-          // tftransform.setOrigin(tf::Vector3(translation.x(), translation.y(), translation.z()));
-          // tf::Quaternion tfq(q.x(), q.y(), q.z(), q.w());
+
           if (!isStopSendTr)
           {
-            // if(isStartTr>0){
-            //   std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-            //   isStartTr = -1;
-            // }
             m_br.sendTransform(tf::StampedTransform(tftransform, ros::Time::now(), "world", m_cfs[i]->frame()));
           }
 
           if (m_outputCSVs.size() > 0) {
             std::chrono::duration<double> tDuration = stamp - m_phaseStart;
             double t = tDuration.count();
-            // auto rpy = q.toRotationMatrix().eulerAngles(0, 1, 2);
             *m_outputCSVs[i] << t << "," << states.back().x << "," << states.back().y << "," << states.back().z
                                   << "," << rpy(0) << "," << rpy(1) << "," << rpy(2) << "\n";
           }
           std::chrono::duration<double> tDuration = stamp - m_phaseStart;
         double t = tDuration.count();
-        // auto rpy = q.toRotationMatrix().eulerAngles(0, 1, 2);
         Cf_csv <<m_cfs[i]->id() <<","<< t << "," << states.back().x << "," << states.back().y << "," << states.back().z
                                   << "," << rpy(0) << "," << rpy(1) << "," << rpy(2)<<",";
         }
@@ -839,28 +970,165 @@ public:
           ROS_WARN("No updated pose for CF %s for %f s.",
             m_cfs[i]->frame().c_str(),
             elapsedSeconds.count());
+            /*states.resize(states.size() + 1);
+            states.back().id = m_cfs[i]->id();
+            states.back().x = 0;
+            states.back().y = 0;
+            states.back().z = -1;
+
+            states.back().qx = 0;
+            states.back().qy = 0;
+            states.back().qz = 0;
+            states.back().qw = 0;*/
+
+
         }
-        
       }
        Cf_csv << "\n";
     }
-
     {
       auto start = std::chrono::high_resolution_clock::now();
-      m_cfbc.sendExternalPoses(states);
+        if (m_sendAttSp){
+            if(m_beginPosSp)//main process
+            {
+                /**
+                 * add a formation control function
+                 */
+                auto cur_time = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> hover_time = cur_time-m_start_time;
+                if(hover_time.count() < 10)
+                {
+                    for(int i=0;i<sp_states.size();++i){
+                        //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+                        //getGroupCurPos(states[i].id,m_pMarkers);
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
+
+                        CrazyflieROS *cf = m_CrazyflieIdMap[sp_states[i].id];
+                        cf->m_PosSetPoint(0) = cf->m_initialPosition(0);
+                        cf->m_PosSetPoint(1) = cf->m_initialPosition(1);
+                        cf->m_PosSetPoint(2) = min(0.16*hover_time.count(),0.8);
+                        cf->m_VelSetPoint(0) = 0;
+                        cf->m_VelSetPoint(1) = 0;
+                        cf->m_VelSetPoint(2) = 0.16;
+                        cf->m_AccSetPoint(0) = 0;
+                        cf->m_AccSetPoint(1) = 0;
+                        cf->m_AccSetPoint(2) = 0;
+
+                        Groupcontrol(sp_states[i].id,sp_states[i]);
+
+                    }
+                } else if (hover_time.count() < 38 && hover_time.count() > 35)
+                {
+                    for(int i=0;i<sp_states.size();++i){
+                        //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+                        //getGroupCurPos(states[i].id,m_pMarkers);
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
+
+                        CrazyflieROS *cf = m_CrazyflieIdMap[sp_states[i].id];
+                        cf->m_PosSetPoint(0) = states[i].x;
+                        cf->m_PosSetPoint(1) = states[i].y;
+                        cf->m_PosSetPoint(2) = 0.5;
+                        cf->m_VelSetPoint(0) = 0;
+                        cf->m_VelSetPoint(1) = 0;
+                        cf->m_VelSetPoint(2) = 0;
+                        cf->m_AccSetPoint(0) = 0;
+                        cf->m_AccSetPoint(1) = 0;
+                        cf->m_AccSetPoint(2) = 0;
+
+                        Groupcontrol(sp_states[i].id,sp_states[i]);
+                    }
+                } else if (hover_time.count() > 38)
+                {
+                    for(int i=0;i<sp_states.size();++i){
+                        //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+                        //getGroupCurPos(states[i].id,m_pMarkers);
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
+
+                        CrazyflieROS *cf = m_CrazyflieIdMap[sp_states[i].id];
+                        cf->m_PosSetPoint(0) = states[i].x;
+                        cf->m_PosSetPoint(1) = states[i].y;
+                        cf->m_PosSetPoint(2) = -0.5;
+                        cf->m_VelSetPoint(0) = 0;
+                        cf->m_VelSetPoint(1) = 0;
+                        cf->m_VelSetPoint(2) = 0;
+                        cf->m_AccSetPoint(0) = 0;
+                        cf->m_AccSetPoint(1) = 0;
+                        cf->m_AccSetPoint(2) = 0;
+
+                        Groupcontrol(sp_states[i].id,sp_states[i]);
+                    }
+                } else {
+                    /*obtain the group position and publish for role assignment*/
+                    std::vector<int> m_cfs_id;
+                    std::vector<pair<double, double>> m_cfs_cur_pos;
+                    std::vector<int> assignment;
+
+                    getGroupPresentPos(states, m_cfs_id, m_cfs_cur_pos);
+                    //                assignment_pub.publish(m_cfs_cur_pos);
+                    assignmentReMap(m_cfs_id, m_assignment, assignment);
+
+                    /*obtain the velocity setpoint from formation control and transform the setpoint to control variants*/
+                    for (int i = 0; i < sp_states.size(); ++i) {
+                        double vxy_sp[2];
+                        formationControl(i, m_cfs_cur_pos, m_target_position, assignment, vxy_sp);
+
+                        getGroupCurPos(states[i]);
+                        getPositionSetPoint();
+
+                        assignmentGroupcontrol(sp_states[i].id, sp_states[i], vxy_sp);
+                    }
+
+                    if (m_require_assignment)
+                    {
+                        m_require_assignment = false;
+                        std_msgs::Float64MultiArray msg;
+                        for (int i = 0; i < m_cfs_id.size(); ++i) {
+                            msg.data.push_back(double(m_cfs_id[i]));
+                        }
+                        for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
+                            msg.data.push_back(m_cfs_cur_pos[j].first);
+                        }
+                        for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
+                            msg.data.push_back(m_cfs_cur_pos[j].second);
+                        }
+                        assignment_request_pub.publish(msg);
+                    }
+                }
+
+
+//                for(int i=0;i<sp_states.size();++i){
+//                    //getGroupCurPos(states[i].id,states[i].x,states[i].y,states[i].z);
+//                    //getGroupCurPos(states[i].id,m_pMarkers);
+//                    getGroupCurPos(states[i]);
+//                    getPositionSetPoint();
+//
+//                    Groupcontrol(sp_states[i].id,sp_states[i]);
+//                }
+            }
+            /*std::cout<<"setpoint ouside(trpy): "<< sp_states.back().thrust <<"; "
+                     <<sp_states.back().roll<<"; "
+                     <<sp_states.back().pitch<<"; "
+                     <<sp_states.back().yaw<<std::endl<<std::endl;*/
+            m_cfbc.sendAttSps(sp_states);
+        } else if (!m_sendPositionOnly) {
+            m_cfbc.sendExternalPoses(states);
+        }else {
+            std::vector<CrazyflieBroadcaster::externalPosition> positions(states.size());
+            for (size_t i = 0; i < positions.size(); ++i) {
+                positions[i].id = states[i].id;
+                positions[i].x  = states[i].x;
+                positions[i].y  = states[i].y;
+                positions[i].z  = states[i].z;
+            }
+            m_cfbc.sendExternalPositions(positions);
+        }
       auto end = std::chrono::high_resolution_clock::now();
       std::chrono::duration<double> elapsedSeconds = end-start;
-      m_latency.broadcasting = elapsedSeconds.count();
-      // totalLatency += elapsedSeconds.count();
-      // ROS_INFO("Broadcasting: %f s", elapsedSeconds.count());
+      m_latency.broadcasting = elapsedSeconds.count(); // what is this?
     }
-
-    // auto time = std::chrono::duration_cast<std::chrono::microseconds>(
-    //   std::chrono::high_resolution_clock::now().time_since_epoch()).count();
-    // for (const auto& state : states) {
-    //   std::cout << time << "," << state.x << "," << state.y << "," << state.z << std::endl;
-    // }
-
   }
 
   void runSlow()
@@ -888,20 +1156,14 @@ public:
 
   void takeoff(float height, float duration, uint8_t groupMask)
   {
-    // for (size_t i = 0; i < 20; ++i) {  //hongzhe: repeatedly send orders
     m_cfbc.takeoff(height, duration, groupMask);
     isNotSendPIng = true;
-      // std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    // }
   }
 
   void land(float height, float duration, uint8_t groupMask)
   {
     isNotSendPIng = false;
-    // for (size_t i = 0; i < 20; ++i) {  //hongzhe: repeatedly send orders
       m_cfbc.land(height, duration, groupMask);
-      // std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    // }
   }
 
   void startTrajectory(
@@ -915,6 +1177,404 @@ public:
       // std::this_thread::sleep_for(std::chrono::milliseconds(1));
     // }
   }
+
+  /**
+   * Weifan
+  **/
+  void generateFormation(std::string formation_type, double formation_scale, Eigen::Matrix2Xd &formation)
+  {
+      /*Generate formation*/
+      int ROBOT_MAX = this->robot_number;
+      auto n1 = ROBOT_MAX - 1;
+      double CIRCLE_RADIUS = formation_scale;
+
+      // Circle case
+      if (formation_type == "circle")
+      {
+          Eigen::VectorXd t = Eigen::VectorXd::LinSpaced(ROBOT_MAX,0,n1).array()*(2*M_PI/ROBOT_MAX);
+          formation << CIRCLE_RADIUS * t.array().cos(), CIRCLE_RADIUS * t.array().sin(); //formation
+      }
+      else if (formation_type == "square") // Square case
+      {
+          double total_length = formation_scale * 4.0;
+          double x = -(formation_scale/2.0);
+          double y = -(formation_scale/2.0);
+          double dl = total_length / (double) ROBOT_MAX;
+          double prev_l = 0;
+          double dx, dy;
+          for(int i = 0;i < ROBOT_MAX;i++)
+          {
+              double l = dl * (i+1);
+              if(l < total_length/4.0)
+              {
+                  // go right
+                  x = x + dl;
+                  y = -(formation_scale/2.0);
+              }
+              else if(l >= total_length/4.0 && l < total_length/2.0)
+              {
+                  // go up
+                  if(prev_l < total_length/4.0)
+                  {
+                      dx = formation_scale/2.0 - x;
+                      dy = dl - dx;
+                      x = formation_scale/2.0;
+                      y = y + dy;
+                  }
+                  else{
+                      y = y + dl;
+                  }
+
+              }
+              else if(l >= total_length/2.0 && l < total_length * 3.0/4.0)
+              {
+                  // go left
+                  if(prev_l < total_length/2.0){
+                      dy = formation_scale/2.0 - y;
+                      dx = dl - dy;
+                      y = formation_scale/2.0;
+                      x = x - dx;
+                  }
+                  else{
+                      x = x - dl;
+                  }
+              }
+              else{
+                  // go down
+                  if(prev_l < total_length * 3.0/4.0){
+                      dx = x + formation_scale/2.0;
+                      dy = dl - dx;
+                      x = -(formation_scale/2.0);
+                      y = y - dy;
+                  }
+                  else{
+                      y = y - dl;
+                  }
+              }
+
+              formation(i,0) = x;
+              formation(i,1) = y;
+              prev_l = l;
+          }
+      }
+      else{
+          ROS_ERROR("generate formation fails!");
+      }
+  }
+
+  void getGroupPresentPos(std::vector<CrazyflieBroadcaster::externalPose> states, std::vector<int> &cfs_id, std::vector<pair<double, double>> &cfs_cur_pos)
+  {
+      for (int i = 0; i < states.size(); ++i) {
+          cfs_id.push_back(states[i].id);
+          pair<double, double> tmp;
+          tmp = make_pair(states[i].x, states[i].y);
+          cfs_cur_pos.push_back(tmp);
+      }
+  }
+
+  void assignmentReMap(std::vector<int> cfs_id, std::vector<pair<int, int>> a_assignment, std::vector<int> &assignment)
+  {
+      assignment.resize(cfs_id.size());
+      for (int i = 0; i < cfs_id.size(); ++i) {
+          for (int j = 0; j < a_assignment.size(); ++j) {
+              if (cfs_id[i] == a_assignment[j].first)
+              {
+                  assignment[i] = a_assignment[j].second;
+                  break;
+              }
+          }
+      }
+  }
+
+  void formationControl(int rid, std::vector<pair<double, double>> cfs_cur_pos, double *target_position, std::vector<int> assignment, double *raw_velocity)
+  {
+      /**
+       * Run the core control loop which does all of the heavy calculation.
+       * In order to cooperate the role assignment, some adjustments need to be done
+       * First, assignment matrix is unnecessary but need to replaced by the one that
+       * allows two identical targets for two agents.
+       * Then, self_id will be replaced by what is corresponsing.
+       */
+      double velocity_target_following[2],velocity_formation_control[2];
+      double publish_velocity, publish_heading_velocity;
+
+      target_following(velocity_target_following, cfs_cur_pos, target_position); //target following
+      formation_control(velocity_formation_control, rid, cfs_cur_pos, m_formation, assignment);//, CONNECT_RADIUS); //establish permiter
+
+      double velocity[2];
+      velocity[0]= (velocity_target_following[0] + velocity_formation_control[0])*0.1;
+      velocity[1]= (velocity_target_following[1] + velocity_formation_control[1])*0.1;//two velocities add together
+      double v_t[2];
+      v_t[0] = velocity[0];
+      v_t[1] = velocity[1];
+      barrier_certificate(velocity, rid, cfs_cur_pos);//barrier certificate
+
+      /*check if the role assignment is required*/
+      double nominal_velocity = sqrt(v_t[0]*v_t[0]+v_t[1]*v_t[1]);
+      double bc_velocity = sqrt(velocity[0]*velocity[0]+velocity[1]*velocity[1]);
+
+      if (v_t[0]*velocity[0]+v_t[1]*velocity[1] < 0)
+      {
+//          ROS_INFO("warning!!!");
+          velocity[0] = velocity[0]/fabs(velocity[0])*0.3;
+          velocity[1] = velocity[1]/fabs(velocity[1])*0.3;
+      }
+
+      if ((bc_velocity/2) < 0.1 && (nominal_velocity - bc_velocity) > 1.0)
+      {
+          m_require_assignment = true;
+//          assignment_request_pub.publish(signal);
+      }
+
+      raw_velocity[0] = velocity[0];
+      raw_velocity[1] = velocity[1];
+  }
+
+    void target_following(double *v, std::vector<std::pair<double, double>> position, double *target_position){
+        double d[2], dv[2];
+        double n;
+
+        for (int j = 0; j < position.size(); j++)
+        {
+            d[0] = target_position[0] - position[j].first;
+            d[1] = target_position[1] - position[j].second;
+
+            dv[0] = d[0];
+            dv[1] = d[1];
+            n = n + 1;
+
+            v[0] += dv[0];
+            v[1] += dv[1];
+        }
+        v[0] = v[0] / (n + 1);
+        v[1] = v[1] / (n + 1);// we must divide first
+    }
+
+    void formation_control(double *v, int rid, std::vector<pair<double, double>> position, Eigen::Matrix2Xd formation, std::vector<int> assignment){//, double connectivity_radius){
+        // double connectivity_radius = CONNECT_RADIUS;
+        int i = rid;
+        double d[2], dv[2];
+        double n, norm_d;
+        n = 0;
+
+        for (int j = 0; j < position.size(); j++)
+        {
+            if(i == j) continue;
+            d[0] = position[j].first - position[i].first;
+            d[1] = position[j].second - position[i].second;
+            norm_d = sqrt(pow(d[0], 2) + pow(d[1], 2));
+
+            if (norm_d < 10)//connectivity_radius)
+            {
+                dv[0] = d[0] - (formation(assignment[j],0) - formation(assignment[i],0));
+                dv[1] = d[1] - (formation(assignment[j],1) - formation(assignment[i],1));
+//                 dv[0] = d[0] - (formation(j,0) - formation(i,0));
+//                 dv[1] = d[1] - (formation(j,1) - formation(i,1));
+                n = n + 1;
+            }
+            else
+            {
+                dv[0] = 0;
+                dv[1] = 0;
+                // ROS_INFO("~~~~~~~!!!cannot see");
+            }
+            v[0] += dv[0];
+            v[1] += dv[1];
+        }
+        v[0] = v[0] / (n + 1);
+        v[1] = v[1] / (n + 1);// we must divide first
+    }
+
+    void barrier_certificate(double *v, int rid, std::vector<pair<double, double>> position){
+        int c = 0; //c=0 assumes agressive behaviour, =1 assumes neutral, =2 assumes enemy will avoid collision
+        double Ds = 0.4;
+        double delta_amax = 1.0;
+        double gamma = 10000.0;
+        double a_max = 1.0;
+        double delta_vmax = 0.5;
+        double obstacle_radius = 0.5;
+        double neighbour_radius = Ds + 1/(2*delta_amax)* pow((pow(2*delta_amax/gamma, 1.0/3.0) + delta_vmax), 2);
+
+        vector<double> d0_vec;
+        vector<double> d1_vec;
+        vector<double> h_vec;
+
+        double d[2], delta_v[2], d_minus[2];
+        double n, norm_d;
+        int i = rid;
+
+        //Avoid the other robots
+        for (int j = 0; j < position.size(); j++)
+        {
+            if(i == j) continue;
+            d[0] = position[j].first - position[i].first;
+            d[1] = position[j].second - position[i].second;
+            norm_d = sqrt(pow(d[0], 2) + pow(d[1], 2));
+            double v_norm = sqrt(pow(v[0], 2) + pow(v[1], 2));
+            if (norm_d <= neighbour_radius)
+            {
+                n = n + 1;
+                d0_vec.push_back(d[0]);
+                d1_vec.push_back(d[1]);
+                bool obstacle_avoid = false;
+                d_minus[0] = -1 * d[0];
+                d_minus[1] = -1 * d[1];
+                delta_v[0] = v[0]/(v_norm+0.01);
+                delta_v[1] = v[1]/(v_norm+0.01);
+                double b = b_func(d_minus, Ds, delta_v, delta_amax, gamma, obstacle_radius, obstacle_avoid,c);
+                h_vec.push_back(b);
+            }
+        }
+
+        if(h_vec.size()>0){
+            int k = 2;
+            Eigen::VectorXd x_v = Eigen::VectorXd::Zero(k);
+            Eigen::VectorXd g0(k);
+            g0(0) = -2 * v[0];
+            g0(1) = -2 * v[1];
+            Eigen::MatrixXd G(k,k);
+            G << 2, 0, 0, 2;
+
+            d0_vec.push_back(1.0);
+            d0_vec.push_back(0.0);
+            d1_vec.push_back(0.0);
+            d1_vec.push_back(1.0); // add matrix(1,0; 0,1)
+            h_vec.push_back(a_max);
+            h_vec.push_back(a_max); // add vector(a_max, a_max)
+
+            Eigen::MatrixXd CI(k,d0_vec.size());
+            Eigen::VectorXd ci0(CI.cols());
+
+            Eigen::MatrixXd CE = Eigen::MatrixXd::Zero(k,0);
+            Eigen::VectorXd ce0 = Eigen::VectorXd::Zero(CE.cols());
+
+            for (int j = 0; j < d0_vec.size(); j++)
+            {
+                CI(0,j) = -1 * d0_vec[j];
+                CI(1,j) = -1 * d1_vec[j];
+            }
+
+            for (int j = 0; j < h_vec.size(); j++)
+            {
+                ci0(j) = h_vec[j];
+            }
+
+            solve_quadprog(G, g0, CE, ce0, CI, ci0, x_v);
+            v[0] = x_v(0);
+            v[1] = x_v(1);
+        }
+    }
+
+    double h_func(double *delta_p, double Ds, double *delta_v, double delta_amax, double obstacle_radius, bool obstacle_avoid, int c)
+    {
+      double delta_p_norm = sqrt(pow(delta_p[0], 2) + pow(delta_p[1], 2));
+      if (obstacle_avoid){
+        double h = (delta_v[0]*delta_p[0] + delta_v[1]*delta_p[1])/delta_p_norm + sqrt(c*delta_amax*(delta_p_norm - (Ds/2.0 + obstacle_radius)));
+        return h;
+      }
+      else{
+        double h = (delta_v[0]*delta_p[0] + delta_v[1]*delta_p[1])/delta_p_norm + sqrt(c*delta_amax*(delta_p_norm - Ds));
+        return h;
+      }
+    }
+
+    double B_func(double *delta_p, double Ds, double *delta_v, double delta_amax, double obstacle_radius, bool obstacle_avoid, int c){
+      double h = h_func(delta_p, Ds, delta_v, delta_amax, obstacle_radius, obstacle_avoid, c);
+      double B = 1/h;
+      return B;
+    }
+
+    double b_func(double *delta_p, double Ds, double *delta_v, double delta_amax, double gamma, double obstacle_radius, bool obstacle_avoid, int c)
+    {
+      double B = B_func(delta_p, Ds, delta_v, delta_amax, obstacle_radius, obstacle_avoid, c);
+      double h = h_func(delta_p, Ds, delta_v, delta_amax, obstacle_radius, obstacle_avoid, c);
+      double delta_p_norm;
+      delta_p_norm = sqrt(pow(delta_p[0], 2) + pow(delta_p[1], 2));
+      double delta_v_norm = sqrt(pow(delta_v[0], 2) + pow(delta_v[1], 2));
+      double amax_term = delta_amax * (delta_p[0]*delta_v[0] + delta_p[1]*delta_v[1]) / sqrt(2*delta_amax*(delta_p_norm - Ds));
+      double b = gamma / B * pow(h,2) * delta_p_norm - pow((delta_p[0]*delta_v[0] + delta_p[1]*delta_v[1])/delta_p_norm,2) + pow(delta_v_norm,2) + amax_term;
+      return b;
+    }
+
+    void assignmentGroupcontrol(int id,CrazyflieBroadcaster::AttSetPts& sp_state, double *vxy_sp) {
+        Eigen::Vector3f Euler;
+        Eigen::Vector4f vec4ftmp;
+        CrazyflieROS *cf = m_CrazyflieIdMap[id];
+        //std::cout<<"ID:"<<id<<std::endl;
+        double z_sp = 0.8;
+        cf->m_controller.control_nonLineaire(cf->m_currentPosition,
+                                             z_sp, vxy_sp, cf->Euler,
+                                             g_dt, &vec4ftmp);
+        sp_state.roll = vec4ftmp(0);
+        sp_state.pitch = vec4ftmp(1);
+        sp_state.yaw = vec4ftmp(2);
+        sp_state.thrust = vec4ftmp(3);
+    }
+
+    void assignment_cb(const std_msgs::Int32MultiArray &msg) {
+        /*update the assignment matrix*/
+        int number = int(msg.data.size()/2);
+        m_assignment.clear();
+        for (int i = 0; i < number; ++i) {
+            std::pair<int, int> tmp;
+            tmp.first = msg.data[i];
+            tmp.second = msg.data[i+number];
+            m_assignment.push_back(tmp);
+        }
+    }
+
+  /**
+  * hongzhe
+  */
+  void getPositionSetPoint()
+  {
+    ros::spinOnce();/*
+    for(auto& cf : m_cfs)
+    {
+      cf->getSetpoint();
+    }*/
+  }
+
+  void Groupcontrol(int id,CrazyflieBroadcaster::AttSetPts& sp_state) {
+    Eigen::Vector3f Euler;
+    Eigen::Vector4f vec4ftmp;
+    CrazyflieROS *cf = m_CrazyflieIdMap[id];
+    //std::cout<<"ID:"<<id<<std::endl;
+    cf->m_controller.control_nonLineaire(cf->m_currentPosition,
+                                                    cf->m_PosSetPoint, cf->m_VelSetPoint, cf->m_AccSetPoint, cf->Euler,
+                                                    g_dt, &vec4ftmp);
+    sp_state.roll = vec4ftmp(0);
+    sp_state.pitch = vec4ftmp(1);
+    sp_state.yaw = vec4ftmp(2);
+    sp_state.thrust = vec4ftmp(3);
+  }
+
+  void getGroupCurPos(uint8_t id, float x, float y, float z)
+  {
+      CrazyflieROS *cf = m_CrazyflieIdMap[id];
+      cf->giveCurrentPos(x,y,z);
+  }
+
+
+  void getGroupCurPos(CrazyflieBroadcaster::externalPose state)
+  {
+      CrazyflieROS *cf = m_CrazyflieIdMap[state.id];
+      cf->giveCurrentPos(state.x,state.y,state.z);
+      Eigen::Quaternionf q(state.qw,state.qx,state.qy,state.qz);
+      auto rpy = q.toRotationMatrix().eulerAngles(0, 1, 2);
+      cf->Euler(0)=rpy(0);
+      cf->Euler(1)=rpy(1);
+      cf->Euler(2)=rpy(2);
+  }
+
+  void getGroupCurPos(uint8_t id, pcl::PointCloud<pcl::PointXYZ>::Ptr pmarkers)
+  {
+      CrazyflieROS *cf = m_CrazyflieIdMap[id];
+      cf->giveCurrentPos(pmarkers);
+  }
+  /**
+   * end
+   */
 
   void nextPhase()
   {
@@ -981,6 +1641,8 @@ public:
   }
 #endif
 
+
+
 private:
   std::ofstream Cf_csv;
   void publishRigidBody(const std::string& name, uint8_t id, std::vector<CrazyflieBroadcaster::externalPose> &states)
@@ -1044,6 +1706,7 @@ private:
     XmlRpc::XmlRpcValue crazyflies;
     nGlobal.getParam("crazyflies", crazyflies);
     ROS_ASSERT(crazyflies.getType() == XmlRpc::XmlRpcValue::TypeArray);
+      std::cout<<"------ Read Object successfully --------\n"<<std::endl;
 
     objects.clear();
     m_cfs.clear();
@@ -1054,9 +1717,11 @@ private:
       int id = crazyflie["id"];
       int ch = crazyflie["channel"];
       std::string type = crazyflie["type"];
-      if (ch == channel) {
+
+        if (ch == channel) {
         XmlRpc::XmlRpcValue pos = crazyflie["initialPosition"];
         ROS_ASSERT(pos.getType() == XmlRpc::XmlRpcValue::TypeArray);
+        std::cout<<"CF"<<id<<"------ Read Object successfully 1--------\n"<<std::endl;
 
         std::vector<double> posVec(3);
         for (int32_t j = 0; j < pos.size(); ++j) {
@@ -1066,6 +1731,11 @@ private:
         }
         Eigen::Affine3f m;
         m = Eigen::Translation3f(posVec[0], posVec[1], posVec[2]);
+        Eigen::Vector3f initpos(posVec[0], posVec[1], posVec[2]);
+        m_initial_posMap[id] = initpos;
+
+        std::cout<<"init pos:"<< std::move(m_initial_posMap[id])[0]<<" "<<std::move(m_initial_posMap[id])[1]<<" "
+                                                                   <<std::move(m_initial_posMap[id])[2]<<endl;
         int markerConfigurationIdx;
         nGlobal.getParam("crazyflieTypes/" + type + "/markerConfiguration", markerConfigurationIdx);
         int dynamicsConfigurationIdx;
@@ -1087,7 +1757,6 @@ private:
 
     // Turn all CFs on
     for (const auto& config : cfConfigs) {
-      printf("----------------read object --------------- %s \n",config.uri.c_str());
       Crazyflie cf(config.uri);
       cf.syson();
       for (size_t i = 0; i < 100; ++i) {
@@ -1142,6 +1811,10 @@ private:
       logBlocks,
       m_slowQueue,
       forceNoCache);
+    m_CrazyflieIdMap[id] = cf;
+      ROS_INFO("--------- debug 1------------\n");
+      cf->setTakeOffPos(m_initial_posMap[id][0], m_initial_posMap[id][1], m_initial_posMap[id][2]);
+      ROS_INFO("--------- debug 2------------\n");
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = end - start;
     ROS_INFO("CF ctor: %f s", elapsed.count());
@@ -1211,22 +1884,41 @@ private:
   }
 
 private:
-  std::vector<CrazyflieROS*> m_cfs;
-  std::string m_interactiveObject;
-  libobjecttracker::ObjectTracker* m_tracker;
-  int m_radio;
-  // ViconDataStreamSDK::CPP::Client* m_pClient;
-  pcl::PointCloud<pcl::PointXYZ>::Ptr m_pMarkers;
-  std::vector<libmotioncapture::Object>* m_pMocapObjects;
-  ros::CallbackQueue m_slowQueue;
-  CrazyflieBroadcaster m_cfbc;
-  bool m_isEmergency;
-  bool m_useMotionCaptureObjectTracking;
-  tf::TransformBroadcaster m_br;
-  latency m_latency;
-  std::vector<std::unique_ptr<std::ofstream>> m_outputCSVs;
-  int m_phase;
-  std::chrono::high_resolution_clock::time_point m_phaseStart;
+    /*formation control parameters and variants*/
+    std::string m_formation_type;
+    double m_target_position[2];
+    double m_formation_scale;
+    Eigen::Matrix2Xd m_formation;
+    std::vector<pair<int,int>> m_assignment;
+    int robot_number;
+    std::chrono::high_resolution_clock::time_point m_start_time;
+    ros::Publisher assignment_request_pub;
+    ros::Subscriber assignment_command_sub;
+    bool m_require_assignment;
+//    bool m_areHoverOk;
+
+    std::vector<CrazyflieROS*> m_cfs;
+    std::string m_interactiveObject;
+    libobjecttracker::ObjectTracker* m_tracker;
+    int m_radio;
+    // ViconDataStreamSDK::CPP::Client* m_pClient;
+    pcl::PointCloud<pcl::PointXYZ>::Ptr m_pMarkers;
+    std::vector<libmotioncapture::Object>* m_pMocapObjects;
+    ros::CallbackQueue m_slowQueue;
+    CrazyflieBroadcaster m_cfbc;
+    bool m_isEmergency;
+    bool m_useMotionCaptureObjectTracking;
+    tf::TransformBroadcaster m_br;
+    latency m_latency;
+    bool m_sendPositionOnly, m_sendAttSp, m_isGivingSp;
+    std::vector<std::unique_ptr<std::ofstream>> m_outputCSVs;
+    int m_phase;
+    std::chrono::high_resolution_clock::time_point m_phaseStart;
+    std::map<uint8_t, CrazyflieROS*> m_CrazyflieIdMap;
+    std::map<uint8_t, Eigen::Vector3f> m_initial_posMap;
+
+public:
+    bool m_beginPosSp;
 };
 
 // handles all Crazyflies
@@ -1240,9 +1932,11 @@ public:
     , m_serviceTakeoff()
     , m_serviceLand()
     , m_serviceNextPhase()
+    , m_serviceGetPosSetPoint()
     , m_lastInteractiveObjectPosition(-10, -10, 1)
     , m_broadcastingNumRepeats(15)
     , m_broadcastingDelayBetweenRepeatsMs(1)
+
   {
     
     ros::NodeHandle nh;
@@ -1256,7 +1950,13 @@ public:
     m_serviceNextPhase = nh.advertiseService("next_phase", &CrazyflieServer::nextPhase, this);
     // m_serviceUpdateParams = nh.advertiseService("update_params", &CrazyflieServer::updateParams, this);
     m_pubPointCloud = nh.advertise<sensor_msgs::PointCloud>("pointCloud", 1);
+    m_serviceGetPosSetPoint = nh.advertiseService("getServerPosSetPoint",&CrazyflieServer::getPosSetPoint, this);
+    m_serviceTrajectoryRef=nh.advertiseService("/set_trajectory_ref", &CrazyflieServer::setTrajectoryRef, this);
+    gPositionRef.setZero();
+    gPositionRef(2)=-1;
+
     // m_subscribeVirtualInteractiveObject = nh.subscribe("virtual_interactive_object", 1, &CrazyflieServer::virtualInteractiveObjectCallback, this);
+
   }
 
   ~CrazyflieServer()
@@ -1274,11 +1974,24 @@ public:
       msg->pose.position.z);
   }
 
+
+
+    bool setTrajectoryRef(
+            crazyflie_driver::TrajectoryRef::Request& req,
+            crazyflie_driver::TrajectoryRef::Response& res)
+    {
+      //ROS_INFO("[%s] Set Group Mask", m_frame.c_str());
+
+      gPositionRef(0)=req.x;
+      gPositionRef(1)=req.y;
+      gPositionRef(2)=req.z;
+      return true;
+    }
+
+
   void run()
   {
-    
     std::thread tSlow(&CrazyflieServer::runSlow, this);
-    printf("------------------run ok 1------------------\n");
     runFast();
     tSlow.join();
   }
@@ -1317,6 +2030,7 @@ public:
     std::string interactiveObject;
     bool printLatency;
     bool writeCSVs;
+    bool sendPositionOnly;
     std::string motionCaptureType;
 
     ros::NodeHandle nl("~");
@@ -1340,7 +2054,7 @@ public:
       logFilePath = wordexp_result.we_wordv[0];
     }
     wordfree(&wordexp_result);
-
+    
     libobjecttracker::PointCloudLogger pointCloudLogger(logFilePath);
     const bool logClouds = !logFilePath.empty();
 
@@ -1413,48 +2127,49 @@ public:
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr markers(new pcl::PointCloud<pcl::PointXYZ>);
     std::vector<libmotioncapture::Object> mocapObjects;
-    printf("-------------run fast here ------------------\n");
-    // Create all groups in parallel and launch threads
+
+  // Create all groups in parallel and launch threads
     {
       std::vector<std::future<CrazyflieGroup*> > handles;
       int r = 0;
       std::cout << "ch: " << channels.size() << std::endl;
       for (int channel : channels) {
         auto handle = std::async(std::launch::async,
-            [&](int channel, int radio)
-            {
-              // std::cout << "radio: " << radio << std::endl;
-              return new CrazyflieGroup(
-                dynamicsConfigurations,
-                markerConfigurations,
-                // &client,
-                markers,
-                &mocapObjects,
-                radio,
-                channel,
-                broadcastAddress,
-                useMotionCaptureObjectTracking,
-                logBlocks,
-                interactiveObject,
-                writeCSVs);
-            },
-            channel,
-            r
-          );
+                                 [&](int channel, int radio)
+                                 {
+                                     // std::cout << "radio: " << radio << std::endl;
+                                     return new CrazyflieGroup(
+                                             dynamicsConfigurations,
+                                             markerConfigurations,
+                                             // &client,
+                                             markers,
+                                             &mocapObjects,
+                                             radio,
+                                             channel,
+                                             broadcastAddress,
+                                             useMotionCaptureObjectTracking,
+                                             logBlocks,
+                                             interactiveObject,
+                                             writeCSVs);
+                                 },
+                                 channel,
+                                 r
+        );
         handles.push_back(std::move(handle));
         ++r;
+        printf("-------------run fast here ------------------\n");
+        std::cout<<"handles: "<<handles.size()<<std::endl;
       }
 
       for (auto& handle : handles) {
-        m_groups.push_back(handle.get());
-        printf("-------------run fast here 1 groups: %d------------------\n",m_groups.size());
+          printf("-------------run fast here 1 groups: %d------------------\n",m_groups.size());
+          m_groups.push_back(handle.get());
       }
     }
-    
+  
     // start the groups threads
     std::vector<std::thread> threads;
     for (auto& group : m_groups) {
-      
       threads.push_back(std::thread(&CrazyflieGroup::runSlow, group));
     }
 
@@ -1491,6 +2206,12 @@ public:
     while (ros::ok() && !m_isEmergency) {
       // Get a frame
       mocap->waitForNextFrame();
+      g_dt=mocap->getTimeIncrement();
+      //mocap->waitForNextFrame();
+      //g_dt+=mocap->getTimeIncrement();
+
+
+      //std::cout<<"g_dt:"<<g_dt<<endl;
 
       latencies.clear();
 
@@ -1533,8 +2254,9 @@ public:
 
       // Get the unlabeled markers and create point cloud
       if (!useMotionCaptureObjectTracking) {
-        mocap->getPointCloud(markers);
-
+  //          std::cout<<"---------- de ------------"<<std::endl;
+          mocap->getPointCloud(markers);
+  //        std::cout<<"----- size: --------"<<markers->size()<<std::endl;
         msgPointCloud.header.seq += 1;
         msgPointCloud.header.stamp = ros::Time::now();
         msgPointCloud.points.resize(markers->size());
@@ -1617,9 +2339,9 @@ public:
         // // }
       }
 
-      // ROS_INFO("Latency: %f s", elapsedSeconds.count());
+        // ROS_INFO("Latency: %f s", elapsedSeconds.count());
 
-      // m_fastQueue.callAvailable(ros::WallDuration(0));
+        // m_fastQueue.callAvailable(ros::WallDuration(0));
     }
 
     if (logClouds) {
@@ -1706,6 +2428,16 @@ private:
     }
 
     return true;
+  }
+  bool getPosSetPoint(
+          crazyflie_driver::getPosSetPoint::Request& req,
+          crazyflie_driver::getPosSetPoint::Response& res)
+  {
+      for(auto& group : m_groups){
+          group->beginPosSp();
+      }
+
+      return true;
   }
 
   bool nextPhase(
@@ -1817,6 +2549,8 @@ private:
   ros::ServiceServer m_serviceLand;
   ros::ServiceServer m_serviceNextPhase;
   ros::ServiceServer m_serviceUpdateParams;
+  ros::ServiceServer m_serviceGetPosSetPoint;
+  ros::ServiceServer m_serviceTrajectoryRef;
 
   ros::Publisher m_pubPointCloud;
   // tf::TransformBroadcaster m_br;

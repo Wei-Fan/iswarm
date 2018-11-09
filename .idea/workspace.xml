@@ -2,108 +2,109 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="Project" targetName="std_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="assignment_commander" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="role_commander" />
-      <config projectName="Project" targetName="quadrotor_teleop" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Hover" />
-      <config projectName="Project" targetName="tf_generate_messages_cpp" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="crazyflie_cpp" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie" />
-      <config projectName="Project" targetName="actionlib_generate_messages_cpp" />
-      <config projectName="Project" targetName="run_tests" />
-      <config projectName="Project" targetName="download_extra_data" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Land" />
-      <config projectName="Project" targetName="gtest_main" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_sendPacket" />
-      <config projectName="Project" targetName="tests" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_getPosSetPoint" />
-      <config projectName="Project" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="Project" targetName="crazyflie_add" />
-      <config projectName="Project" targetName="crazyflie_driver_gencpp" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="roscpp_generate_messages_py" />
-      <config projectName="Project" targetName="tf_generate_messages_eus" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_state_tg" />
-      <config projectName="Project" targetName="crazyflie_driver_generate_messages_py" />
-      <config projectName="Project" targetName="crazyflie_server" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_GoTo" />
-      <config projectName="Project" targetName="actionlib_generate_messages_eus" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="clean_test_results" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="crazyflie_controller" />
-      <config projectName="Project" targetName="libmotioncapture" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="crazyflie_driver_generate_messages_cpp" />
-      <config projectName="Project" targetName="type_methode" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="gtest" />
-      <config projectName="Project" targetName="gmock_main" />
-      <config projectName="Project" targetName="crazyswarm_teleop" />
-      <config projectName="Project" targetName="crazyflie_driver_geneus" />
-      <config projectName="Project" targetName="crazyswarm_server" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Stop" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_TrajectoryPolynomialPiece" />
-      <config projectName="Project" targetName="actionlib_generate_messages_py" />
-      <config projectName="Project" targetName="crazyflie_driver_genlisp" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_UploadTrajectory" />
-      <config projectName="Project" targetName="tf_generate_messages_nodejs" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_UpdateParams" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Position" />
+      <config projectName="Project" targetName="roscpp_generate_messages_py" />
+      <config projectName="Project" targetName="quadrotor_teleop" />
       <config projectName="Project" targetName="crazyflie_driver_generate_messages_lisp" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_TrajectoryPolynomialPiece" />
       <config projectName="Project" targetName="actionlib_generate_messages_nodejs" />
-      <config projectName="Project" targetName="libobjecttracker" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="crazyflie_driver_generate_messages_nodejs" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="tf_generate_messages_py" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_StartTrajectory" />
+      <config projectName="Project" targetName="clean_test_results" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Land" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="crazyflie_add" />
       <config projectName="Project" targetName="crazyflie_driver_generate_messages_eus" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_AddCrazyflie" />
+      <config projectName="Project" targetName="crazyflie_cpp" />
+      <config projectName="Project" targetName="libmotioncapture" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="role_commander" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="tf2_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_UploadTrajectory" />
+      <config projectName="Project" targetName="assignment_commander" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="crazyflie_driver_generate_messages_py" />
+      <config projectName="Project" targetName="_catkin_empty_exported_target" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="actionlib_generate_messages_py" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="actionlib_generate_messages_eus" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="roscpp_generate_messages_nodejs" />
+      <config projectName="Project" targetName="download_extra_data" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_crtpPacket" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="actionlib_generate_messages_lisp" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="type_methode" />
+      <config projectName="Project" targetName="crazyswarm_server" />
+      <config projectName="Project" targetName="actionlib_generate_messages_cpp" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="gmock_main" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_UpdateParams" />
+      <config projectName="Project" targetName="gtest_main" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_AddCrazyflie" />
+      <config projectName="Project" targetName="tf_generate_messages_nodejs" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Position" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_TrajectoryRef" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_RemoveCrazyflie" />
+      <config projectName="Project" targetName="tf_generate_messages_eus" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_GoTo" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Takeoff" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="controller" />
+      <config projectName="Project" targetName="crazyflie_driver_geneus" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_FullState" />
+      <config projectName="Project" targetName="gtest" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="commander" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="tf_generate_messages_cpp" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_LogBlock" />
+      <config projectName="Project" targetName="mocap_helper" />
       <config projectName="Project" targetName="roscpp_generate_messages_eus" />
       <config projectName="Project" targetName="gmock" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_GenericLogData" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="tf_generate_messages_lisp" />
-      <config projectName="Project" targetName="crazyflie_driver_genpy" />
       <config projectName="Project" targetName="doxygen" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Takeoff" />
-      <config projectName="Project" targetName="_catkin_empty_exported_target" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_crtpPacket" />
-      <config projectName="Project" targetName="crazyflie_driver_generate_messages" />
-      <config projectName="Project" targetName="roscpp_generate_messages_cpp" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_LogBlock" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_StartTrajectory" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_SetGroupMask" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_FullState" />
-      <config projectName="Project" targetName="actionlib_generate_messages_lisp" />
-      <config projectName="Project" targetName="mocap_helper" />
-      <config projectName="Project" targetName="crazyflie_driver_gennodejs" />
-      <config projectName="Project" targetName="commander" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="roscpp_generate_messages_nodejs" />
-      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_TrajectoryRef" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="crazyflie_controller" />
+      <config projectName="Project" targetName="tests" />
       <config projectName="Project" targetName="std_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="controller" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_state_tg" />
+      <config projectName="Project" targetName="crazyflie_driver_gennodejs" />
+      <config projectName="Project" targetName="crazyswarm_teleop" />
+      <config projectName="Project" targetName="libobjecttracker" />
+      <config projectName="Project" targetName="run_tests" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_Hover" />
+      <config projectName="Project" targetName="crazyflie_driver_genpy" />
+      <config projectName="Project" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_IdPos" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="crazyflie_driver_generate_messages" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="crazyflie_driver_generate_messages_nodejs" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_getPosSetPoint" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_GenericLogData" />
+      <config projectName="Project" targetName="tf_generate_messages_lisp" />
+      <config projectName="Project" targetName="crazyflie_server" />
+      <config projectName="Project" targetName="crazyflie_driver_genlisp" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_sendPacket" />
+      <config projectName="Project" targetName="roscpp_generate_messages_lisp" />
+      <config projectName="Project" targetName="crazyflie_driver_gencpp" />
+      <config projectName="Project" targetName="_crazyflie_driver_generate_messages_check_deps_SetGroupMask" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="tf_generate_messages_py" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -189,10 +190,10 @@
           <entry key="project.open.time.12" value="4" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.6" value="5" />
-          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.6" value="6" />
+          <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -213,7 +214,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="4408" />
+          <entry key="cpp" value="4412" />
           <entry key="h" value="314" />
           <entry key="md" value="999" />
           <entry key="txt" value="152" />
@@ -224,7 +225,7 @@
           <entry key="CMakeLists.txt" value="152" />
           <entry key="Doxygen file" value="4" />
           <entry key="Markdown" value="883" />
-          <entry key="ObjectiveC" value="4718" />
+          <entry key="ObjectiveC" value="4722" />
           <entry key="PLAIN_TEXT" value="116" />
         </counts>
       </usages-collector>
@@ -252,15 +253,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="767" column="30" selection-start-line="767" selection-start-column="30" selection-end-line="767" selection-end-column="30" />
+            <state relative-caret-position="355">
+              <caret line="1331" column="52" selection-start-line="1331" selection-start-column="52" selection-end-line="1331" selection-end-column="52" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
                 <element signature="e#982#999#0" expanded="true" />
-                <element signature="e#1174#1191#0" expanded="true" />
-                <element signature="e#55176#59031#0" />
-                <element signature="e#59035#60350#0" />
-                <element signature="e#60354#62675#0" />
               </folding>
             </state>
           </provider>
@@ -269,12 +266,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="399">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#389#406#0" expanded="true" />
                 <element signature="e#465#487#0" expanded="true" />
-                <element signature="e#553#592#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -283,8 +279,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+            <state relative-caret-position="692">
+              <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#77#95#0" expanded="true" />
@@ -297,7 +293,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
+            <state relative-caret-position="3192">
               <caret line="168" column="11" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="11" />
             </state>
           </provider>
@@ -306,7 +302,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
+            <state relative-caret-position="6156">
               <caret line="324" column="52" selection-start-line="324" selection-start-column="52" selection-end-line="324" selection-end-column="52" />
             </state>
           </provider>
@@ -325,7 +321,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Groupcontrol</find>
       <find>getGroupCurPos</find>
       <find>NodeHandle</find>
       <find>advertise</find>
@@ -355,6 +350,7 @@
       <find>assignment_command_sub</find>
       <find>formation_type</find>
       <find>robot_info</find>
+      <find>m_require_assignment</find>
     </findStrings>
     <replaceStrings>
       <replace>RoleCommander</replace>
@@ -417,8 +413,8 @@
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/include/control_modified.h" />
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp" />
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp" />
-        <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp" />
         <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h" />
+        <option value="$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp" />
       </list>
     </option>
   </component>
@@ -429,11 +425,11 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="75" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1349" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -441,6 +437,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -487,7 +484,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -550,6 +546,11 @@
       </method>
     </configuration>
     <configuration name="_crazyflie_driver_generate_messages_check_deps_Hover" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="_crazyflie_driver_generate_messages_check_deps_Hover" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="_crazyflie_driver_generate_messages_check_deps_IdPos" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="_crazyflie_driver_generate_messages_check_deps_IdPos" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -1138,6 +1139,7 @@
       <item itemvalue="Application.gtest" />
       <item itemvalue="Application.gtest_main" />
       <item itemvalue="Application.role_commander" />
+      <item itemvalue="Application._crazyflie_driver_generate_messages_check_deps_IdPos" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -1200,18 +1202,20 @@
       <workItem from="1541295069228" duration="1186000" />
       <workItem from="1541377327599" duration="1071000" />
       <workItem from="1541381229061" duration="5489000" />
+      <workItem from="1541588063566" duration="1350000" />
+      <workItem from="1541730246343" duration="240000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307326000" />
+    <option name="totallyTimeSpent" value="308916000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="24" width="1349" height="1056" extended-state="4" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.51293105" visible="true" weight="0.21028396" />
-      <window_info id="Structure" order="1" sideWeight="0.48706895" side_tool="true" visible="true" weight="0.21028396" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.51046026" visible="true" weight="0.15533444" />
+      <window_info id="Structure" order="1" sideWeight="0.48953974" side_tool="true" visible="true" weight="0.15533444" />
       <window_info id="Favorites" order="2" sideWeight="0.36087865" side_tool="true" weight="0.19402985" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.499375" weight="0.10175879" />
@@ -1223,7 +1227,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.500625" side_tool="true" weight="0.10175879" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3298647" />
-      <window_info anchor="bottom" id="CMake" order="10" weight="0.18817204" />
+      <window_info anchor="bottom" id="CMake" order="10" weight="0.1872385" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1556,11 +1560,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LISTENTOME.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="551">
@@ -1571,18 +1570,23 @@
           </second_editor>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="324" column="52" selection-start-line="324" selection-start-column="52" selection-end-line="324" selection-end-column="52" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
+        <state relative-caret-position="3192">
           <caret line="168" column="11" selection-start-line="168" selection-start-column="2" selection-end-line="168" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/controller.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6156">
+          <caret line="324" column="52" selection-start-line="324" selection-start-column="52" selection-end-line="324" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1595,35 +1599,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/crazyswarm_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="767" column="30" selection-start-line="767" selection-start-column="30" selection-end-line="767" selection-end-column="30" />
+        <state relative-caret-position="355">
+          <caret line="1331" column="52" selection-start-line="1331" selection-start-column="52" selection-end-line="1331" selection-end-column="52" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
             <element signature="e#982#999#0" expanded="true" />
-            <element signature="e#1174#1191#0" expanded="true" />
-            <element signature="e#55176#59031#0" />
-            <element signature="e#59035#60350#0" />
-            <element signature="e#60354#62675#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/include/RoleCommander.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="399">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#389#406#0" expanded="true" />
             <element signature="e#465#487#0" expanded="true" />
-            <element signature="e#553#592#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ros_ws/src/crazyswarm/src/RoleCommander.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+        <state relative-caret-position="692">
+          <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#77#95#0" expanded="true" />

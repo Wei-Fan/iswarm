@@ -1129,6 +1129,9 @@
 			<Option target="role_commander"/>
 			<Option target="assignment_commander"/>
 		</Unit>
+		<Unit filename="/home/wade/iswarm/ros_ws/src/crazyswarm/include/RoleCommander_bk.h">
+			<Option target="assignment_commander"/>
+		</Unit>
 		<Unit filename="/home/wade/iswarm/ros_ws/src/crazyswarm/include/basic_types.h">
 			<Option target="assignment_commander"/>
 		</Unit>
