@@ -40,6 +40,7 @@ RoleCommander::RoleCommander() {
 
     this->active = true;
     this->enable_assign = false;
+    this->isFirst = true;
     this->execute_time = ros::Time::now().toSec();
     this->request_time = this->execute_time;
 }
@@ -223,23 +224,28 @@ void RoleCommander::ra_request_cb(const crazyflie_driver::IdPos &msg){
     this->request_time = ros::Time::now().toSec();
     if ((this->request_time - this->execute_time) > ASSIGNMENT_INTERVAL)
     {
-        ROS_INFO("!!!!!!!recieve");
-        cout<<"uav_id : ";
+
+//        ROS_INFO("!!!!!!!recieve");
+        cout<<"recieve uav_info : ";
         int number = msg.id.size();
         assignment_id.clear();
         all_position.clear();
         for (int i = 0; i < number; ++i) {
             
-
-            
             assignment_id.push_back(msg.id[i]);
             
             std::pair<double, double> tmp = make_pair(msg.x[i],msg.y[i]);
             all_position.push_back(tmp);
-            cout<< unsigned(assignment_id[i]) << " ";
+            cout<< unsigned(assignment_id[i]) << "~" << tmp.first << "," << tmp.second << " ";
         }
         
-      cout<<endl;
+        cout<<endl;
+
+        if (this->isFirst)
+        {
+            this->isFirst = false;
+            this->assignment.resize(number);
+        }
 
         this->enable_assign = true;
         this->execute_time = this->request_time;

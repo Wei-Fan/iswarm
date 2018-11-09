@@ -54,6 +54,7 @@ private:
      * Parameters of role assignment
      */
     bool enable_assign;
+    bool isFirst;
     // double start_time;
     double request_time;
     double execute_time;

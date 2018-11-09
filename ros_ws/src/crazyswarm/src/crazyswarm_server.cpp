@@ -1095,14 +1095,14 @@ public:
                     {
                         m_require_assignment = false;
                         crazyflie_driver::IdPos msg;
-                        cout<<"m_cfs_id : ";
+//                        cout<<"m_cfs_id : ";
                         for (int i = 0; i < m_cfs_id.size(); ++i) {
-                        	cout<<unsigned(m_cfs_id[i])<<" ";
+//                        	cout<<unsigned(m_cfs_id[i])<<" ";
                             msg.id.push_back(m_cfs_id[i]);
                             msg.x.push_back(m_cfs_cur_pos[i].first);
                             msg.y.push_back(m_cfs_cur_pos[i].second);
                         }
-                        cout<<endl;
+//                        cout<<endl;
                         // for (int j = 0; j < m_cfs_cur_pos.size(); ++j) {
                         //     msg.x.push_back(m_cfs_cur_pos[j].first);
                         // }
